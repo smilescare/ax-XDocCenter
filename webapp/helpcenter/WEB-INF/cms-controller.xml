@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <description>Help Center Component Site Configuration File</description>
+
+    <handler name="java" type="request" class="org.ofbiz.webapp.event.JavaEventHandler"/>
+    <handler name="bsf" type="request" class="org.ofbiz.webapp.event.BsfEventHandler"/>
+    <handler name="soap" type="request" class="org.ofbiz.webapp.event.SOAPEventHandler"/>
+    <handler name="service" type="request" class="org.ofbiz.webapp.event.ServiceEventHandler"/>
+    <handler name="service-multi" type="request" class="org.ofbiz.webapp.event.ServiceMultiEventHandler"/>
+    <handler name="simple" type="request" class="org.ofbiz.webapp.event.SimpleEventHandler"/>
+    <handler name="rome" type="request" class="org.ofbiz.webapp.event.RomeEventHandler"/>
+
+    <handler name="jsp" type="view" class="org.ofbiz.webapp.view.JspViewHandler"/>
+    <handler name="http" type="view" class="org.ofbiz.webapp.view.HttpViewHandler"/>
+    <handler name="screen" type="view" class="org.ofbiz.widget.screen.MacroScreenViewHandler"/>
+    <handler name="simplecontent" type="view" class="org.ofbiz.content.view.SimpleContentViewHandler"/>
+    <handler name="screenfop" type="view" class="org.ofbiz.widget.screen.ScreenFopViewHandler"/>
+
+    <!-- Request Mappings -->
+    <request-map uri="cmsTree">
+    	<security https="false" auth="true"/>
+      <response name="success" type="view" value="cmsTree" />
+    </request-map>
+    <request-map uri="editCmsContent">
+    	<security https="false" auth="true"/>
+      <response name="success" type="view" value="editCmsContent" />
+    </request-map>
+    
+    <!-- request to service mappings -->
+    <request-map uri="createTextContentCms">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="createTextContent"/>
+        <response name="success" type="view" value="transactionresponse"/>
+        <response name="error" type="view" value="transactionresponse"/>
+    </request-map>
+    <request-map uri="updateTextContentCms">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="updateTextContent"/>
+        <response name="success" type="view" value="transactionresponse"/>
+        <response name="error" type="view" value="transactionresponse"/>
+    </request-map>
+    <request-map uri="createObjectContentCms">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="createContentFromUploadedFile"/>
+        <response name="success" type="view" value="transactionresponse"/>
+        <response name="error" type="view" value="transactionresponse"/>
+    </request-map>
+    <request-map uri="updateObjectContentCms">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="updateContentAndUploadedFile"/>
+        <response name="success" type="view" value="transactionresponse"/>
+        <response name="error" type="view" value="transactionresponse"/>
+    </request-map>
+    <request-map uri="createContentCms">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="createContent"/>
+        <response name="success" type="view" value="transactionresponse"/>
+        <response name="error" type="view" value="transactionresponse"/>
+    </request-map>
+    <request-map uri="updateContentCms">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="updateContent"/>
+        <response name="success" type="view" value="transactionresponse"/>
+        <response name="error" type="view" value="transactionresponse"/>
+    </request-map>
+    <request-map uri="createWebSiteMetaInfoJson">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="createTextContent"/>
+        <response name="success" type="request" value="transactionresponse"/>
+        <response name="error" type="request" value="transactionresponse"/>
+    </request-map>
+    <request-map uri="updateWebSiteMetaInfoJson">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="updateDataResource"/>
+        <response name="success" type="request" value="transactionresponse"/>
+        <response name="error" type="request" value="transactionresponse"/>
+    </request-map>
+    <request-map uri="createWebSitePathAliasJson">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="createWebSitePathAlias"/>
+        <response name="success" type="request" value="transactionresponse"/>
+        <response name="error" type="request" value="transactionresponse"/>
+    </request-map>
+    <request-map uri="removeWebSitePathAliasJson">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="removeWebSitePathAlias"/>
+        <response name="success" type="request" value="transactionresponse"/>
+        <response name="error" type="request" value="transactionresponse"/>
+    </request-map>
+    <request-map uri="contentFileManager">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="contentFileManager"/>
+        <response name="error" type="view" value="contentFileManager"/>
+    </request-map>
+    <request-map uri="listDirectories">
+		<security https="true" auth="true" />
+		<event type="groovy" path="component://helpcenter/webapp/helpcenter/WEB-INF/actions/cms/DirectoryListing.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="listFilesInDir">
+		<security https="true" auth="true" />
+		<event type="groovy" path="component://helpcenter/webapp/helpcenter/WEB-INF/actions/cms/DirectoryFilesListing.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="uploadCmsBinaryFile">
+		<security https="true" auth="true" />
+		<event type="groovy" path="component://helpcenter/webapp/helpcenter/WEB-INF/actions/cms/UploadFile.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="downloadCmsFile">
+		<security https="true" auth="true" />
+		<event type="groovy" path="component://helpcenter/webapp/helpcenter/WEB-INF/actions/cms/DirectoryFilesListing.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+    
+    <!-- View Mappings -->
+    <view-map name="cmsTree" type="screen" page="component://helpcenter/widget/cms/CmsScreens.xml#CmsTree"/>
+    <view-map name="editCmsContent" type="screen" page="component://helpcenter/widget/cms/CmsScreens.xml#editCmsContent"/>
+    <view-map name="contentFileManager" type="screen" page="component://helpcenter/widget/cms/CmsScreens.xml#contentFileManager"/>
+    
+</site-conf>

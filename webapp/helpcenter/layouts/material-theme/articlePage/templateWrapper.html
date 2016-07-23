@@ -1,0 +1,211 @@
+<#-- common content data -->
+<#assign authorUserLogin = delegator.findOne("UserLogin", Static["org.ofbiz.base.util.UtilMisc"].toMap("userLoginId", decoratedContent.fields.createdByUserLogin), false) >
+<#assign authorName = Static["org.ofbiz.party.party.PartyHelper"].getPartyName(delegator, authorUserLogin.partyId, true) >
+<#assign lastModifiedUserLogin = delegator.findOne("UserLogin", Static["org.ofbiz.base.util.UtilMisc"].toMap("userLoginId", decoratedContent.fields.lastModifiedByUserLogin), false) >
+<#assign lastModifierName = Static["org.ofbiz.party.party.PartyHelper"].getPartyName(delegator, lastModifiedUserLogin.partyId, true) >
+<#macro formatDate dateToFormat>
+	<#assign dateFormat = "EEE, d MMM yyyy 'at' HH:mm aaa" >
+	<#assign formattedDate = Static["org.ofbiz.base.util.UtilDateTime"].toDateString(dateToFormat, dateFormat) >
+	<#assign prettyDate = Static["org.ofbiz.helpcenter.utils.UtilPrettyTime"].prettyTime.format(dateToFormat) >
+	<span title="${formattedDate}">${prettyDate}</span>
+</#macro>
+<#-- to build breadcrumb for current content id -->
+<#macro buildBreadcrumb contentId>
+	<#assign contentParentAssoc = Static["org.ofbiz.entity.util.EntityUtil"].getFirst(delegator.findByAnd("ContentAssoc", {"contentIdTo" : contentId, "contentAssocTypeId" : "SUB_CONTENT"}, null, false)) />
+	<#if contentParentAssoc?exists>
+		<#assign contentParent = contentParentAssoc.getRelatedOne("FromContent") />
+		<#-- make sure this is not a publish point top of the hierarchy -->
+		<#if contentParent.contentTypeId != "WEB_SITE_PUB_PT">
+			<#if (contentParent.contentName?exists)>
+				<#assign contentURLInfoAssoc = Static["org.ofbiz.entity.util.EntityUtil"].getFirst(delegator.findByAnd("ContentAssoc", {"contentId" : contentParent.contentId, "contentAssocTypeId" : "ALTERNATIVE_URL"}, null, false))?if_exists />
+				<#if ( (contentURLInfoAssoc?exists) && (contentURLInfoAssoc?trim?has_content))>
+					<#assign contentUrlValue = contentURLInfoAssoc.getRelatedOne("ToContent") />
+					<#if contentUrlValue?exists>
+						<#assign contentUrlDatasource = contentUrlValue.getRelatedOne("DataResource") />
+						
+						<#assign contentURLInfo = Static["org.ofbiz.entity.util.EntityUtil"].getFirst(delegator.findByAnd("ContentAssoc", {"contentId" : contentParent.contentId, "contentAssocTypeId" : "ALTERNATIVE_URL"}, null, false))?if_exists />
+						<span class="header-text margin-left-no">
+							<i class="icon margin-right">chevron_right</i>
+							<#if contentUrlDatasource?exists>
+								<a href="/hc${contentUrlDatasource.objectInfo?if_exists}" style="color:#FFFFFF;">${contentParent.contentName?if_exists}</a>
+							<#else>
+								<a href="">${contentParent.contentName?if_exists}</a>
+							</#if>
+						</span>
+						<#-- Call macro recursively to build the complete path -->
+						<@buildBreadcrumb contentId = contentParent.contentId />
+					</#if>
+				</#if>
+			</#if>
+		</#if>
+  	</#if>
+</#macro>
+<#-- to build sub topics content links for current content-->
+<#macro buildSubtopics subContents positionClass>
+	<#if (subContents?exists) && (subContents?size>0) >
+				<div style="border-bottom:1px dashed #dbdbdb;padding-bottom:5px;"><i class="material-icons">expand_more</i>&nbsp;SUB TOPICS</div>
+				<ul class="nav nav-list nav-subtopics">
+				<#list subContents as subContent>
+					<#assign contentChild = subContent.getRelatedOne("ToContent") />
+					<#if (contentChild.contentName?exists)>
+						<#-- avoid displaying meta data as it's also associated as sub content, check if mapKey exists and is not one of title,titleProperty,metaDescription,metaKeywords -->
+						<#if (subContent.mapKey?exists) && (subContent.mapKey?trim?has_content)>
+							<#if (subContent.mapKey != "title")
+								 && (subContent.mapKey != "titleProperty")
+								 && (subContent.mapKey != "metaDescription")
+								 && (subContent.mapKey != "metaKeywords")
+								 >
+								<#assign contentURLInfoAssoc = Static["org.ofbiz.entity.util.EntityUtil"].getFirst(delegator.findByAnd("ContentAssoc", {"contentId" : contentChild.contentId, "contentAssocTypeId" : "ALTERNATIVE_URL"}, null, false)) />
+								<#if contentURLInfoAssoc?exists>
+									<#assign contentUrlValue = contentURLInfoAssoc.getRelatedOne("ToContent") />
+									<#if contentUrlValue?exists>
+										<#assign contentUrlDatasource = contentUrlValue.getRelatedOne("DataResource") />
+									</#if>
+								</#if>
+								<#assign contentURLInfo = Static["org.ofbiz.entity.util.EntityUtil"].getFirst(delegator.findByAnd("ContentAssoc", {"contentId" : contentChild.contentId, "contentAssocTypeId" : "ALTERNATIVE_URL"}, null, false)) />
+								<li>
+									map key : ${contentChild.mapKey}
+									<#if contentUrlDatasource?exists>
+										<a href="/hc${contentUrlDatasource.objectInfo?if_exists}" class="waves-attach waves-effect"><span class="icon margin-right-sm">subdirectory_arrow_right</span>${contentChild.contentName?if_exists}</a>
+									<#else>
+										<a href="" class="waves-attach waves-effect"><span class="icon margin-right-sm">subdirectory_arrow_right</span>${contentParent.contentName?if_exists}</a>
+									</#if>
+								</li>
+							</#if>
+						<#else>
+							<#assign contentURLInfoAssoc = Static["org.ofbiz.entity.util.EntityUtil"].getFirst(delegator.findByAnd("ContentAssoc", {"contentId" : contentChild.contentId, "contentAssocTypeId" : "ALTERNATIVE_URL"}, null, false)) />
+							<#if contentURLInfoAssoc?exists>
+								<#assign contentUrlValue = contentURLInfoAssoc.getRelatedOne("ToContent") />
+								<#if contentUrlValue?exists>
+									<#assign contentUrlDatasource = contentUrlValue.getRelatedOne("DataResource") />
+								</#if>
+							</#if>
+							<#assign contentURLInfo = Static["org.ofbiz.entity.util.EntityUtil"].getFirst(delegator.findByAnd("ContentAssoc", {"contentId" : contentChild.contentId, "contentAssocTypeId" : "ALTERNATIVE_URL"}, null, false)) />
+							<li>
+								<#if contentUrlDatasource?exists>
+									<a href="/hc${contentUrlDatasource.objectInfo?if_exists}" class="waves-attach waves-effect"><span class="icon margin-right-sm">subdirectory_arrow_right</span>${contentChild.contentName?if_exists}</a>
+								<#else>
+									<a href="" class="waves-attach waves-effect"><span class="icon margin-right-sm">chevron_right</span>${contentParent.contentName?if_exists}</a>
+								</#if>
+							</li>
+						</#if>
+					</#if>
+				</#list>
+				</ul>
+	<#else>
+		<#-- no subtopics to show -->
+  	</#if>
+</#macro>
+
+<div class="avoid-fout-indicator avoid-fout-indicator-fixed">
+	<div class="progress-circular progress-circular-alt progress-circular-center progress-circular-purple">
+		<div class="progress-circular-wrapper">
+			<div class="progress-circular-inner">
+				<div class="progress-circular-left">
+					<div class="progress-circular-spinner"></div>
+				</div>
+				<div class="progress-circular-gap"></div>
+				<div class="progress-circular-right">
+					<div class="progress-circular-spinner"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<header class="header header-transparent header-waterfall">
+	<div class="header-affix-hide pull-left" data-offset-top="108" data-spy="affix">
+		<a class="header-logo" href="/">Help Center</a>
+	</div>
+	<div class="header-affix pull-left" data-offset-top="108" data-spy="affix">
+		<span class="header-logo">Help Center</span>
+		<span class="header-text margin-left-no">
+			<i class="icon margin-right">chevron_right</i>Documentation & Help Guides
+		</span>
+	</div>
+</header>
+<div class="content">
+	<div class="content-heading">
+      <div class="container">
+        <h1 class="heading">
+        	${decoratedContent.fields.contentName?default("Title")}
+		</h1>
+		<#-- author details -->
+   		<small class="author-details">
+   			Created by ${authorName?default('Not Available')}, last modified by ${lastModifierName?default('* Name Not Available *')}
+   			<@formatDate decoratedContent.fields.lastModifiedDate />
+   		</small>
+   		<br/>
+        <span style="font-size:small">${decoratedContent.fields.description?default("Description")}</span>
+        <hr class="margin-bottom-no"/>
+        <#-- breadcrumb -->
+        <div class="pull-left">
+			<span class="header-text margin-left-no"><a href="/hc/Getting-Started-with-SCAT-10030-content" style="color:#FFFFFF;"><i class="material-icons">home</i></a></span>
+			<#-- prepare breadcrumb path -->
+			<@buildBreadcrumb contentId = decoratedContent.fields.contentId />		
+			<span class="header-text margin-left-no">
+				<i class="icon margin-right">chevron_right</i>${decoratedContent.fields.contentName?default("Title")}
+			</span>
+		</div>
+      </div>
+    </div>
+    <div class="container article-content">
+    	<section class="text-inner">
+	       	<#assign subContents = delegator.findByAnd("ContentAssoc", {"contentId" : decoratedContent.fields.contentId, "contentAssocTypeId" : "SUB_CONTENT"}, ["sequenceNum"], false) />
+    		<div class="row">
+    			<#if (subContents?exists) && (subContents?size>0) >
+    			<div class="col-lg-2">
+		        	<#-- subtopics drop down -->
+					<@buildSubtopics subContents = subContents positionClass= ""/>
+    			</div>
+    			<div class="col-lg-7" id="main-content-container">
+    			<#else>
+    			<div class="col-lg-9" id="main-content-container">
+    			</#if>
+					${decoratedContent}
+    			</div>
+    			<div class="col-lg-2">
+    				<div class="document-toc affix-top"  data-spy="affix" data-offset-top="250">
+    					<span class="title-content">Content</span>
+	    				<nav class='anchorific'></nav>
+    				</div>
+    			</div>
+			</div>
+    	</section>
+    	<div>
+    		<hr class="dashed-separator">
+    		<h4 style="color:#999;"><i class="material-icons">help</i>&nbsp;&nbsp;Didn't find what you were looking for?</h4>
+    		<a href="mailto:scartsupport@aexp.com?subject=[Prod Aid] Need additional help"><i class="material-icons">chevron_right</i>&nbsp;&nbsp;Contact Us</a>
+    		<br/><br/><br/>
+    	</div>
+    </div>
+</div>
+<footer class="footer">
+	<div class="container">
+		<p>Help Center</p>
+		<small>Developed and Maintained by Service Operations team. For support please contact <a href="mailto:mandeep.s.sidhu@aexp.com?subject=Support Request Help Center">here</a>.</small>
+	</div>
+</footer>
+<div class="fbtn-container">
+	<div class="fbtn-inner">
+		<a class="fbtn fbtn-red fbtn-lg" data-toggle="dropdown"><span class="fbtn-text">Links</span><span class="fbtn-ori icon">add</span><span class="fbtn-sub icon">close</span></a>
+		<div class="fbtn-dropdown">
+			<a class="fbtn fbtn-alt" href="#" target="_blank"><span class="fbtn-text">Share Link via Email</span><span class="icon">link</span></a>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/hc/assets/material/js/base.min.js"></script>
+<script src="/hc/assets/js/anchorific.js"></script>
+
+<!-- js for this project -->
+<script src="/hc/assets/material/js/project.min.js"></script>
+
+<script>
+$('#main-content-container').anchorific({
+		anchorText : "<i class='material-icons' title='Permanent Link (Click to navigate)'>link</i>" 
+	}
+);
+
+</script>

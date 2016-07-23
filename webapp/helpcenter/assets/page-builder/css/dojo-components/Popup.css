@@ -1,0 +1,27 @@
+/*
+ * *****************************************************************************************
+ *  Copyright (c) SimbaQuartz  2016. - All Rights Reserved     *
+ *  Unauthorized copying of this file, via any medium is strictly prohibited               *
+ *  Proprietary and confidential                                                           *
+ *  Written by Mandeep Sidhu <mandeep.sidhu@simbacart.com>, 7, 2016                      *
+ * ****************************************************************************************
+ */
+.djOfcUiFbr .dijitPopup {
+    animation-name: slideIn, slideDownIn20;
+    -webkit-animation-duration: 0.367s;
+    -moz-animation-duration: 0.367s;
+    -ms-animation-duration: 0.367s;
+    -o-animation-duration: 0.367s;
+    animation-timing-function: cubic-bezier(0.1, 0.9, 0.2, 1);
+    animation-fill-mode: both;
+}
+
+@keyframes slideDownIn20 {
+    from {
+        transform: translate3d(0px, -20px, 0px);
+    }
+
+    to {
+        transform: translate3d(0px, 0px, 0px);
+    }
+}

@@ -1,0 +1,58 @@
+@import "Button.css";
+@import "Dialog.css";
+@import "Menu.css";
+@import "Textfield.css";
+@import "Calendar.css";
+@import "Tooltip.css";
+@import "Toaster.css";
+@import "Popup.css";
+
+.pageOverlay {
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1001;
+    display: block;
+}
+
+#loadingOverlay {
+    background:  #fff url('//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/ofcUiFbrc/images/loadingAnimation.gif') no-repeat 10px 23px;
+}
+
+.loadingMessage {
+    padding: 25px 40px;
+    color: #999;
+}
+.ax-loadingOverlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1001;
+    display: block;
+    overflow: hidden;
+}
+.ax-loadCenter{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 50%;
+}
+.ax-loadCenter img {
+    margin: 5px;
+}
+.ax-loadCenter img.ax-loaderLogo {
+    width: 150px;
+}
+
+.dijitPlaceHolder {
+    font-style: normal;
+}

@@ -1,0 +1,97 @@
+.globalLoadingOverlay{
+    background-color:#FFFFFF;
+}
+.globalLoadingOverlay > div.dijitDialogTitleBar{
+    display:none;
+}
+.globalLoadingOverlay > div.dijitDialogPaneContent{
+    padding:20px 50px;
+    border:0 none;
+    margin-left:15px;
+    text-align: center;
+}
+.djOfcUiFbr .dijitDialog {
+    background-color: transparent;
+    border: none;
+    -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
+}
+.djOfcUiFbr .dijitDialogPaneContent {
+    background: #ffffff repeat-x top left;
+    border-top: 1px solid #759dc0;
+    padding: 10px 15px;
+    position: relative;
+}
+.djOfcUiFbr .dijitDialogPaneContentArea {
+    margin: -10px -8px;
+    padding: 10px 8px;
+}
+.djOfcUiFbr .dijitDialogPaneActionBar {
+    background-color: #efefef;
+    padding: 3px 5px 2px 7px;
+    text-align: right;
+    border-top: 1px solid #d3d3d3;
+}
+.djOfcUiFbr .dijitDialogPaneContent .dijitDialogPaneActionBar {
+    margin: 10px -8px -10px;
+}
+.djOfcUiFbr .dijitTooltipDialog .dijitDialogPaneActionBar {
+    -webkit-border-bottom-right-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    margin: 10px -10px -8px;
+}
+.djOfcUiFbr .dijitDialogPaneActionBar .dijitButton {
+    float: none;
+}
+.djOfcUiFbr .dijitDialogTitleBar {
+    background:url(../../img/bg/brand.jpg) no-repeat transparent;
+    background-size: cover;
+    padding: 26px 20px 28px;
+    border: none;
+}
+.djOfcUiFbr .dijitDialogTitle {
+    font-size: 28px;
+    font-family: 'Segoe UI Light WestEuropean', 'Segoe UI Light', 'Segoe UI', Tahoma, Arial, sans-serif;
+    color: #ffffff;
+}
+.djOfcUiFbr .dijitDialog .closeText{
+    display:none;
+}
+.djOfcUiFbr .dijitDialogCloseIcon {
+    background: none;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 5px;
+    height: 15px;
+    width: 21px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+    display: inline-block;
+    font-size: 16px;
+    font-family: Office365Icons;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    speak: none;
+    cursor:pointer;
+    text-align: center;
+    text-indent: -999;
+    color:#fff;
+}
+.djOfcUiFbr .dijitDialogCloseIcon:before {
+    content: '\e042';
+}
+.dj_ie6 .djOfcUiFbr .dijitDialogCloseIcon {
+    background-image: url("images/dialogCloseIcon8bit.png");
+}
+.djOfcUiFbr .dijitDialogCloseIconHover {
+    background-position: -21px;
+}
+.djOfcUiFbr .dijitDialogCloseIcon:active {
+    background-position: -42px;
+}

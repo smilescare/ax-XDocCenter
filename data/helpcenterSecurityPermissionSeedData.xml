@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission description="View operations in the helpcenter Component." permissionId="HELPCENTER_VIEW"/>
+    <SecurityPermission description="Create operations in the helpcenter Component." permissionId="HELPCENTER_CREATE"/>
+    <SecurityPermission description="Update operations in the helpcenter Component." permissionId="HELPCENTER_UPDATE"/>
+    <SecurityPermission description="Delete operations in the helpcenter Component." permissionId="HELPCENTER_DELETE"/>
+    <SecurityPermission description="ALL operations in the helpcenter Component." permissionId="HELPCENTER_ADMIN"/>
+
+    <SecurityGroupPermission groupId="SUPER" permissionId="HELPCENTER_ADMIN"/>
+
+</entity-engine-xml>

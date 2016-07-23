@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+    <screen name="CmsTree">
+        <section>
+            <actions>
+            	<set field="webSiteId" from-field="parameters.webSiteId" default-value="HELP_CENTER"/>
+                <entity-one entity-name="WebSite" value-field="webSite"/>
+                <script location="component://helpcenter/webapp/helpcenter/WEB-INF/actions/cms/PrepareWebsiteContentTreeData.groovy"/>
+            </actions>
+            <widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://helpcenter/webapp/helpcenter/builder/cms/contentTree.ftl" />
+					</html>
+				</platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="editCmsContent">
+        <section>
+            <actions>
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="WorkEffortUiLabels" map-name="uiLabelMap" global="true"/>
+
+                <set field="contentAssocTypeId" from-field="parameters.contentAssocTypeId"/>
+                <set field="dataResourceTypeId" from-field="parameters.dataResourceTypeId"/>
+                <set field="contentIdFrom" from-field="parameters.contentIdFrom"/>
+                <set field="webSiteId" from-field="parameters.webSiteId" default-value="HELP_CENTER"/>
+                <set field="contentId" from-field="parameters.contentId"/>
+                <set field="mimeTypeId" value="text/html"/>
+                <entity-one entity-name="WebSite" value-field="webSite"/>
+                <entity-one entity-name="Content" value-field="content"/>
+                <entity-one entity-name="DataResource" value-field="dataResource">
+                    <field-map field-name="dataResourceId" from-field="content.dataResourceId"/>
+                </entity-one>
+                <entity-one entity-name="ElectronicText" value-field="dataText">
+                    <field-map field-name="dataResourceId" from-field="content.dataResourceId"/>
+                </entity-one>
+                
+                <set field="parameters.fromDate" type="Timestamp" from-field="parameters.fromDate" default-value=""/>
+                <entity-condition list="assocs" entity-name="ContentAssoc">
+                    <condition-list>
+                        <condition-expr field-name="contentId" from-field="parameters.contentIdFrom"/>
+                        <condition-expr field-name="contentIdTo" from-field="parameters.contentId"/>
+                        <condition-expr field-name="fromDate" from-field="parameters.fromDate" ignore-if-empty="true"/>
+                        <condition-expr field-name="contentAssocTypeId" from-field="parameters.contentAssocTypeId" ignore-if-empty="true"/>
+                    </condition-list>
+                    <order-by field-name="-fromDate"/>
+                </entity-condition>
+                <set field="assoc" value="${assocs[0]}"/>
+                <entity-and entity-name="ContentPurpose" list="currentPurposes">
+                    <field-map field-name="contentId" from-field="contentId"/>
+                </entity-and>
+                <entity-condition entity-name="ContentPurposeType" list="purposeTypes">
+                    <order-by field-name="description"/>
+                </entity-condition>
+                <entity-and entity-name="DataResource" list="templates">
+                    <field-map field-name="dataCategoryId" value="TEMPLATE"/>
+                    <order-by field-name="dataResourceName"/>
+                </entity-and>
+                <entity-and entity-name="StatusItem" list="statuses">
+                    <field-map field-name="statusTypeId" value="CONTENT_STATUS"/>
+                    <order-by field-name="sequenceId"/>
+                </entity-and>
+                <entity-condition entity-name="DataTemplateType" list="templateTypes"/>
+                <entity-and entity-name="Content" list="decorators">
+                    <field-map field-name="contentTypeId" value="DECORATOR"/>
+                </entity-and>
+                <script location="component://helpcenter/webapp/helpcenter/WEB-INF/actions/cms/PrepareWebsiteContentData.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+		            <html><html-template location="component://helpcenter/webapp/helpcenter/builder/cms/edit/editCmsContent.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="editPathAliases">
+        <section>
+            <actions>
+                <set field="webSiteId" from-field="parameters.webSiteId"/>
+                <set field="contentId" from-field="parameters.contentId"/>
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <entity-one entity-name="WebSite" value-field="webSite"/>
+                <entity-one entity-name="Content" value-field="content"/>
+                <entity-and entity-name="WebSitePathAlias" list="aliases">
+                    <field-map field-name="webSiteId" from-field="webSiteId"/>
+                    <field-map field-name="contentId" from-field="contentId"/>
+                </entity-and>
+            </actions>
+            <widgets>
+                <platform-specific>
+		            <html><html-template location="component://scadmin/webapp/scadmin/pages/content/cms/edit/pathalias/pathAliases.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="editMetaData">
+        <section>
+            <actions>
+                <set field="webSiteId" from-field="parameters.webSiteId"/>
+                <set field="contentId" from-field="parameters.contentId"/>
+                <entity-one entity-name="Content" value-field="content"/>
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap"/>
+                <script location="component://content/webapp/content/WEB-INF/actions/website/WebSiteCMSMetaInfo.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+		            <html><html-template location="component://scadmin/webapp/scadmin/pages/content/cms/edit/metatags/metaTags.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="contentFileManager">
+        <section>
+            <actions>
+                <set field="webSiteId" from-field="parameters.webSiteId"/>
+                <set field="contentId" from-field="parameters.contentId"/>
+                <entity-one entity-name="Content" value-field="content"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+		            <html><html-template location="component://helpcenter/webapp/helpcenter/builder/cms/fileManager/fileManager.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+</screens>

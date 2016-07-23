@@ -1,0 +1,26 @@
+/*
+ * *****************************************************************************************
+ *  Copyright (c) SimbaQuartz  2016. - All Rights Reserved     *
+ *  Unauthorized copying of this file, via any medium is strictly prohibited               *
+ *  Proprietary and confidential                                                           *
+ *  Written by Mandeep Sidhu <mandeep.sidhu@simbacart.com>, 7, 2016                      *
+ * ****************************************************************************************
+ */
+.djOfcUiFbr .dijitTooltipContainer {
+    border:none;
+}
+/*Offers no padding/borders*/
+.djOfcUiFbr .ax-freeTooltipContainer .dijitTooltipContainer{
+    padding:0;
+}
+.djOfcUiFbr .dijitTooltipContainer .dijitTooltipFocusNode{
+    padding:0;
+}
+
+.ms-Facepile-members .dijitDropDownButton{
+    margin:0;
+    float:left;
+}
+.ms-Facepile-members .dijitDropDownButton .dijitArrowButtonInner{
+    display: none;
+}
