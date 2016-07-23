@@ -1,6 +1,6 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Repository holding the Doc Center module that can be used for managing content for multiple websites.
 
 ### What is this repository for? ###
 
