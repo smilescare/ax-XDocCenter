@@ -22,7 +22,7 @@
     xmlns:xi="http://www.w3.org/2001/XInclude"
     xsi:schemaLocation="http://docbook.org/ns/docbook ../../../content/dtd/docbook.xsd"
     xmlns="http://docbook.org/ns/docbook">
-    <title>helpcenter  Overview</title>
-    <para>The helpcenter Help file template.</para>
+    <title>ax-XDocCenter  Overview</title>
+    <para>The ax-XDocCenter Help file template.</para>
 </section>
 

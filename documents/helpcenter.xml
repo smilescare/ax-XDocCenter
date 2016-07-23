@@ -23,12 +23,12 @@
     xsi:schemaLocation="http://docbook.org/ns/docbook ../../../applications/content/dtd/docbook.xsd"
     xmlns="http://docbook.org/ns/docbook">
     
-    <title><anchor xml:id="helpcenter"/>The helpcenter Component</title>
+    <title><anchor xml:id="ax-XDocCenter"/>The ax-XDocCenter Component</title>
     <section>
         <title>Introduction</title>
         <para>
         </para>
     </section>
-        <xi:include href="../data/helpdata/HELP_helpcenter.xml" />
+        <xi:include href="../data/helpdata/HELP_ax-XDocCenter.xml" />
     
 </chapter>

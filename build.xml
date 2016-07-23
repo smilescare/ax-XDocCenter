@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="OFBiz - helpcenter Component" default="jar" basedir=".">
+<project name="OFBiz - ax-XDocCenter Component" default="jar" basedir=".">
     <import file="../../common.xml"/>
 
     <!-- ================================================================== -->
@@ -8,9 +8,9 @@
     <!-- ================================================================== -->
 
     <property environment="env"/>
-    <property name="desc" value="helpcenter Component"/>
-    <property name="name" value="helpcenter"/>
-    <property name="component-name" value="helpcenter"/>
+    <property name="desc" value="ax-XDocCenter Component"/>
+    <property name="name" value="ax-XDocCenter"/>
+    <property name="component-name" value="ax-XDocCenter"/>
     <property name="ofbiz.home.dir" value="../.."/>
     <property name="src.dir" value="src"/>
     <property name="dtd.dir" value="dtd"/>

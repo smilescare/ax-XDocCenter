@@ -2,17 +2,16 @@
 <screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
 
-    <screen name="builder">
+    <screen name="main">
         <section>
             <actions>
                 <set field="headerItem" value="main"/><!-- this highlights the selected menu-item with name "main" -->
             </actions>
             <widgets>
-            	<platform-specific>
-            		<html>
-            			<html-template location="component://ax-XDocCenter/webapp/ax-XDocCenter/builder/app.ftl"/>
-            		</html>
-            	</platform-specific>
+                <decorator-screen name="ax-XDocCenterCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    </decorator-section>
+                </decorator-screen>
             </widgets>
         </section>
     </screen>

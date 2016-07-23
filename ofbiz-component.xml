@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ofbiz-component name="helpcenter"
+<ofbiz-component name="ax-XDocCenter"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-component.xsd">
     <!-- define resource loaders; most common is to use the component resource loader -->
@@ -16,10 +16,10 @@
     <!-- entity resources: model(s), eca(s), group, and data definitions -->
     <entity-resource type="model" reader-name="main" loader="main" location="entitydef/entitymodel.xml"/>
     <!-- <entity-resource type="eca" reader-name="main" loader="main" location="entitydef/eecas.xml"/> -->
-    <entity-resource type="data" reader-name="seed" loader="main" location="data/helpcenterTypeData.xml"/>
-    <entity-resource type="data" reader-name="seed" loader="main" location="data/helpcenterSecurityPermissionSeedData.xml"/>
-    <entity-resource type="data" reader-name="demo" loader="main" location="data/helpcenterSecurityGroupDemoData.xml"/>
-    <entity-resource type="data" reader-name="demo" loader="main" location="data/helpcenterDemoData.xml"/>
+    <entity-resource type="data" reader-name="seed" loader="main" location="data/XDocCenterTypeData.xml"/>
+    <entity-resource type="data" reader-name="seed" loader="main" location="data/XDocCenterSecurityPermissionSeedData.xml"/>
+    <entity-resource type="data" reader-name="demo" loader="main" location="data/XDocCenterSecurityGroupDemoData.xml"/>
+    <entity-resource type="data" reader-name="demo" loader="main" location="data/XDocCenterDemoData.xml"/>
 
     <!-- service resources: model(s), eca(s) and group definitions -->
     <service-resource type="model" loader="main" location="servicedef/services.xml"/>
@@ -28,13 +28,13 @@
     <service-resource type="group" loader="main" location="servicedef/groups.xml"/>
     -->
 
-    <test-suite loader="main" location="testdef/helpcenterTests.xml"/>
+    <test-suite loader="main" location="testdef/XDocCenterTests.xml"/>
 
     <!-- web applications; will be mounted when using the embedded container -->
-    <webapp name="helpcenter"
-        title="helpcenter"
+    <webapp name="doccenter"
+        title="Doc Center"
         app-bar-display="false"
         server="default-server"
-        location="webapp/helpcenter"
-        mount-point="/hc"/>
+        location="webapp/ax-XDocCenter"
+        mount-point="/xdoc"/>
 </ofbiz-component>

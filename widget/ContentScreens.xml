@@ -32,11 +32,11 @@ under the License.
 
                 <set field="titleProperty" value="PageTitleContentPage"/>
                 <set field="headerItem" value="main"/>
-                <script location="component://helpcenter/webapp/helpcenter/WEB-INF/actions/Main.groovy"/>
-                <script location="component://helpcenter/webapp/helpcenter/WEB-INF/actions/content/ContentPrep.groovy"/>
+                <script location="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/Main.groovy"/>
+                <script location="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/content/ContentPrep.groovy"/>
             </actions>
             <widgets>
-                 <platform-specific><html><html-template location="component://helpcenter/webapp/helpcenter/content/defaultcontent.ftl"/></html></platform-specific>
+                 <platform-specific><html><html-template location="component://ax-XDocCenter/webapp/ax-XDocCenter/content/defaultcontent.ftl"/></html></platform-specific>
             </widgets>
         </section>
     </screen>
@@ -52,12 +52,12 @@ under the License.
                 <set field="formDefFile" value="/BlogForms.xml"/>
                 <set field="entityName" value="Content"/>
                 <set field="permissionType" value="none"/>
-                <script location="component://helpcenter/webapp/helpcenter/WEB-INF/actions/forum/NodeTrailPrep.groovy"/>
+                <script location="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/forum/NodeTrailPrep.groovy"/>
             </actions>
             <widgets>
                 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
-                        <platform-specific><html><html-template location="component://helpcenter/webapp/helpcenter/content/showcontenttree.ftl"/></html></platform-specific>
+                        <platform-specific><html><html-template location="component://ax-XDocCenter/webapp/ax-XDocCenter/content/showcontenttree.ftl"/></html></platform-specific>
                     </decorator-section>
                 </decorator-screen>
             </widgets>
@@ -79,13 +79,13 @@ under the License.
                 <set field="queryFormName" value="searchQuery"/>
                 <set field="listFormName" value="searchList"/>
                 <set field="defaultSiteId" value="WebStoreCONTENT"/>
-                <script location="component://helpcenter/webapp/helpcenter/WEB-INF/actions/content/AdvancedSearchPrep.groovy"/>
-                <script location="component://helpcenter/webapp/helpcenter/WEB-INF/actions/content/Search.groovy"/>
+                <script location="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/content/AdvancedSearchPrep.groovy"/>
+                <script location="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/content/Search.groovy"/>
             </actions>
             <widgets>
                 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
-                        <platform-specific><html><html-template location="component://helpcenter/webapp/helpcenter/content/searchContent.ftl"/></html></platform-specific>
+                        <platform-specific><html><html-template location="component://ax-XDocCenter/webapp/ax-XDocCenter/content/searchContent.ftl"/></html></platform-specific>
                     </decorator-section>
                 </decorator-screen>
             </widgets>
@@ -102,13 +102,13 @@ under the License.
                 <set field="headerItem" value="Content"/>
                 <set field="entityName" value="ContentAssocDataResourceViewFrom"/>
                 <set field="permissionType" value="none"/>
-                <script location="component://helpcenter/webapp/helpcenter/WEB-INF/actions/forum/NodeTrailPrep.groovy"/>
-                <script location="component://helpcenter/webapp/helpcenter/WEB-INF/actions/includes/MruAdd.groovy"/>
+                <script location="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/forum/NodeTrailPrep.groovy"/>
+                <script location="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/includes/MruAdd.groovy"/>
             </actions>
             <widgets>
                 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
-                        <platform-specific><html><html-template location="component://helpcenter/webapp/helpcenter/content/viewcontent.ftl"/></html></platform-specific>
+                        <platform-specific><html><html-template location="component://ax-XDocCenter/webapp/ax-XDocCenter/content/viewcontent.ftl"/></html></platform-specific>
                     </decorator-section>
                 </decorator-screen>
             </widgets>

@@ -7,13 +7,13 @@
             <actions>
             	<set field="webSiteId" from-field="parameters.webSiteId" default-value="HELP_CENTER"/>
                 <entity-one entity-name="WebSite" value-field="webSite"/>
-                <script location="component://helpcenter/webapp/helpcenter/WEB-INF/actions/cms/PrepareWebsiteContentTreeData.groovy"/>
+                <script location="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/cms/PrepareWebsiteContentTreeData.groovy"/>
             </actions>
             <widgets>
 				<platform-specific>
 					<html>
 						<html-template
-							location="component://helpcenter/webapp/helpcenter/builder/cms/contentTree.ftl" />
+							location="component://ax-XDocCenter/webapp/ax-XDocCenter/builder/cms/contentTree.ftl" />
 					</html>
 				</platform-specific>
             </widgets>
@@ -71,11 +71,11 @@
                 <entity-and entity-name="Content" list="decorators">
                     <field-map field-name="contentTypeId" value="DECORATOR"/>
                 </entity-and>
-                <script location="component://helpcenter/webapp/helpcenter/WEB-INF/actions/cms/PrepareWebsiteContentData.groovy"/>
+                <script location="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/cms/PrepareWebsiteContentData.groovy"/>
             </actions>
             <widgets>
                 <platform-specific>
-		            <html><html-template location="component://helpcenter/webapp/helpcenter/builder/cms/edit/editCmsContent.ftl"/></html>
+		            <html><html-template location="component://ax-XDocCenter/webapp/ax-XDocCenter/builder/cms/edit/editCmsContent.ftl"/></html>
                 </platform-specific>
             </widgets>
         </section>
@@ -127,7 +127,7 @@
             </actions>
             <widgets>
                 <platform-specific>
-		            <html><html-template location="component://helpcenter/webapp/helpcenter/builder/cms/fileManager/fileManager.ftl"/></html>
+		            <html><html-template location="component://ax-XDocCenter/webapp/ax-XDocCenter/builder/cms/fileManager/fileManager.ftl"/></html>
                 </platform-specific>
             </widgets>
         </section>
