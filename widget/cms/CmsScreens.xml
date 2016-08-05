@@ -1,21 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ /*
+  ~  * *****************************************************************************************
+  ~  *  Copyright (c) SimbaQuartz  2016. - All Rights Reserved                                 *
+  ~  *  Unauthorized copying of this file, via any medium is strictly prohibited               *
+  ~  *  Proprietary and confidential                                                           *
+  ~  *  Written by Mandeep Sidhu <mandeep.sidhu@simbacart.com>,  August, 2016                    *
+  ~  * ****************************************************************************************
+  ~  */
+  -->
+
 <screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
 
     <screen name="CmsTree">
         <section>
             <actions>
-            	<set field="webSiteId" from-field="parameters.webSiteId" default-value="HELP_CENTER"/>
+            	<set field="webSiteId" from-field="parameters.webSiteId" />
                 <entity-one entity-name="WebSite" value-field="webSite"/>
                 <script location="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/cms/PrepareWebsiteContentTreeData.groovy"/>
             </actions>
             <widgets>
-				<platform-specific>
-					<html>
-						<html-template
-							location="component://ax-XDocCenter/webapp/ax-XDocCenter/builder/cms/contentTree.ftl" />
-					</html>
-				</platform-specific>
+                <section>
+                    <condition>
+                        <if-empty field="webSiteId" />
+                    </condition>
+                    <widgets>
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                    location="component://ax-XDocCenter/webapp/ax-XDocCenter/pages/builder/cms/contentTree.ftl" />
+                            </html>
+                        </platform-specific>
+                    </widgets>
+                    <fail-widgets>
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                    location="component://ax-XDocCenter/webapp/ax-XDocCenter/pages/builder/cms/contentTree.ftl" />
+                            </html>
+                        </platform-specific>
+                    </fail-widgets>
+                </section>
             </widgets>
         </section>
     </screen>
@@ -75,7 +101,7 @@
             </actions>
             <widgets>
                 <platform-specific>
-		            <html><html-template location="component://ax-XDocCenter/webapp/ax-XDocCenter/builder/cms/edit/editCmsContent.ftl"/></html>
+		            <html><html-template location="component://ax-XDocCenter/webapp/ax-XDocCenter/pages/builder/cms/edit/editCmsContent.ftl"/></html>
                 </platform-specific>
             </widgets>
         </section>
@@ -127,7 +153,7 @@
             </actions>
             <widgets>
                 <platform-specific>
-		            <html><html-template location="component://ax-XDocCenter/webapp/ax-XDocCenter/builder/cms/fileManager/fileManager.ftl"/></html>
+		            <html><html-template location="component://ax-XDocCenter/webapp/ax-XDocCenter/pages/builder/cms/fileManager/fileManager.ftl"/></html>
                 </platform-specific>
             </widgets>
         </section>
