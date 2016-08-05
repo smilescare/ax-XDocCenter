@@ -75,7 +75,7 @@
 .djOfcUiFbr .dijitToggleButtonHover .dijitButtonNode {
     background-color: #005a9e;
     border-color: #005a9e;
-    outline: 1px solid transparent;
+    outline: none;
     -webkit-transition-duration: 0.2s;
     -moz-transition-duration: 0.2s;
     transition-duration: 0.2s;
@@ -160,4 +160,40 @@
 }
 .djOfcUiFbr .ax-btnBlock .dijitButtonNode{
     width: 100%;
+}
+
+.djOfcUiFbr .ax-btnLight .dijitButtonNode{
+    background-color:transparent;
+    border:none;
+    padding:15px;
+    height:auto;
+}
+.djOfcUiFbr .ax-btnLight .dijitButtonNode .dijitButtonText{
+    color:#0078D7;
+}
+.djOfcUiFbr .ax-btnLight .dijitButtonNode:hover{
+    background-color:#C7E0F4;
+}
+
+.djOfcUiFbr .ax-btnLight .dijitButtonNode:hover .dijitButtonText{
+}
+
+.djOfcUiFbr .ax-btnLight .dijitButtonContents{
+	outline:0;
+} 
+/* grouped buttons */
+.djOfcUiFbr .ax-btnGroup{
+	font-size:0;/* this removes spacing between button spans */ 
+}
+.djOfcUiFbr .ax-btnGroup .dijitDropDownButton,
+.djOfcUiFbr .ax-btnGroup .dijitButton{
+	padding:0;
+	margin:0;
+}
+.djOfcUiFbr .ax-btnGroupLight .dijitOpened{
+    background-color:#C7E0F4;
+}
+
+.djOfcUiFbr .ax-dropDownBtnNoArrow .dijitArrowButtonInner {
+	display:none;
 }

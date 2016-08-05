@@ -1,34 +1,11 @@
-<style>
-	.empty-doc{
-		color:#85cdff;
-		font-size:150px;
-		background-color:#fff;
-		border-radius:50%;
-		padding:40px;
-		border:2px solid #85cdff;
-		-webkit-box-shadow: 0 2px 4px 3px #dbdbdb;
-		box-shadow: 0 2px 4px 3px #dbdbdb;
-		margin:15px 0;
-	}
-	.get-started-doc{
-		border-left:1px solid #f0f0f0;
-		padding:15px;
-		width:650px;
-		margin:0 auto;
-	}
-	.djOfcUiFbr .get-started-doc .dijitTextBox{
-		margin:5px 0;
-		width:100%;
-	}
-	
-</style>
-<div data-dojo-type="dijit/layout/BorderContainer" region="center" style="width:100%;height:100%;" data-dojo-props="gutters:false">
+
+<div data-dojo-type="dijit/layout/BorderContainer" region="center" data-dojo-props="gutters:false">
 	<#if (contentId?exists) || (dataResourceTypeId?has_content)>
-		<div data-dojo-type="dijit/layout/ContentPane" splitters="false" region="top">
-			<#include "toolbar.ftl"	parse="true" />
+		<div data-dojo-type="dijit/layout/ContentPane" splitters="false" region="top" style="padding:0;">
+			<#include "toolbar.ftl"	/>
 		</div>					
-		<div data-dojo-type="dijit/layout/ContentPane" region="center" class="fullWidthHeight">
-			<#include "contentEditor.ftl"	parse="true" />
+		<div data-dojo-type="dijit/layout/ContentPane" region="center" style="padding-top:0;">
+			<#include "contentEditor.ftl" />
 		</div>
 	<#elseif (!webSiteId?exists)>
 		<h3>0${dataResourceTypeId?if_exists}1Please select a valid Web Site to proceed</h3>

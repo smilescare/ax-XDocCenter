@@ -30,21 +30,20 @@
 
 <div data-dojo-type="dijit/layout/BorderContainer" style="height:100%;width:100%" data-dojo-props="gutters:false">
 	<div data-dojo-type="dijit/layout/ContentPane" region="top">
-		<div >
-			<strong>Website:</strong>
-			<span data-dojo-type="dojox/data/QueryReadStore" id="websitesStore" jsId="websitesStore"
-				url="<@ofbizUrl>lookupstore?lookupName=genericStore&useCache=true&entityName=WebSite&primaryKey=webSiteId&label=siteName&fieldsToSelect=webSiteId,siteName</@ofbizUrl>"
-				>
-			</span>
-			<div data-dojo-type="dijit/form/FilteringSelect" value="${webSiteId?if_exists}" store="websitesStore" ignoreCase="true"
-				queryExp="&#36;{0}" style="width:250px;" ignoreCase="true" id="fsSelectedWebsite"
+		<div class="form-group">
+			<label class="form-label">Select Web Site:</label>
+			<div data-dojo-type="dojox/data/QueryReadStore" id="websitesStore" jsId="websitesStore"
+				url="<@ofbizUrl>findWebsites</@ofbizUrl>">
+			</div>
+			<div data-dojo-type="dijit/form/FilteringSelect" value="${webSiteId?if_exists}" store="websitesStore" ignoreCase="true" 
+				queryExp="&#36;{0}" style="width:100%;" ignoreCase="true" id="fsSelectedWebsite" labelAttr="richNameLabel" labelType="html"
 				searchAttr="siteName" pageSize="10" autoComplete="false" name="websiteId" placeHolder="Select Website"
 				highlightMatch="all" required="true">
 				<script type="dojo/connect" event="onChange" args="item">
 				</script>
 			</div>
 			<#-- button -->
-			<div data-dojo-type="dijit/form/Button" iconClass="menu-icon-tick"
+			<div data-dojo-type="dijit/form/Button" iconClass="menu-icon-tick" 
 				label="Select" optionsTitle="Manage Content Files" showLabel="true">
 				<script type="dojo/method" event="onClick" args="item">
 					var selectedWebSiteId = dijit.byId("fsSelectedWebsite").get("value");
@@ -54,10 +53,17 @@
 					contentTreeWidget.refresh();
 				</script>
 			</div>
+			<div data-dojo-type="dijit/form/Button" 
+				label="Show Toaster" showLabel="true">
+				<script type="dojo/method" event="onClick" args="item">
+					var message = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
+		    		App.displayMessage({message:message, type:'success', duration:"0"});
+				</script>
+			</div>
 		</div>
 	</div>
 	<div data-dojo-type="dijit/layout/ContentPane" region="center" style="height:100%;width:100%">
-		<div data-dojo-type="dojo/data/ItemFileReadStore"
+		<div data-dojo-type="dojo/data/ItemFileReadStore" 
 			jsId="siteIndexStore" id="siteIndexStore"
 			data="{  identifier: 'iddummy', label: 'label', items : [<#if (subsites?has_content)><@fillTreeSubsites assocList = subsites/></#if>] }">
 		</div>
@@ -68,22 +74,22 @@
 		<div data-dojo-type="dijit/Tree" id="webSiteContentTree" model="siteIndexModel"  style="height:100%;width:100%"  >
 			<script type="dojo/method" event="onClick" args="item">
 				var contentDetailPane = dijit.byId("cpManageContentDetails");
-				contentDetailPane.href = "<@ofbizUrl>editCmsContent</@ofbizUrl>?contentAssocTypeId=" + item.contentAssocTypeId
-															+ "&contentId=" + item.id
-															+ "&contentIdFrom=" + item.contentId
+				contentDetailPane.href = "<@ofbizUrl>editCmsContent</@ofbizUrl>?contentAssocTypeId=" + item.contentAssocTypeId 
+															+ "&contentId=" + item.id 
+															+ "&contentIdFrom=" + item.contentId 
 															+ "&contentRoot=${contentRoot?if_exists}"
-															+ "&fromDate=" + item.fromDate
+															+ "&fromDate=" + item.fromDate 
 															+ "&webSiteId=${webSiteId?if_exists}";
 				contentDetailPane.refresh();
 				/*
 				var contentPathAliasPane = dijit.byId("cp-content-pathalias");
 				var contentMetaDataPane = dijit.byId("cp-content-metadata");
-
-				contentPathAliasPane.href = "/prodaid/control/renderview?viewToRender=cms/edit/pathalias/pathAliases&contentAssocTypeId=" + item.contentAssocTypeId
-															+ "&contentId=" + item.contentId
+				
+				contentPathAliasPane.href = "/prodaid/control/renderview?viewToRender=cms/edit/pathalias/pathAliases&contentAssocTypeId=" + item.contentAssocTypeId 
+															+ "&contentId=" + item.contentId 
 															+ "&webSiteId=${webSiteId?if_exists}";
-				contentMetaDataPane.href = "/prodaid/control/renderview?viewToRender=cms/edit/metatags/metaTags&contentAssocTypeId=" + item.contentAssocTypeId
-															+ "&contentId=" + item.contentId
+				contentMetaDataPane.href = "/prodaid/control/renderview?viewToRender=cms/edit/metatags/metaTags&contentAssocTypeId=" + item.contentAssocTypeId 
+															+ "&contentId=" + item.contentId 
 															+ "&webSiteId=${webSiteId?if_exists}";
 				contentPathAliasPane.refresh();
 				contentMetaDataPane.refresh();

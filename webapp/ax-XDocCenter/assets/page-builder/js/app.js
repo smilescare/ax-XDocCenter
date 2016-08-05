@@ -180,7 +180,7 @@ App.doBind = function(content, url, onLoad, formNode, onError, showLoader, altId
         handleAs: content && content.handleAs ? content.handleAs : "text",
         load: function(response, ioArgs){
             //hide the loader, for some odd reason it throws error if we hide the dialog immediately, thus the delay
-            setTimeout(function(){globalLoadingOverlay.hide()}, 1000);
+            setTimeout(function(){globalLoadingOverlay.hide()}, 500);
             response = App.handleBindMessaging(response, ioArgs);
 
             if(onLoad)

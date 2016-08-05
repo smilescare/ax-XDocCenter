@@ -2,7 +2,7 @@
 	.btn-preview {
 	    background-color: #0D47A1;
 	    color: #fff;
-	    font-size: 9px;
+	    font-size: 11px;
 	    line-height: 21px;
 	    padding: 7px;
 	    text-transform: uppercase;
@@ -13,6 +13,9 @@
 	}
 	.btn-preview i.material-icons{
 		font-size:18px;
+	}
+	.color-themePrimary{
+		color:#0078D7;
 	}
 </style>
 <#-- dataResourceTypeId -->
@@ -81,21 +84,39 @@
     <#assign formAction = "javascript:void(0);"/>
 </#if>
 
-<div dojoType="dojoc.Buttonbar">
-	<#-- preview button -->
-	//open the link in new window
-	<#if alternateUrl?exists>
-		<a class="btn-preview" href="/hc/${alternateUrl?default('#')}" target="_blank">
-			<i class="material-icons md-18">remove_red_eye</i>&nbsp;Preview
-		</a>
-	</#if>
-	<div dojoType="dojoc.ButtonGrouping" style="position:absolute;right:10px;">
+<div>
+	<div class="text-right ax-btnGroup ax-btnGroupLight" style="position:relative;">
+		<div class="site-node text-left" style="position:absolute;left:15px;top:15px;font-size:15px;">
+			<div class="site-icon">
+				<i class="material-icons color-themePrimary">language</i>
+			</div>
+			<div class="site-info" style="font-weight:bold;">
+				# ${contentId}
+				<div class="site-sub-title" style="color:#2b88D8;font-weight:normal;">
+					${alternateUrl?default('Alternate URL not configured')}
+				</div>
+			</div>
+		</div>
+		<#-- preview link -->
+		<#if alternateUrl?exists>
+			<a class="dijit dijitReset dijitInline ax-btnLight dijitButton" href="/hc/${alternateUrl?default('#')}" target="_blank">
+				<span class="dijitReset dijitInline dijitButtonNode">
+					<span class="dijitReset dijitStretch dijitButtonContents">
+						<span class="dijitReset dijitInline dijitButtonText" >
+							<i class="material-icons">launch</i>&nbsp;Preview
+						</span>
+					</span>
+				</span>
+			</a>
+		</#if>
 		<#if contentId?exists>
-			<div dojoType="dojoc.DropDownButton" iconClass="menu-icon-create" label="New" 
-				optionsTitle="delete" showLabel="true" > 
+			<div data-dojo-type="dijit/form/DropDownButton"
+				label="<i class='material-icons'>note_add</i>&nbsp;New" 
+				optionsTitle="delete" showLabel="true" class="ax-btnLight"> 
 				<span></span>
-				<div dojoType="dijit.Menu">
-					<div dojoType="dijit.MenuItem" iconClass="menu-icon-create" label="New Long Text" showLabel="true">
+				<div data-dojo-type="dijit/Menu">
+					<div data-dojo-type="dijit/MenuItem" 
+						label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>language</i></div><div class='site-info'>New Page<div class='site-sub-title'>Create a new page under the selected node.</div></div></div>" showLabel="true">
 						<script type="dojo/method" event="onClick" args="item">
 							var treeNode = dijit.byId("webSiteContentTree").selectedNode;
 							var item = treeNode.item;
@@ -114,32 +135,95 @@
 					</div>
 				</div>
 			</div>
+			<#-- Media Management -->
+			<div data-dojo-type="dijit/form/DropDownButton"
+				label="<i class='material-icons'>collections</i>&nbsp;Media" 
+				optionsTitle="delete" showLabel="true" class="ax-btnLight"> 
+				<span></span>
+				<div data-dojo-type="dijit/Menu">
+					<div data-dojo-type="dijit/MenuItem" iconClass="menu-icon-create" 
+						label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>add_circle_outline</i></div><div class='site-info'>Add New Media<div class='site-sub-title'>Upload new artifacts.</div></div></div>" showLabel="true">
+						<script type="dojo/method" event="onClick" args="item">
+							//TODO
+						</script>
+					</div>
+					<div data-dojo-type="dijit/MenuItem" iconClass="menu-icon-create" 
+						label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>perm_media</i></div><div class='site-info'>Browse Files<div class='site-sub-title'>Browse existing artifacts.</div></div></div>" showLabel="true">
+						<script type="dojo/method" event="onClick" args="item">
+							//TODO
+						</script>
+					</div>
+				</div>
+			</div>
 		</#if>
 		
 		<#-- save button -->
-		<div dojoType="dojoc.Button" iconClass="menu-icon-save" showLabel="true" 
-			id="btnSaveCmsContentTlbr" label="Save">
+		<div data-dojo-type="dijit/form/Button" showLabel="true" class="ax-btnLight"	
+			id="btnSaveCmsContentTlbr" label="<i class='material-icons'>save</i>&nbsp;Save">
 			<script type="dojo/method" event="onClick" args="item">
 				//get the value from code mirror and set it
 				document.getElementById("cmsdata").value = CKEDITOR.instances.ckContentEditorPane.getData();
 				//var externalLoginKey = dijit.byId("hidExternalLoginKey").get("value")
 				//prepare restful url
-				var targetUrl = "/prodaid/control/${formAction}";
+				var targetUrl = "<@ofbizUrl>${formAction}</@ofbizUrl>";
 				
-				Prodaid.doBind(
+				App.doBind(
 					{}, 
 					targetUrl, 
 					function(response) {
 						//refresh the pane to reflect new changes
-						dijit.byId("cp-content-details").refresh();
+						require(["dijit/registry", "dojo/domReady!"], function(registry){
+						    registry.byId("cpContentTree").refresh();
+						});
 					}, 
 					dojo.byId("cmsform"), 
 					function() {
-						Scadmin.displayMessage({message:"The server could not be reached. Please refresh the page.", type:"error"});
+						App.displayMessage({message:"The server could not be reached. Please refresh the page.", type:"error"});
 					},
-					true
+					false
 				);
 			</script>
 		</div>
+		
+		<#-- additional options -->
+		<div data-dojo-type="dijit/form/DropDownButton" 
+			label="<i class='material-icons'>more_horiz</i>" 
+			optionsTitle="delete" showLabel="true" class="ax-btnLight ax-dropDownBtnNoArrow"> 
+			<span></span>
+			<div data-dojo-type="dijit/Menu">
+				<div data-dojo-type="dijit/MenuItem" 
+					label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>content_copy</i></div><div class='site-info'>Duplicate<div class='site-sub-title'>Creates a copy of the artifact at the same node.</div></div></div>" showLabel="true">
+					<script type="dojo/method" event="onClick" args="item">
+						duplicateContentDialog.show();
+					</script>
+				</div>
+				<div data-dojo-type="dijit/MenuItem" 
+					label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>restore</i></div><div class='site-info'>History<div class='site-sub-title'>Displays modification history of the page.</div></div></div>" showLabel="true">
+					<script type="dojo/method" event="onClick" args="item">
+						//TODO
+					</script>
+				</div>
+				<div data-dojo-type="dijit/MenuItem" 
+					label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>question_answer</i></div><div class='site-info'>Notes<div class='site-sub-title'>Displays user notes for the page.</div></div></div>" showLabel="true">
+					<script type="dojo/method" event="onClick" args="item">
+						//TODO
+					</script>
+				</div>
+				<div data-dojo-type="dijit/MenuItem" 
+					label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>supervisor_account</i></div><div class='site-info'>Collaborators<div class='site-sub-title'>Displays list of users who can manage this page.</div></div></div>" showLabel="true">
+					<script type="dojo/method" event="onClick" args="item">
+						//TODO
+					</script>
+				</div>
+				<div data-dojo-type="dijit/MenuSeparator"></div>
+				<div data-dojo-type="dijit/MenuItem" 
+					label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>code</i></div><div class='site-info'>Source Code<div class='site-sub-title'>Displays list of users who can manage this page.</div></div></div>" showLabel="true">
+					<script type="dojo/method" event="onClick" args="item">
+						//TODO
+					</script>
+				</div>
+			</div>
+		</div>
+		
 	</div> <!-- end first button grouping div -->
 </div>

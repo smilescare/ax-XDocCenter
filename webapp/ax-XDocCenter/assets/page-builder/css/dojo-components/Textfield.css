@@ -20,6 +20,9 @@
 .djOfcUiFbr .dijitInputField .dijitPlaceHolder {
     padding: 2px;
 }
+.djOfcUiFbr .dijitTextArea{
+	padding:10px 0;
+}
 .djOfcUiFbr .dijitSelect .dijitInputField,
 .djOfcUiFbr .dijitTextBox .dijitInputField {
     padding: 10px 10px;
@@ -124,9 +127,10 @@
     background-repeat: no-repeat;
     margin: 0;
     width: 25px;
+    padding:11px 10px;
 }
 .djOfcUiFbr .dijitComboBox .dijitArrowButtonInner {
-    border: 1px solid #ffffff;
+    border: 0;
 }
 .djOfcUiFbr .dijitToolbar .dijitComboBox .dijitArrowButtonInner {
     border: none;
@@ -141,18 +145,18 @@
 }
 .djOfcUiFbr .dijitComboBox .dijitButtonNode {
     background-color: transparent;
-    background-image: none;
-    background-repeat: repeat-x;
-    _background-image: none;
+    background-image: inherit;
+    border:none;
 }
 .djOfcUiFbr .dijitComboBoxOpenOnClickHover .dijitButtonNode,
 .djOfcUiFbr .dijitComboBox .dijitDownArrowButtonHover,
 .djOfcUiFbr .dijitComboBoxFocused .dijitArrowButton {
     background-color: #abd6ff;
+    border:none;
 }
 .djOfcUiFbr .dijitComboBoxOpenOnClickHover .dijitArrowButtonInner,
 .djOfcUiFbr .dijitComboBox .dijitDownArrowButtonHover .dijitArrowButtonInner {
-    background-position: -70px 53%;
+    background-position: -67px 53%;
 }
 .djOfcUiFbr .dijitComboBox .dijitHasDropDownOpen {
     background-color: #7dbdfa;

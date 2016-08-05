@@ -6,55 +6,32 @@
  *  Written by Mandeep Sidhu <mandeep.sidhu@simbacart.com>, 7, 2016                      *
  * ****************************************************************************************
  */
-
-#toast-container>div {
-    border-radius: 2px;
-    -webkit-box-shadow: none;
-    box-shadow: none
-}
-
-.toast {
-    background-color: #030303
-}
-
-.toast-success {
-    background-color: #15db81
-}
-
-.toast-error {
-    background-color: #da3e16
-}
-
-.toast-info {
-    background-color: #15acdc
-}
-
-.toast-warning {
-    background-color: #daac16
-}
-
-#toast-container>:hover {
-    -webkit-box-shadow: none;
-    box-shadow: none
-}
 .dijitToasterClip {
     position: fixed;
     right: 30px;
     top: 71px;
     z-index: 4000;
+    margin-top:15px;
 }
 .dijitToasterContainer{
     color: #333333;
     font-family: 'Segoe UI Regular WestEuropean', 'Segoe UI', Tahoma, Arial, sans-serif;
     font-size: 12px;
     font-weight: normal;
-    display: table-cell;
-    vertical-align: top;
     min-width:350px;
+    max-width:550px;
+    background-color: #fff;
+    padding:0;
+}
+.dijitToasterContainer .dijitToastContent{
+	display:inline-block;
+	background-color:#fff;
+	padding:10px
 }
 .dijitToastContentWrapper {
     padding:8px 35px;
     position:relative;
+    border-radius:4px;
 }
 .dijitToastContentWrapper .dijitToastClose {
     background: none;
@@ -81,18 +58,46 @@
 .dijitToastContentWrapper .dijitToastClose:before {
     content: '\e042';
 }
+.dijitToastContentWrapper:before{
+    background-color: #005A9E;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 40px;
+}
+.dijitToastContentWrapper:after{
+    color: #fff;
+    font-size: 16px;
+    font-family: Office365Icons;
+    font-style: normal;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    left: 12px;
+    line-height: 1;
+    margin-top: -8px;
+    position: absolute;
+    speak: none;
+    top: 50%;
+    content: '\e00a';
+}
+/* success toaster */
+.dijitToasterContainer .success:before{
+    background-color: #8eb021;
+}
+.dijitToasterContainer .success:after{
+    content: '\e00a';
+}
+
+
 .dijitToastContentWrapper .dijitToastMessageIcon {
     background: none;
     background-repeat: no-repeat;
-    position: absolute;
-    left: 5px;
-    top:10px;
-    height: 15px;
-    width: 21px;
+    display: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: antialiased;
-    display: inline-block;
-    font-size: 16px;
+    font-size: 24px;
     font-family: Office365Icons;
     font-style: normal;
     font-weight: 300;
@@ -101,11 +106,16 @@
     cursor:pointer;
     text-align: center;
     text-indent: -999;
-    color: #ff0000;
+    color: #fff;
 }
 .dijitToastContentWrapper .dijitToastMessageIcon:before {
     content: '\e00a';
 }
+.dijitToasterContainer .info{
+    background-color: #fff;
+    border:1px solid #005A9E;
+}
+
 .dijitToasterContainer .error,
 .dijitToasterContainer .fatal{
     background-color: #fde7e9;

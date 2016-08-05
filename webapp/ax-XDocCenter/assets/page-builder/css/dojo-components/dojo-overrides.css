@@ -6,6 +6,9 @@
 @import "Tooltip.css";
 @import "Toaster.css";
 @import "Popup.css";
+@import "Tab.css";
+@import "Tree.css";
+@import "MegaDialog.css";
 
 .pageOverlay {
     top: 0;
@@ -55,4 +58,8 @@
 
 .dijitPlaceHolder {
     font-style: normal;
+}
+
+.dijitReset {
+	outline:0;
 }

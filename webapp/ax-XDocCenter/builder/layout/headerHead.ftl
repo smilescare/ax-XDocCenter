@@ -6,13 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><#if title?has_content>${title} - Page Builder<#else>Page Builder - Content Management Simplified</#if></title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
     <!-- jQuery, required for the sample Component plugins -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="<@ofbizContentUrl>/xtrack/assets/lib/office-ui-fabric/css/fabric.css</@ofbizContentUrl>" />
-    <link rel="stylesheet" href="<@ofbizContentUrl>/xtrack/assets/lib/office-ui-fabric/css/fabric.components.css</@ofbizContentUrl>" />
     <link href="<@ofbizContentUrl>/xdoc/assets/page-builder/css/app.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
 
     <#--set Dojo configuration, load Dojo-->
@@ -25,9 +21,9 @@
             dojoBlankHtmlUrl: '<@ofbizContentUrl>/xtrack/assets/lib/dojo/blank.html</@ofbizContentUrl>',
             packages: [
                 {
-                	<#--
                     name: 'dojoc',
-                    location: '<@ofbizContentUrl>/xtrack/assets/lib/dojo/dojoc</@ofbizContentUrl>'
+                    location: '<@ofbizContentUrl>/xdoc/assets/page-builder/js/dojo/dojoc</@ofbizContentUrl>'
+                	<#--
                     -->
                 }
             ]
@@ -73,19 +69,9 @@
     <script type="text/javascript" src="<@ofbizContentUrl>/xdoc/assets/page-builder/js/PageController.js</@ofbizContentUrl>"></script>
     <script src="//cdn.ckeditor.com/4.5.4/full/ckeditor.js"></script>
     
-	<style type="text/css">
-		html, body {
-			height: 100%;
-			width: 100%;
-			padding: 0;
-			border: 0;
-			font-family: 'Open Sans', sans-serif;
-		}
-		hr.dashed-separator{
-			border-top:1px dashed #d7e9ff;
-			margin:15px 0;
-		}
-	</style>
+    <#-- office ui fabric -->
+    <link href="//dev.office.com/Modules/DevOffice.Fabric/Fabric/css/fabric.min.css" type="text/css" rel="stylesheet" />
+    
 </head>
 <body class="claro djOfcUiFbr">
 <div id="axAppLoadingOverlay" class="ax-loadingOverlay ax-pageOverlay">
@@ -100,7 +86,7 @@
 <div class="dijitHidden">
     <div data-dojo-type="dijit/Dialog"  id="globalLoadingOverlay" data-dojo-id="globalLoadingOverlay" class="globalLoadingOverlay">
         <div class="dijitDialogPaneContentArea">
-            <img class="ax-loaderLogo" src="<@ofbizContentUrl>/xdoc/assets/img/loader.gif</@ofbizContentUrl>" style="width:100px;"/>
+            <img class="ax-loaderLogo" src="<@ofbizContentUrl>/xdoc/assets/page-builder/img/logo.png</@ofbizContentUrl>" style="width:100px;"/>
             <p class="ms-font-m-plus">Working...</p>
             <img src="<@ofbizContentUrl>/xdoc/assets/page-builder/img/loader.gif</@ofbizContentUrl>" />
         </div>

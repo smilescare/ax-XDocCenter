@@ -49,7 +49,6 @@
     float: none;
 }
 .djOfcUiFbr .dijitDialogTitleBar {
-    background:url(../../img/bg/brand.jpg) no-repeat transparent;
     background-size: cover;
     padding: 26px 20px 28px;
     border: none;
@@ -87,11 +86,37 @@
     content: '\e042';
 }
 .dj_ie6 .djOfcUiFbr .dijitDialogCloseIcon {
-    background-image: url("images/dialogCloseIcon8bit.png");
 }
 .djOfcUiFbr .dijitDialogCloseIconHover {
     background-position: -21px;
 }
 .djOfcUiFbr .dijitDialogCloseIcon:active {
     background-position: -42px;
+}
+
+.djOfcUiFbr .xDialog .dijitDialogTitleBar{
+	background-image:inherit;
+	background-color:#fff;
+	padding:0;
+}
+.djOfcUiFbr .xDialog .dijitDialogTitle{
+	color:#0078D7;
+	padding: 26px 20px;
+    display:inline-block;
+}
+.djOfcUiFbr .xDialog .dijitDialogPaneContent{
+	padding:10px 0 0;
+}
+.djOfcUiFbr .xDialog .dijitDialogPaneActionBar{
+	margin:0;
+	padding:0;
+}
+.djOfcUiFbr .xDialog .dijitDialogCloseIcon {
+	color:#999;
+}
+.djOfcUiFbr .xDialog .dijitDialogCloseIcon{
+	padding: 39px 30px;
+}
+.djOfcUiFbr .xDialog .dijitDialogCloseIcon:hover {
+    background-color:#EFF6FC;
 }

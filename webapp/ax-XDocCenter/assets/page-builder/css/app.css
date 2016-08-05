@@ -1,4 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @import url(//fonts.googleapis.com/icon?family=Material+Icons);
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow:hidden;
+    font-family:'Open Sans', sans-serif;
+}
+textarea{
+	font-family:'Open Sans', sans-serif;
+}
+#pageBuilderAppContainer {
+    width: 100%;
+    height: 100%;
+}
 
 .ax-container {
     padding: 0 10px;
@@ -481,4 +497,77 @@ hr.dashed-separator{
 .ax-panel .ax-panel-footer{
     padding:15px;
     background-color: #EFF6FC;
+}
+.text-right{
+	text-align: right;
+}
+.text-center{
+	text-align: center;
+}
+.text-left{
+	text-align: left;
+}
+.empty-doc{
+	color:#85cdff;
+	font-size:150px;
+	background-color:#fff;
+	border-radius:50%;
+	padding:40px;
+	border:2px solid #85cdff;
+	-webkit-box-shadow: 0 2px 4px 3px #dbdbdb;
+	box-shadow: 0 2px 4px 3px #dbdbdb;
+	margin:15px 0;
+}
+.get-started-doc{
+	border-left:1px solid #f0f0f0;
+	padding:15px;
+	width:650px;
+	margin:0 auto;
+}
+.djOfcUiFbr .get-started-doc .dijitTextBox{
+	margin:5px 0;
+	width:100%;
+}
+
+.site-node{}
+.site-node .site-icon{
+	display:inline-block;
+	padding-right:10px;
+}
+.site-node .site-info{
+	display:inline-block;
+	color:#0078D7;
+	padding:0 5px;
+}
+.site-node .site-info .site-sub-title{
+	display:block;
+	color:#333;
+	font-size:11px;
+}
+hr.dashed-separator{
+	border-top:1px dashed #d7e9ff;
+	margin:15px 0;
+}
+
+/* CKEditor overrides */
+.djOfcUiFbr .cke_top{
+	background-image:inherit;
+	background-color:#EFF6FC;
+	box-shadow:none;
+}
+.djOfcUiFbr .cke_bottom{
+	background-image:inherit;
+	background-color:#EFF6FC;
+	box-shadow:none;
+}
+.djOfcUiFbr .cke_chrome{
+	box-shadow:none;
+}
+.ax-form-sm label{
+	font-size:11px;
+	font-weight:700;
+}
+.form-group label.form-label{
+	font-size:11px;
+	font-weight:700;
 }
