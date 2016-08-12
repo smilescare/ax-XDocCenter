@@ -1,0 +1,31 @@
+.djOfcUiFbr .dijitTitlePane{
+	overflow:visible;
+}
+.djOfcUiFbr .dijitTitlePaneTitleFocus{
+	outline:none;
+}
+.djOfcUiFbr .dijitTitlePaneTitleOpen, 
+.claro .dijitTitlePaneTitleFixedOpen {
+    background-color: transparent;
+    color: #0078D7;
+}
+.djOfcUiFbr .dijitTitlePaneTitle {
+    background-color: transparent;
+    color: #0078D7;
+    background-image:inherit;
+    border:0 none;
+}
+.djOfcUiFbr .dijitTitlePaneContentOuter{
+	background-color:transparent;
+	border: 0 none;
+}
+.djOfcUiFbr .dijitTitlePaneContentInner{
+	padding:0;
+}
+.djOfcUiFbr .dijitTitlePaneTextNode, 
+.djOfcUiFbr .dijitFieldsetLegendNode{
+	margin-left:10px;
+	font-size:11px;
+	vertical-align:middle;
+	font-weight:bold;
+}

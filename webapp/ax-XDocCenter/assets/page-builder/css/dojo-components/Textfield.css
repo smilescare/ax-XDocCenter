@@ -1,0 +1,194 @@
+.djOfcUiFbr .dijitTextBox,
+.djOfcUiFbr .dijitInputInner {
+    color: #000000;
+}
+.djOfcUiFbr .dijitValidationTextBoxError .dijitValidationContainer {
+    background-color: #d46464;
+    background-position: top center;
+    border: solid #d46464 0;
+    width: 9px;
+}
+.djOfcUiFbr .dijitTextBoxError .dijitValidationContainer {
+    border-left-width: 1px;
+}
+.djOfcUiFbr .dijitValidationTextBoxError .dijitValidationIcon {
+    width: 0;
+    background-color: transparent;
+
+}
+.djOfcUiFbr .dijitTextArea,
+.djOfcUiFbr .dijitInputField .dijitPlaceHolder {
+    padding: 2px;
+}
+.djOfcUiFbr .dijitTextArea{
+	padding:10px 0;
+}
+.djOfcUiFbr .dijitSelect .dijitInputField,
+.djOfcUiFbr .dijitTextBox .dijitInputField {
+    padding: 10px 10px;
+}
+.dj_gecko .djOfcUiFbr .dijitTextBox .dijitInputInner,
+.dj_webkit .djOfcUiFbr .dijitTextBox .dijitInputInner {
+    padding-left: 1px;
+    padding-right: 1px;
+}
+.djOfcUiFbr .dijitSelect,
+.djOfcUiFbr .dijitSelect .dijitButtonContents,
+.djOfcUiFbr .dijitTextBox,
+.djOfcUiFbr .dijitTextBox .dijitButtonNode {
+
+    border-color: #b5bcc7;
+    -webkit-transition-property: background-color, border;
+    -moz-transition-property: background-color, border;
+    transition-property: background-color, border;
+    -webkit-transition-duration: 0.35s;
+    -moz-transition-duration: 0.35s;
+    transition-duration: 0.35s;
+}
+.djOfcUiFbr .dijitSelect,
+.djOfcUiFbr .dijitTextBox {
+    background-color: #ffffff;
+}
+.djOfcUiFbr .dijitSelectHover,
+.djOfcUiFbr .dijitSelectHover .dijitButtonContents,
+.djOfcUiFbr .dijitTextBoxHover,
+.djOfcUiFbr .dijitTextBoxHover .dijitButtonNode {
+    border-color: #759dc0;
+    -webkit-transition-duration: 0.25s;
+    -moz-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+}
+.djOfcUiFbr .dijitTextBoxHover {
+    background-color: #e5f2fe;
+    background-image: -moz-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+    background-image: -webkit-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+    background-image: -o-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+    background-image: linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+}
+.djOfcUiFbr .dijitSelectError,
+.djOfcUiFbr .dijitSelectError .dijitButtonContents,
+.djOfcUiFbr .dijitTextBoxError,
+.djOfcUiFbr .dijitTextBoxError .dijitButtonNode {
+    border-color: #d46464;
+}
+.djOfcUiFbr .dijitSelectFocused,
+.djOfcUiFbr .dijitSelectFocused .dijitButtonContents,
+.djOfcUiFbr .dijitTextBoxFocused,
+.djOfcUiFbr .dijitTextBoxFocused .dijitButtonNode {
+    border-color: #759dc0;
+    -webkit-transition-duration: 0.1s;
+    -moz-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+}
+.djOfcUiFbr .dijitTextBoxFocused {
+    background-color: #ffffff;
+    background-image: -moz-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+    background-image: -webkit-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+    background-image: -o-linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+    background-image: linear-gradient(rgba(127, 127, 127, 0.2) 0%, rgba(127, 127, 127, 0) 2px);
+}
+.djOfcUiFbr .dijitTextBoxFocused .dijitInputContainer {
+    background: #ffffff;
+}
+.djOfcUiFbr .dijitSelectErrorFocused,
+.djOfcUiFbr .dijitSelectErrorFocused .dijitButtonContents,
+.djOfcUiFbr .dijitTextBoxErrorFocused,
+.djOfcUiFbr .dijitTextBoxErrorFocused .dijitButtonNode {
+    border-color: #ce5050;
+}
+.djOfcUiFbr .dijitSelectDisabled,
+.djOfcUiFbr .dijitSelectDisabled .dijitButtonContents,
+.djOfcUiFbr .dijitTextBoxDisabled,
+.djOfcUiFbr .dijitTextBoxDisabled .dijitButtonNode {
+    border-color: #d3d3d3;
+}
+.djOfcUiFbr .dijitSelectDisabled,
+.djOfcUiFbr .dijitTextBoxDisabled,
+.djOfcUiFbr .dijitTextBoxDisabled .dijitInputContainer {
+    background-color: #efefef;
+    background-image: none;
+}
+.djOfcUiFbr .dijitSelectDisabled,
+.djOfcUiFbr .dijitTextBoxDisabled,
+.djOfcUiFbr .dijitTextBoxDisabled .dijitInputInner {
+    color: #818181;
+}
+.dj_webkit .djOfcUiFbr .dijitDisabled input {
+
+    color: #757575;
+}
+.dj_webkit .djOfcUiFbr textarea.dijitTextAreaDisabled {
+
+    color: #1b1b1b;
+}
+.djOfcUiFbr .dijitSelect .dijitArrowButtonInner,
+.djOfcUiFbr .dijitComboBox .dijitArrowButtonInner {
+    background-position: -32px 53%;
+    background-repeat: no-repeat;
+    margin: 0;
+    width: 25px;
+    padding:11px 10px;
+}
+.djOfcUiFbr .dijitComboBox .dijitArrowButtonInner {
+    border: 0;
+}
+.djOfcUiFbr .dijitToolbar .dijitComboBox .dijitArrowButtonInner {
+    border: none;
+}
+.djOfcUiFbr .dijitToolbar .dijitComboBox .dijitArrowButtonInner {
+    border: none;
+}
+.djOfcUiFbr .dijitSelectLabel,
+.djOfcUiFbr .dijitTextBox .dijitInputInner,
+.djOfcUiFbr .dijitValidationTextBox .dijitValidationContainer {
+    padding: 1px 0;
+}
+.djOfcUiFbr .dijitComboBox .dijitButtonNode {
+    background-color: transparent;
+    background-image: inherit;
+    border:none;
+}
+.djOfcUiFbr .dijitComboBoxOpenOnClickHover .dijitButtonNode,
+.djOfcUiFbr .dijitComboBox .dijitDownArrowButtonHover,
+.djOfcUiFbr .dijitComboBoxFocused .dijitArrowButton {
+    background-color: #abd6ff;
+    border:none;
+}
+.djOfcUiFbr .dijitComboBoxOpenOnClickHover .dijitArrowButtonInner,
+.djOfcUiFbr .dijitComboBox .dijitDownArrowButtonHover .dijitArrowButtonInner {
+    background-position: -67px 53%;
+}
+.djOfcUiFbr .dijitComboBox .dijitHasDropDownOpen {
+    background-color: #7dbdfa;
+    background-image: url("images/activeGradient.png");
+    background-repeat: repeat-x;
+    background-image: -moz-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+    background-image: -webkit-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+    background-image: -o-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+    background-image: linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+    _background-image: none;
+    padding: 1px;
+}
+.dj_iequirks .djOfcUiFbr .dijitComboBox .dijitHasDropDownOpen {
+    padding: 1px 0;
+}
+.djOfcUiFbr .dijitComboBox .dijitHasDropDownOpen .dijitArrowButtonInner {
+    background-position: -70px 53%;
+    border: 0 none;
+}
+.djOfcUiFbr div.dijitComboBoxDisabled .dijitArrowButtonInner {
+
+    background-position: 0 50%;
+    background-color: #efefef;
+}
+.dj_ff3 .djOfcUiFbr .dijitInputField input[type="hidden"] {
+    display: none;
+    height: 0;
+    width: 0;
+}
+.dj_borderbox .djOfcUiFbr .dijitComboBox .dijitHasDropDownOpen .dijitArrowButtonInner {
+    width: 18px;
+}
+.dj_borderbox .djOfcUiFbr .dijitComboBoxFocused .dijitHasDropDownOpen .dijitArrowButtonInner {
+    width: 16px;
+}

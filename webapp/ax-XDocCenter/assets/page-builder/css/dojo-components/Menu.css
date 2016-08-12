@@ -1,0 +1,128 @@
+.djOfcUiFbr .dijitMenuBar {
+    border: 1px solid #b5bcc7;
+    margin: 0;
+    padding: 0;
+    background-color: #efefef;
+    background-repeat: repeat-x;
+    background-image: none;
+    _background-image: none;
+}
+.djOfcUiFbr .dijitMenu {
+    background-color: #ffffff;
+    border: none;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
+}
+.djOfcUiFbr .dijitMenuItem {
+    color: #000000;
+}
+.djOfcUiFbr .dijitMenuBar .dijitMenuItem {
+    padding: 6px 10px 7px;
+    margin: -1px;
+}
+.djOfcUiFbr .dijitMenuBar .dijitMenuItemHover,
+.djOfcUiFbr .dijitMenuBar .dijitMenuItemSelected {
+    border: solid 1px #759dc0;
+    padding: 5px 9px 6px;
+}
+.djOfcUiFbr .dijitMenuTable {
+    border-collapse: separate;
+    border-spacing: 0 0;
+    padding: 0;
+}
+.djOfcUiFbr .dijitMenu .dijitMenuItem td,
+.djOfcUiFbr .dijitComboBoxMenu .dijitMenuItem {
+    padding: 8px;
+    border:none;
+}
+.djOfcUiFbr .dijitMenu .dijitMenuItemHover td,
+.djOfcUiFbr .dijitMenu .dijitMenuItemSelected td,
+.djOfcUiFbr .dijitMenuItemHover,
+.djOfcUiFbr .dijitComboBoxMenu .dijitMenuItemHover,
+.djOfcUiFbr .dijitMenuItemSelected {
+    border-color: transparent;
+    background-color: #c7e0f4;
+    background-image: none;
+    _background-image: none;
+}
+.djOfcUiFbr .dijitMenuItemActive {
+    background-image: url("images/activeGradient.png");
+    background-repeat: repeat-x;
+    background-image: -moz-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+    background-image: -webkit-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+    background-image: -o-linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+    background-image: linear-gradient(rgba(190, 190, 190, 0.98) 0px, rgba(255, 255, 255, 0.65) 3px, rgba(255, 255, 255, 0) 100%);
+    _background-image: none;
+}
+.dj_ie .djOfcUiFbr .dijitMenuActive .dijitMenuItemHover,
+.dj_ie .djOfcUiFbr .dijitMenuActive .dijitMenuItemSelected,
+.dj_ie .djOfcUiFbr .dijitMenuPassive .dijitMenuItemHover,
+.dj_ie .djOfcUiFbr .dijitMenuPassive .dijitMenuItemSelected {
+    padding-top: 6px;
+    padding-bottom: 5px;
+    margin-top: -3px;
+}
+.djOfcUiFbr .dijitMenu .dijitMenuItem td.dijitMenuItemIconCell,
+.djOfcUiFbr td.dijitMenuItemIconCell {
+    padding: 2px 6px;
+    margin: 0 0 0 4px;
+}
+.djOfcUiFbr td.dijitMenuItemLabel {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.djOfcUiFbr .dijitMenuExpand {
+    width: 7px;
+    height: 7px;
+    background-image: url("../img/spriteArrows.png");
+    background-position: -14px 0;
+    margin-right: 3px;
+    margin-bottom: 4px;
+}
+.djOfcUiFbr .dijitMenuSeparatorTop {
+    height: auto;
+    margin-top: 1px;
+
+    border-bottom: 1px solid #b5bcc7;
+}
+.djOfcUiFbr .dijitMenuSeparatorBottom {
+    height: auto;
+    margin-bottom: 1px;
+}
+.djOfcUiFbr .dijitCheckedMenuItem .dijitMenuItemIcon,
+.djOfcUiFbr .dijitRadioMenuItem .dijitMenuItemIcon {
+    background-image: url("form/images/checkboxRadioButtonStates.png");
+    background-repeat: no-repeat;
+    background-position: -15px 50%;
+
+    width: 15px;
+    height: 16px;
+}
+.dj_ie6 .djOfcUiFbr .dijitCheckedMenuItem .dijitMenuItemIcon,
+.dj_ie6 .djOfcUiFbr .dijitRadioMenuItem .dijitMenuItemIcon {
+    background-image: url("form/images/checkboxAndRadioButtons_IE6.png");
+}
+.djOfcUiFbr .dijitCheckedMenuItemChecked .dijitCheckedMenuItemIcon {
+    background-position: 0 50%;
+
+}
+.djOfcUiFbr .dijitRadioMenuItem .dijitMenuItemIcon {
+    background-position: -105px 50%;
+
+}
+.djOfcUiFbr .dijitRadioMenuItemChecked .dijitMenuItemIcon {
+    background-position: -90px 50%;
+
+}
+.djOfcUiFbr .dijitComboBoxMenu {
+    margin-left: 0;
+    background-image: none;
+}
+.djOfcUiFbr .dijitMenu .dijitMenuItemSelected td,
+.djOfcUiFbr .dijitComboBoxMenu .dijitMenuItemSelected {
+    color: #000000;
+    border-color: #759dc0;
+    background-color: #abd6ff;
+}
+.djOfcUiFbr .dijitComboBoxMenuActive .dijitMenuItemSelected {
+    background-color: #7dbdfa;
+}

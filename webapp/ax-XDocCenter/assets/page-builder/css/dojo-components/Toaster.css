@@ -1,0 +1,152 @@
+/*
+ * *****************************************************************************************
+ *  Copyright (c) SimbaQuartz  2016. - All Rights Reserved     *
+ *  Unauthorized copying of this file, via any medium is strictly prohibited               *
+ *  Proprietary and confidential                                                           *
+ *  Written by Mandeep Sidhu <mandeep.sidhu@simbacart.com>, 7, 2016                      *
+ * ****************************************************************************************
+ */
+.dijitToasterClip {
+    position: fixed;
+    right: 30px;
+    top: 71px;
+    z-index: 4000;
+    margin-top:15px;
+}
+.dijitToasterContainer{
+    color: #333333;
+    font-family: 'Segoe UI Regular WestEuropean', 'Segoe UI', Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    min-width:350px;
+    max-width:550px;
+    background-color: #fff;
+    padding:0;
+}
+.dijitToasterContainer .dijitToastContent{
+	display:inline-block;
+	background-color:#fff;
+	padding:10px
+}
+.dijitToastContentWrapper {
+    padding:8px 35px;
+    position:relative;
+    border-radius:4px;
+}
+.dijitToastContentWrapper .dijitToastClose {
+    background: none;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 5px;
+    top:10px;
+    height: 15px;
+    width: 21px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+    display: inline-block;
+    font-size: 16px;
+    font-family: Office365Icons;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1;
+    speak: none;
+    cursor:pointer;
+    text-align: center;
+    text-indent: -999;
+    color: #666;
+}
+.dijitToastContentWrapper .dijitToastClose:before {
+    content: '\e042';
+}
+.dijitToastContentWrapper:before{
+    background-color: #005A9E;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 40px;
+}
+.dijitToastContentWrapper:after{
+    color: #fff;
+    font-size: 16px;
+    font-family: Office365Icons;
+    font-style: normal;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    left: 12px;
+    line-height: 1;
+    margin-top: -8px;
+    position: absolute;
+    speak: none;
+    top: 50%;
+    content: '\e00a';
+}
+/* success toaster */
+.dijitToasterContainer .success:before{
+    background-color: #8eb021;
+}
+.dijitToasterContainer .success:after{
+    content: '\e00a';
+}
+
+
+.dijitToastContentWrapper .dijitToastMessageIcon {
+    background: none;
+    background-repeat: no-repeat;
+    display: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+    font-size: 24px;
+    font-family: Office365Icons;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1;
+    speak: none;
+    cursor:pointer;
+    text-align: center;
+    text-indent: -999;
+    color: #fff;
+}
+.dijitToastContentWrapper .dijitToastMessageIcon:before {
+    content: '\e00a';
+}
+.dijitToasterContainer .info{
+    background-color: #fff;
+    border:1px solid #005A9E;
+}
+
+.dijitToasterContainer .error,
+.dijitToasterContainer .fatal{
+    background-color: #fde7e9;
+    border-left:4px solid #da3e16;
+}
+.dijitToasterContainer .error .dijitToastMessageIcon:before,
+.dijitToasterContainer .fatal .dijitToastMessageIcon:before{
+    content: '\e00c';
+}
+.dijitToasterContainer .warning {
+    background-color: #fff4ce;
+    border-left:4px solid #daac16;
+}
+.dijitToasterContainer .warning .dijitToastMessageIcon:before{
+    content: '\e00b';
+}
+.dijitToasterContainer .success {
+    background-color: #dff6dd;
+}
+.dijitToasterContainer .success .dijitToastMessageIcon:before{
+    content: '\e21f';
+    color:#107c10;
+    border-left:4px solid #107c10;
+}
+.dijitToasterContainer .success .dijitToastMessageIcon:after {
+    color:#107c10;
+    content: '\e000';
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    z-index: 0;
+}

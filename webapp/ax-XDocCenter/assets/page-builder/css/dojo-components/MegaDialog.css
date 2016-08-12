@@ -1,0 +1,39 @@
+.xmegaDialog{
+	position:fixed;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+}
+
+.djOfcUiFbr .xmegaDialog{
+	background-color:#fff;
+}
+.djOfcUiFbr .xmegaDialog .dijitDialogTitleBar {
+    background-color:#0078d7;
+    padding: 0;
+    color:#fff;
+    background-image:none;
+}
+.djOfcUiFbr .xmegaDialog .dijitDialogTitle {
+    background-color:#0078d7;
+    padding: 26px 20px;
+    color:#fff;
+    background-image:none;
+    display:inline-block;
+}
+
+.djOfcUiFbr .xmegaDialog .dijitDialogCloseIcon{
+	padding: 39px 30px;
+}
+.djOfcUiFbr .xmegaDialog .dijitDialogCloseIcon:hover {
+    background-color:#004578;
+}
+
+.djOfcUiFbr .xmegaDialog .dijitDialogPaneActionBarStickToBottom {
+    position:absolute;
+    bottom:0;
+    right:0;
+    left:0;
+    margin:0;
+}
