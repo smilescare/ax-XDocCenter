@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ /*
+  ~  * *****************************************************************************************
+  ~  *  Copyright (c) SimbaQuartz  2016. - All Rights Reserved                                 *
+  ~  *  Unauthorized copying of this file, via any medium is strictly prohibited               *
+  ~  *  Proprietary and confidential                                                           *
+  ~  *  Written by Mandeep Sidhu <mandeep.sidhu@simbacart.com>,  August, 2016                    *
+  ~  * ****************************************************************************************
+  ~  */
+  -->
+
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <description>Help Center Component Site Configuration File</description>
+
+    <!-- Request Mappings -->
+    <request-map uri="listDirectories">
+		<security https="true" auth="true" />
+		<event type="groovy" path="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/mediaManager/DirectoryListing.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="listFilesInDir">
+		<security https="true" auth="true" />
+		<event type="groovy" path="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/mediaManager/DirectoryFilesListing.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="uploadCmsBinaryFile">
+		<security https="true" auth="true" />
+		<event type="groovy" path="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/cms/UploadFile.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+	<request-map uri="downloadCmsFile">
+		<security https="true" auth="true" />
+		<event type="groovy" path="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/cms/DirectoryFilesListing.groovy"/>
+		<response name="success" type="none" />
+	</request-map>
+    
+    <!-- View Mappings -->
+    <!--  
+    <view-map name="contentFileManager" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#contentFileManager"/>
+    -->
+    
+</site-conf>

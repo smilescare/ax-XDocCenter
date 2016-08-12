@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission description="View operations in the ax-XDocCenter Component." permissionId="ax-XDocCenter_VIEW"/>
+    <SecurityPermission description="Create operations in the ax-XDocCenter Component." permissionId="ax-XDocCenter_CREATE"/>
+    <SecurityPermission description="Update operations in the ax-XDocCenter Component." permissionId="ax-XDocCenter_UPDATE"/>
+    <SecurityPermission description="Delete operations in the ax-XDocCenter Component." permissionId="ax-XDocCenter_DELETE"/>
+    <SecurityPermission description="ALL operations in the ax-XDocCenter Component." permissionId="ax-XDocCenter_ADMIN"/>
+
+    <SecurityGroupPermission groupId="SUPER" permissionId="ax-XDocCenter_ADMIN"/>
+
+</entity-engine-xml>
