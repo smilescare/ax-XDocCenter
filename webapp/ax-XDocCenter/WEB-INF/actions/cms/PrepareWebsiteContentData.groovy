@@ -8,23 +8,34 @@ webSiteContents = EntityUtil.filterByDate(webSiteContents);
 webSiteContent = EntityUtil.getFirst(webSiteContents);
 
 if (webSiteContent) {
-    content = webSiteContent.getRelatedOne("Content");
-    contentRoot = content.contentId;
+    webSiteContentContent = webSiteContent.getRelatedOne("Content");
+    contentRoot = webSiteContentContent.contentId;
     context.contentRoot = contentRoot;
 
     // get all sub content for the publish point
-    subsites = delegator.findList("ContentAssoc", EntityCondition.makeCondition([contentId : contentId]), null, null, null, false);
-    context.subsites = subsites;
+    alternateUrlContent = EntityUtil.getFirst(
+    				delegator.findList("ContentAssoc", EntityCondition.makeCondition([contentId : contentId, contentAssocTypeId : "ALTERNATIVE_URL"]), null, null, null, false)
+				);
     
     //find seo url
-    subsites.each{ subsite ->
-    	if(subsite.contentAssocTypeId == "ALTERNATIVE_URL"){
-    		toContent = subsite.getRelatedOne("ToContent", false);
-    		
-    		if(UtilValidate.isNotEmpty(toContent)){
-    			 alternateUrl = toContent.getRelatedOne("DataResource", false).objectInfo;
-    			 context.alternateUrl = alternateUrl;
-    		}
-    	}
-   	}
+    if( UtilValidate.isNotEmpty(alternateUrlContent) ){
+		toContent = alternateUrlContent.getRelatedOne("ToContent", false);
+		
+		if(UtilValidate.isNotEmpty(toContent)){
+			 alternateUrl = toContent.getRelatedOne("DataResource", false).objectInfo;
+			 context.alternateUrl = alternateUrl;
+		}
+    }
 }
+Boolean isPublishPoint = false;
+/*
+if(content.contentTypeId == 'WEB_SITE_PUB_PT'){
+	isPublishPoint = true;
+}else{
+}
+*/
+
+println "##############33 content : " + content ;
+
+
+context.isPublishPoint = isPublishPoint;

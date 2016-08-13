@@ -14,6 +14,15 @@
 		    	<label for="exampleInputEmail1">Description</label>
 		    	<textarea style="width:100%;" data-dojo-type="dijit/form/SimpleTextarea" name="siteDescription" placeHolder="Enter a small description about your Web Site."></textarea>
 			</div>
+			<div class="form-group form-group-sm">
+		    	<label for="exampleInputEmail1">Include</label>
+		    	<div>
+			    	<input id="cbIncludeSiteBlog" data-dojo-type="dijit/form/CheckBox" name="includeBlog" value="Y" checked />
+			    	<label for="cbIncludeSiteBlog">Blog</label>
+			    	<input id="cbIncludeSiteForum" data-dojo-type="dijit/form/CheckBox" name="includeForum" value="Y" checked />
+			    	<label for="cbIncludeSiteForum">Forum</label>
+		    	</div>
+			</div>
 			<#-- advanced settings -->
 			<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: 'Advanced',open:false">
 			<table style="width:100%;">
@@ -71,7 +80,7 @@
 					function(response){
 						//make sure there are no errors
 						if(!App.isErrorReported(response)){
-							App.clodeModal();
+							App.closeModal();
 							//publish new site added topic
 						}
 					},

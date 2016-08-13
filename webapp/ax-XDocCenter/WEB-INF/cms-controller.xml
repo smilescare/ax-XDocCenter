@@ -102,7 +102,7 @@
     </request-map>
     <request-map uri="createWebSite">
         <security https="true" auth="true"/>
-        <event type="service" invoke="createWebSite" />
+        <event type="groovy" path="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/cms/siteManager/CreateWebSite.groovy"/>
         <response name="success" type="view" value="transactionresponse"/>
         <response name="error" type="view" value="transactionresponse"/>
     </request-map>

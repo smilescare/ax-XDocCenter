@@ -91,7 +91,7 @@
 				<i class="material-icons color-themePrimary">language</i>
 			</div>
 			<div class="site-info" style="font-weight:bold;">
-				# ${contentId}
+				# ${contentId?if_exists}
 				<div class="site-sub-title" style="color:#2b88D8;font-weight:normal;">
 					${alternateUrl?default('Alternate URL not configured')}
 				</div>
@@ -193,7 +193,7 @@
 				<div data-dojo-type="dijit/MenuItem" 
 					label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>content_copy</i></div><div class='site-info'>Duplicate<div class='site-sub-title'>Creates a copy of the artifact at the same node.</div></div></div>" showLabel="true">
 					<script type="dojo/method" event="onClick" args="item">
-						//TODO
+						duplicateContentDialog.show();
 					</script>
 				</div>
 				<div data-dojo-type="dijit/MenuItem" 

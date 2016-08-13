@@ -56,7 +56,7 @@
                 <set field="contentAssocTypeId" from-field="parameters.contentAssocTypeId"/>
                 <set field="dataResourceTypeId" from-field="parameters.dataResourceTypeId"/>
                 <set field="contentIdFrom" from-field="parameters.contentIdFrom"/>
-                <set field="webSiteId" from-field="parameters.webSiteId" default-value="HELP_CENTER"/>
+                <set field="webSiteId" from-field="parameters.webSiteId"/>
                 <set field="contentId" from-field="parameters.contentId"/>
                 <set field="mimeTypeId" value="text/html"/>
                 <entity-one entity-name="WebSite" value-field="webSite"/>

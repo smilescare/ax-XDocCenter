@@ -5,10 +5,13 @@
     <vendor></vendor>
     <version>1.0</version>
 
-    <service name="noSyntaxError" engine="interface">
-        <description>
-            Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
-        </description>
-    </service> 
+    <service name="createXWebSite" default-entity-name="WebSite" engine="simple" auth="true"
+            location="component://ax-XDocCenter/script/com/simbaquartz/website/WebSiteServices.xml" invoke="createXWebSite">
+        <description>Extends Create a WebSite service, generates a sequence if for the site if one is not provided.</description>
+        <permission-service service-name="contentManagerPermission" main-action="CREATE"/>
+        <auto-attributes include="pk" mode="INOUT" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <override name="siteName" optional="false"/>
+    </service>
     
 </services>
