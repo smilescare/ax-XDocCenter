@@ -1,0 +1,1 @@
+Site's publish points

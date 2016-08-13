@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simple-methods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/simple-methods-v2.xsd">
+
+    <!-- WebSite Services -->
+    <simple-method method-name="createXWebSite" short-description="Create a WebSite">
+        <make-value value-field="newEntity" entity-name="WebSite"/>
+        <set-nonpk-fields map="parameters" value-field="newEntity"/>
+        <set-pk-fields map="parameters" value-field="newEntity"/>
+        <if-empty field="newEntity.webSiteId">
+            <sequenced-id sequence-name="WebSite" field="webSiteId"/>
+            <set field="newEntity.webSiteId" from-field="webSiteId"/>
+        </if-empty>
+
+        <create-value value-field="newEntity"/>
+        
+        <field-to-result field="newEntity.webSiteId" result-name="webSiteId"/>
+    </simple-method>
+</simple-methods>
