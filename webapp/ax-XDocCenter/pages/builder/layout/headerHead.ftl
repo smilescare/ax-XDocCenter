@@ -9,13 +9,13 @@
     <!-- jQuery, required for the sample Component plugins -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
-    <link href="<@ofbizContentUrl>/xstatic/assets/app/xdoc/page-builder/css/app.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
+    <link href="<@ofbizContentUrl>/app/xdoc/page-builder/css/app.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
 
     <#--set Dojo configuration, load Dojo-->
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/claro/claro.css">
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/grid/enhanced/resources/claro/EnhancedGrid.css">
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/grid/enhanced/resources/EnhancedGrid_rtl.css">
-    <link href="<@ofbizContentUrl>/xstatic/assets/app/xdoc/page-builder/css/dojo-components/dojo-overrides.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
+    <link href="<@ofbizContentUrl>/app/xdoc/page-builder/css/dojo-components/dojo-overrides.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
     <script>
         dojoConfig = {
             async: true,
@@ -24,7 +24,7 @@
             packages: [
                 {
                     name: 'dojoc',
-                    location: '<@ofbizContentUrl>/xstatic/assets/app/xdoc/page-builder/js/dojo/dojoc</@ofbizContentUrl>'
+                    location: '<@ofbizContentUrl>/app/xdoc/page-builder/js/dojo/dojoc</@ofbizContentUrl>'
                 	<#--
                     -->
                 }
@@ -67,8 +67,8 @@
                 dialog.show();
             });
     </script>-->
-    <script type="text/javascript" src="<@ofbizContentUrl>/xstatic/assets/app/xdoc/page-builder/js/app.js</@ofbizContentUrl>"></script>
-    <script type="text/javascript" src="<@ofbizContentUrl>/xstatic/assets/app/xdoc/page-builder/js/PageController.js</@ofbizContentUrl>"></script>
+    <script type="text/javascript" src="<@ofbizContentUrl>/app/xdoc/page-builder/js/app.js</@ofbizContentUrl>"></script>
+    <script type="text/javascript" src="<@ofbizContentUrl>/app/xdoc/page-builder/js/PageController.js</@ofbizContentUrl>"></script>
     <script src="//cdn.ckeditor.com/4.5.4/full/ckeditor.js"></script>
     
     <#-- office ui fabric -->
@@ -78,19 +78,19 @@
 <body class="claro djOfcUiFbr">
 <div id="axAppLoadingOverlay" class="ax-loadingOverlay ax-pageOverlay">
     <div class="ax-loadCenter">
-        <img class="ax-loaderLogo" src="<@ofbizContentUrl>/xstatic/assets/app/xdoc/page-builder/img/logo.png</@ofbizContentUrl>" />
+        <img class="ax-loaderLogo" src="<@ofbizContentUrl>/app/xdoc/page-builder/img/logo.png</@ofbizContentUrl>" />
         <p class="ms-font-s-plus">Managing Content Simplified</p>
         <br>
-        <img src="<@ofbizContentUrl>/xstatic/assets/app/xdoc/page-builder/img/loader.gif</@ofbizContentUrl>" />
+        <img src="<@ofbizContentUrl>/app/xdoc/page-builder/img/loader.gif</@ofbizContentUrl>" />
     </div>
 </div>
 <#-- global loader, displayed during app.dobind, open modal etc. -->
 <div class="dijitHidden">
     <div data-dojo-type="dijit/Dialog"  id="globalLoadingOverlay" data-dojo-id="globalLoadingOverlay" class="globalLoadingOverlay">
         <div class="dijitDialogPaneContentArea">
-            <img class="ax-loaderLogo" src="<@ofbizContentUrl>/xstatic/assets/app/xdoc/page-builder/img/logo.png</@ofbizContentUrl>" style="width:100px;"/>
+            <img class="ax-loaderLogo" src="<@ofbizContentUrl>/app/xdoc/page-builder/img/logo.png</@ofbizContentUrl>" style="width:100px;"/>
             <p class="ms-font-m-plus">Working...</p>
-            <img src="<@ofbizContentUrl>/xstatic/assets/app/xdoc/page-builder/img/loader.gif</@ofbizContentUrl>" />
+            <img src="<@ofbizContentUrl>/app/xdoc/page-builder/img/loader.gif</@ofbizContentUrl>" />
         </div>
     </div>
 </div>

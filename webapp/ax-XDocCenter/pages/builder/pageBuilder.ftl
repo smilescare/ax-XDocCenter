@@ -1,7 +1,7 @@
 <div data-dojo-type="dijit/layout/BorderContainer"  id="pageBuilderAppContainer" data-dojo-props="gutters:false">
 	<div data-dojo-type="dijit/layout/ContentPane" region="top" style="height:60px;padding:0;">
 		<div style="padding:0;margin:0;position:relative;">
-			<div style="position:absolute;left:0;top:0;display:inline-block;margin:5px 5px 0 15px;background:url(<@ofbizContentUrl>/xstatic/assets/app/xdoc/page-builder/img/logo-50.png</@ofbizContentUrl>) no-repeat scroll left transparent;padding-left:60px;">
+			<div style="position:absolute;left:0;top:0;display:inline-block;margin:5px 5px 0 15px;background:url(<@ofbizContentUrl>/app/xdoc/page-builder/img/logo-50.png</@ofbizContentUrl>) no-repeat scroll left transparent;padding-left:60px;">
 				<h1 style="font-size:15px;padding:0;margin:0;">Page Builder</h1>
 				<p style="font-size:13px;padding:0;margin:0;">Managing Content Simplified</p>
 			</div>

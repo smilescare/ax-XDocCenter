@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
 
     <!-- Fabric core and Components CSS -->
-    <link href="<@ofbizContentUrl>/xstatic/assets/lib/office-ui-fabric/css/fabric.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
-    <link href="<@ofbizContentUrl>/xstatic/assets/lib/office-ui-fabric/css/fabric.components.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
+    <link href="<@ofbizContentUrl>/lib/office-ui-fabric/css/fabric.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
+    <link href="<@ofbizContentUrl>/lib/office-ui-fabric/css/fabric.components.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
 
     <!-- Application-specific CSS -->
-    <link href="<@ofbizContentUrl>/xstatic/assets/app/common/css/app.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
-    <link href="<@ofbizContentUrl>/xstatic/assets/app/common/css/Form.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
-    <link href="<@ofbizContentUrl>/xstatic/assets/app/common/css/login.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
+    <link href="<@ofbizContentUrl>/app/common/css/app.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
+    <link href="<@ofbizContentUrl>/app/common/css/Form.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
+    <link href="<@ofbizContentUrl>/app/common/css/login.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
 
 </head>
 <body style="background-color: #fff;">

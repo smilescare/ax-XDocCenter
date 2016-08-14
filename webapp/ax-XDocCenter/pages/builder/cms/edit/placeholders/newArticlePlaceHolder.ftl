@@ -9,7 +9,7 @@
 		<img src="https://d13yacurqjgara.cloudfront.net/users/767861/screenshots/2563648/place_order.jpg" style="width:250px;" />
 		<img src="https://d13yacurqjgara.cloudfront.net/users/767861/screenshots/2599644/developer_il.jpg" style="width:250px;" />
 		-->
-		<img src="<@ofbizContentUrl>/xstatic/assets/app/xdoc/page-builder/img/DocumentsAndConversations.jpg</@ofbizContentUrl>" style="width:450px;" />
+		<img src="<@ofbizContentUrl>/app/xdoc/page-builder/img/DocumentsAndConversations.jpg</@ofbizContentUrl>" style="width:450px;" />
 	</div>
 	<div class="text-left" style="width:45%;display:inline-block;">
 		<div class="get-started-doc">

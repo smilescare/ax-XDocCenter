@@ -36,12 +36,12 @@
     <meta property="og:image" content="http://code.visualstudio.com/Facebook-Graph-Image.png">
     <meta property="og:url" content="http://code.visualstudio.com/">
 
-    <link rel="shortcut icon" href="<@ofbizContentUrl>/xstatic/assets/theme/docs-Kerry/images/favicon.ico</@ofbizContentUrl>">
+    <link rel="shortcut icon" href="<@ofbizContentUrl>/theme/docs-Kerry/images/favicon.ico</@ofbizContentUrl>">
     <title>Document Center</title>
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<@ofbizContentUrl>/xstatic/assets/theme/docs-Kerry/css/vendor.css</@ofbizContentUrl>">
-    <link rel="stylesheet" href="<@ofbizContentUrl>/xstatic/assets/theme/docs-Kerry/css/main.css</@ofbizContentUrl>">
+    <link rel="stylesheet" href="<@ofbizContentUrl>/theme/docs-Kerry/css/vendor.css</@ofbizContentUrl>">
+    <link rel="stylesheet" href="<@ofbizContentUrl>/theme/docs-Kerry/css/main.css</@ofbizContentUrl>">
     <script>
         var appInsights=window.appInsights||function(config){
                     function r(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s=u.createElement(o),i,f;for(s.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",u.getElementsByTagName(o)[0].parentNode.appendChild(s),t.cookie=u.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)r("track"+i.pop());return r("setAuthenticatedUserContext"),r("clearAuthenticatedUserContext"),config.disableExceptionTracking||(i="onerror",r("_"+i),f=e[i],e[i]=function(config,r,u,e,o){var s=f&&f(config,r,u,e,o);return s!==!0&&t["_"+i](config,r,u,e,o),s}),t
@@ -101,7 +101,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <a href="Search/" title="Search" class="btn search-btn" id="nav-search">
-                                <img src="<@ofbizContentUrl>/xstatic/assets/theme/docs-Kerry/icons/search.svg</@ofbizContentUrl>" width="16px" height="16px" alt="Search">
+                                <img src="<@ofbizContentUrl>/theme/docs-Kerry/icons/search.svg</@ofbizContentUrl>" width="16px" height="16px" alt="Search">
                             </a>
                         </li>
                         <li class="search">
@@ -110,13 +110,13 @@
                                     <input type="text" name="q" class="search-box form-control" placeholder="Search Docs">
                                         <span class="input-group-btn">
                                             <button tabindex="-1" class="btn" type="submit">
-                                                <img src="<@ofbizContentUrl>/xstatic/assets/theme/docs-Kerry/icons/search.svg</@ofbizContentUrl>" width="16px" height="16px" alt="Search">
+                                                <img src="<@ofbizContentUrl>/theme/docs-Kerry/icons/search.svg</@ofbizContentUrl>" width="16px" height="16px" alt="Search">
                                             </button>
                                         </span>
                                 </div>
                             </form>                    </li>
                         <!-- this was hiden in the home and download page, keeping it for now -->
-                        <li><a itemprop="downloadUrl" class="link-button" href="Download/" id="nav-download"><img src="<@ofbizContentUrl>/xstatic/assets/theme/docs-Kerry/icons/download.svg</@ofbizContentUrl>" width="16px" height="16px" alt="Download VS Code"><span class="hidden-sm">Download</span></a></li>
+                        <li><a itemprop="downloadUrl" class="link-button" href="Download/" id="nav-download"><img src="<@ofbizContentUrl>/theme/docs-Kerry/icons/download.svg</@ofbizContentUrl>" width="16px" height="16px" alt="Download VS Code"><span class="hidden-sm">Download</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -146,8 +146,8 @@
                         <button class="link-button dlink" data-os="win">Get Started</button>
                         <div class="linux">
                             <div class="flex-box">
-                                <button class="link-button dlink" data-os="linux64_deb"><img src="<@ofbizContentUrl>/xstatic/assets/theme/docs-Kerry/icons/download.svg</@ofbizContentUrl>" width="18px" height="18px" alt="Download VS Code">.deb<small><br>Debian, Ubuntu</small></button>
-                                <button class="link-button dlink" data-os="linux64_rpm"><img src="<@ofbizContentUrl>/xstatic/assets/theme/docs-Kerry/icons/download.svg</@ofbizContentUrl>" width="18px" height="18px" alt="Download VS Code">.rpm<small><br>Red Hat, Fedora, CentOS</small></button>
+                                <button class="link-button dlink" data-os="linux64_deb"><img src="<@ofbizContentUrl>/theme/docs-Kerry/icons/download.svg</@ofbizContentUrl>" width="18px" height="18px" alt="Download VS Code">.deb<small><br>Debian, Ubuntu</small></button>
+                                <button class="link-button dlink" data-os="linux64_rpm"><img src="<@ofbizContentUrl>/theme/docs-Kerry/icons/download.svg</@ofbizContentUrl>" width="18px" height="18px" alt="Download VS Code">.rpm<small><br>Red Hat, Fedora, CentOS</small></button>
                             </div>
                             <p>
                                 <a id="home-zip-archive-link" class="dlink" data-os="linux64">Zip archive</a> |  <a href="#linux32-downloads-insiders" data-toggle="collapse">32 bit versions</a>
@@ -198,7 +198,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4">
-                        <img src="<@ofbizContentUrl>/xstatic/assets/theme/docs-Kerry/images/home-intellisense.svg</@ofbizContentUrl>" alt="Intellisense" class="screenshot">
+                        <img src="<@ofbizContentUrl>/theme/docs-Kerry/images/home-intellisense.svg</@ofbizContentUrl>" alt="Intellisense" class="screenshot">
                     </div>
                     <div class="col-sm-7 col-sm-push-1">
                         <h2>Meet IntelliSense.</h2>
@@ -212,7 +212,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4 col-sm-push-8">
-                        <img src="<@ofbizContentUrl>/xstatic/assets/theme/docs-Kerry/images/home-debug.svg</@ofbizContentUrl>" alt="Debugging" class="screenshot">
+                        <img src="<@ofbizContentUrl>/theme/docs-Kerry/images/home-debug.svg</@ofbizContentUrl>" alt="Debugging" class="screenshot">
                     </div>
                     <div class="col-sm-7 col-sm-pull-4">
                         <h2>Print statement debugging is a thing of the past.</h2>
@@ -226,7 +226,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4">
-                        <img src="<@ofbizContentUrl>/xstatic/assets/theme/docs-Kerry/images/home-git.svg</@ofbizContentUrl>" alt="Git" class="screenshot">
+                        <img src="<@ofbizContentUrl>/theme/docs-Kerry/images/home-git.svg</@ofbizContentUrl>" alt="Git" class="screenshot">
                     </div>
                     <div class="col-sm-7 col-sm-push-1">
                         <h2>Git commands built-in.</h2>
@@ -240,7 +240,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4 col-sm-push-8">
-                        <a id="home-marketplace-link" href="https://marketplace.visualstudio.com/VSCode" target="_blank"><img src="<@ofbizContentUrl>/xstatic/assets/theme/docs-Kerry/images/Hundreds-of-Extensions.png</@ofbizContentUrl>" class="hundreds-extensions-img" alt="Easily use extensions in VS Code"></a>
+                        <a id="home-marketplace-link" href="https://marketplace.visualstudio.com/VSCode" target="_blank"><img src="<@ofbizContentUrl>/theme/docs-Kerry/images/Hundreds-of-Extensions.png</@ofbizContentUrl>" class="hundreds-extensions-img" alt="Easily use extensions in VS Code"></a>
                     </div>
                     <div class="col-sm-7 col-sm-pull-4">
                         <h2>Extensible and customizable.</h2>
@@ -280,14 +280,14 @@
                     <div class="buttons">
                         <div class="download">
                             <div class="logo windows"></div>
-                            <button class="link-button dlink" data-os="win"><img src="<@ofbizContentUrl>/xstatic/assets/theme/docs-Kerry/icons/download.svg</@ofbizContentUrl>" width="18px" height="18px" alt="Download VS Code"><span itemprop="operatingSystem">Windows</span><small><br>Windows 7, 8, 10</small></button>
+                            <button class="link-button dlink" data-os="win"><img src="<@ofbizContentUrl>/theme/docs-Kerry/icons/download.svg</@ofbizContentUrl>" width="18px" height="18px" alt="Download VS Code"><span itemprop="operatingSystem">Windows</span><small><br>Windows 7, 8, 10</small></button>
                             <p><a id="home-winzip-archive-lower-link" class="dlink" data-os="winzip">Zip archive</a></p>
                         </div>
                         <div class="download">
                             <div class="logo linux"></div>
                             <div class="linux">
-                                <button class="link-button dlink" data-os="linux64_deb"><img src="<@ofbizContentUrl>/xstatic/assets/theme/docs-Kerry/icons/download.svg</@ofbizContentUrl>" width="18px" height="18px" alt="Download VS Code">.deb<small><br><span itemprop="operatingSystem">Debian</span>, <span itemprop="operatingSystem">Ubuntu</span></small></button>
-                                <button class="link-button dlink" data-os="linux64_rpm"><img src="<@ofbizContentUrl>/xstatic/assets/theme/docs-Kerry/icons/download.svg</@ofbizContentUrl>" width="18px" height="18px" alt="Download VS Code">.rpm<small><br><span itemprop="operatingSystem">Red Hat</span>, <span itemprop="operatingSystem">Fedora</span>, <span itemprop="operatingSystem">CentOS</span></small></button>
+                                <button class="link-button dlink" data-os="linux64_deb"><img src="<@ofbizContentUrl>/theme/docs-Kerry/icons/download.svg</@ofbizContentUrl>" width="18px" height="18px" alt="Download VS Code">.deb<small><br><span itemprop="operatingSystem">Debian</span>, <span itemprop="operatingSystem">Ubuntu</span></small></button>
+                                <button class="link-button dlink" data-os="linux64_rpm"><img src="<@ofbizContentUrl>/theme/docs-Kerry/icons/download.svg</@ofbizContentUrl>" width="18px" height="18px" alt="Download VS Code">.rpm<small><br><span itemprop="operatingSystem">Red Hat</span>, <span itemprop="operatingSystem">Fedora</span>, <span itemprop="operatingSystem">CentOS</span></small></button>
                                 <p>
                                     <a id="home-zip-archive-lower-link" class="dlink" data-os="linux64">Zip archive</a> |  <a href="#linux32-downloads-insiders-2" data-toggle="collapse">32 bit versions</a>
                                 </p>
@@ -302,7 +302,7 @@
                         </div>
                         <div class="download">
                             <div class="logo mac"></div>
-                            <button class="link-button dlink" data-os="osx"><img src="<@ofbizContentUrl>/xstatic/assets/theme/docs-Kerry/icons/download.svg</@ofbizContentUrl>" width="18px" height="18px" alt="Download VS Code"><span itemprop="operatingSystem">OS X</span><small><br>OS X Yosemite, El Capitan</small></button>
+                            <button class="link-button dlink" data-os="osx"><img src="<@ofbizContentUrl>/theme/docs-Kerry/icons/download.svg</@ofbizContentUrl>" width="18px" height="18px" alt="Download VS Code"><span itemprop="operatingSystem">OS X</span><small><br>OS X Yosemite, El Capitan</small></button>
                         </div>
                     </div>
                 </div>
@@ -353,7 +353,7 @@
                     <li><a id="footer-license-link" href="License/">License</a></li>
                 </ul>
                 <div class="copyright">
-                    <a id="footer-microsoft-link" class="logo" href="http://www.microsoft.com"><img src="<@ofbizContentUrl>/xstatic/assets/theme/docs-Kerry/images/microsoft-logo.png</@ofbizContentUrl>" height="20" alt="Microsoft homepage"></a>
+                    <a id="footer-microsoft-link" class="logo" href="http://www.microsoft.com"><img src="<@ofbizContentUrl>/theme/docs-Kerry/images/microsoft-logo.png</@ofbizContentUrl>" height="20" alt="Microsoft homepage"></a>
                         <span>&copy; 2016 <span itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
     <span itemprop="name">Microsoft</span></span></span>
                 </div>
@@ -361,8 +361,8 @@
         </div>
     </div>
 </footer>    <!-- inject:js -->
-<script src="<@ofbizContentUrl>/xstatic/assets/theme/docs-Kerry/js/vendor.js</@ofbizContentUrl>"></script>
-<script src="<@ofbizContentUrl>/xstatic/assets/theme/docs-Kerry/js/main.js</@ofbizContentUrl>"></script>
+<script src="<@ofbizContentUrl>/theme/docs-Kerry/js/vendor.js</@ofbizContentUrl>"></script>
+<script src="<@ofbizContentUrl>/theme/docs-Kerry/js/main.js</@ofbizContentUrl>"></script>
 <!-- endinject -->
 
 <script type="application/ld+json">

@@ -4,18 +4,18 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Sign In | AppEx XTrack | Expense Tracking Simplified</title>
-    <link rel="shortcut icon" href="<@ofbizContentUrl>/xstatic/assets/img/favicon.ico</@ofbizContentUrl>" type="image/x-icon" >
+    <link rel="shortcut icon" href="<@ofbizContentUrl>/img/favicon.ico</@ofbizContentUrl>" type="image/x-icon" >
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
 
     <!-- Fabric core and Components CSS -->
-    <link href="<@ofbizContentUrl>/xstatic/assets/lib/office-ui-fabric/css/fabric.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
-    <link href="<@ofbizContentUrl>/xstatic/assets/lib/office-ui-fabric/css/fabric.components.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
+    <link href="<@ofbizContentUrl>/lib/office-ui-fabric/css/fabric.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
+    <link href="<@ofbizContentUrl>/lib/office-ui-fabric/css/fabric.components.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
 
     <!-- Application-specific CSS -->
-    <link href="<@ofbizContentUrl>/xstatic/assets/app/common/css/app.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
-    <link href="<@ofbizContentUrl>/xstatic/assets/app/common/css/Form.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
-    <link href="<@ofbizContentUrl>/xstatic/assets/app/common/css/login.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
+    <link href="<@ofbizContentUrl>/app/common/css/app.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
+    <link href="<@ofbizContentUrl>/app/common/css/Form.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
+    <link href="<@ofbizContentUrl>/app/common/css/login.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
 
 </head>
 <body style="background-color: #fff;">

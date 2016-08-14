@@ -1,7 +1,7 @@
 <div style="width:100%;">
 	<div style="width:45%;display:inline-block;text-align:center;">
 		<p class="ms-font-su ms-fontColor-themePrimary">Great Choice!!!</p>
-		<img class="ms-u-slideRightIn40" src="<@ofbizContentUrl>/xstatic/assets/app/xdoc/page-builder/img/LadySittingAtDesk.png</@ofbizContentUrl>" style="width:450px;" />
+		<img class="ms-u-slideRightIn40" src="<@ofbizContentUrl>/app/xdoc/page-builder/img/LadySittingAtDesk.png</@ofbizContentUrl>" style="width:450px;" />
 		<p class="ms-font-l">Let's get started by building the awesome site you've always been looking for.</p>
 	</div>
 	<div style="width:45%;display:inline-block;">
