@@ -75,7 +75,7 @@
 	</#if>
 <#else>
 	<div class="text-center">
-		<img src="<@ofbizContentUrl>/xdoc/assets/page-builder/img/LadySittingAtDesk.png</@ofbizContentUrl>" width="250px;" />
+		<img src="<@ofbizContentUrl>/xstatic/assets/app/xdoc/page-builder/img/LadySittingAtDesk.png</@ofbizContentUrl>" width="250px;" />
 		<p>Select a Web Site to proceed</p>
 		<p>Or</p>
         <div data-dojo-type="dijit/form/Button" iconClass="menu-icon-asterisk"
