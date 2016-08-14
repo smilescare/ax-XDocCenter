@@ -20,13 +20,11 @@
         dojoConfig = {
             async: true,
             parseOnLoad: true,
-            dojoBlankHtmlUrl: '<@ofbizContentUrl>/xtrack/assets/lib/dojo/blank.html</@ofbizContentUrl>',
+            dojoBlankHtmlUrl: '<@ofbizContentUrl>/app/xtrack/assets/lib/dojo/blank.html</@ofbizContentUrl>',
             packages: [
                 {
                     name: 'dojoc',
-                    location: '<@ofbizContentUrl>/app/xdoc/page-builder/js/dojo/dojoc</@ofbizContentUrl>'
-                	<#--
-                    -->
+                    location: '<@ofbizContentUrl>/app/xtrack/assets/lib/dojo/dojoc</@ofbizContentUrl>'
                 }
             ]
         }
