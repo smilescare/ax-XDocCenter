@@ -20,11 +20,11 @@
         dojoConfig = {
             async: true,
             parseOnLoad: true,
-            dojoBlankHtmlUrl: '<@ofbizContentUrl>/app/xtrack/assets/lib/dojo/blank.html</@ofbizContentUrl>',
+            dojoBlankHtmlUrl: '<@ofbizContentUrl>/lib/dojo/blank.html</@ofbizContentUrl>',
             packages: [
                 {
                     name: 'dojoc',
-                    location: '<@ofbizContentUrl>/app/xtrack/assets/lib/dojo/dojoc</@ofbizContentUrl>'
+                    location: '<@ofbizContentUrl>/lib/dojo/dojoc</@ofbizContentUrl>'
                 }
             ]
         }
@@ -42,13 +42,6 @@
             "dojo/parser",
             "dojo/io/iframe",
             "dojox/validate/web"
-            <#--
-            ,
-            "dojoc/Toaster",
-            "dojoc/Modal",
-            "dojoc/XFilteringSelect",
-            "dojoc/XDateTextBox"
-            -->
         ]);
     </script>
     <#--<script>
