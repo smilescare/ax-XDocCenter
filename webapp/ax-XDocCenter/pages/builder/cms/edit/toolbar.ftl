@@ -1,19 +1,4 @@
 <style>
-	.btn-preview {
-	    background-color: #0D47A1;
-	    color: #fff;
-	    font-size: 11px;
-	    line-height: 21px;
-	    padding: 7px;
-	    text-transform: uppercase;
-	}
-	.btn-preview:hover {
-	    font-weight:bold;
-	    color:#fff;
-	}
-	.btn-preview i.material-icons{
-		font-size:18px;
-	}
 	.color-themePrimary{
 		color:#0078D7;
 	}
@@ -84,6 +69,16 @@
     <#assign formAction = "javascript:void(0);"/>
 </#if>
 
+<#include "component://ax-XDocCenter/webapp/ax-XDocCenter/pages/widgets.ftl" />
+<#if content.createdByUserLogin??>
+	<#assign authorUserLogin = delegator.findOne("UserLogin", Static["org.ofbiz.base.util.UtilMisc"].toMap("userLoginId", content.createdByUserLogin), false) >
+	<#assign authorName = Static["org.ofbiz.party.party.PartyHelper"].getPartyName(delegator, authorUserLogin.partyId, true) >
+	<#assign lastModifiedUserLogin = delegator.findOne("UserLogin", Static["org.ofbiz.base.util.UtilMisc"].toMap("userLoginId", content.lastModifiedByUserLogin), false) >
+	<#if lastModifiedUserLogin?? && lastModifiedUserLogin.partyId??>
+		<#assign lastModifierName = Static["org.ofbiz.party.party.PartyHelper"].getPartyName(delegator, lastModifiedUserLogin.partyId, true) >
+	</#if>
+</#if>
+
 <div>
 	<div class="text-right ax-btnGroup ax-btnGroupLight" style="position:relative;">
 		<div class="site-node text-left" style="position:absolute;left:15px;top:15px;font-size:15px;">
@@ -91,10 +86,15 @@
 				<i class="material-icons color-themePrimary">language</i>
 			</div>
 			<div class="site-info" style="font-weight:bold;">
-				# ${contentId?if_exists}
-				<div class="site-sub-title" style="color:#2b88D8;font-weight:normal;">
-					${alternateUrl?default('Alternate URL not configured')}
-				</div>
+				<#--# ${contentId?if_exists}-->
+				${alternateUrl?default('Alternate URL not configured')}
+				<#if content.createdByUserLogin??>
+					<div class="site-sub-title" style="color:#2b88D8;font-weight:normal;">
+						<i class="material-icons color-themePrimary md-middle" style="font-size:16px;">description</i>&nbsp;Created by <strong>${authorName?default('Not Available')}</strong>
+						&nbsp;|&nbsp;
+						<i class="material-icons color-themePrimary  md-middle" style="font-size:16px;">restore</i>&nbsp;last modified by <strong>${lastModifierName?default('* Name Not Available *')}</strong> <@formatPrettyDate content.lastModifiedDate />
+					</div>
+				</#if>
 			</div>
 		</div>
 		<#-- preview link -->
