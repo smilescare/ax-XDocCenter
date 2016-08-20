@@ -108,14 +108,32 @@
 	                </select>
 		    	</div>
 			</div>
+			<div class="form-group form-group-sm">
+				<label for="exampleInputEmail1">${uiLabelMap.CommonSequenceNum}</label>
+				<div>
+					<input data-dojo-type="dijit/form/TextBox" style="width:100%;" type="text" name="sequenceNum" value="${(currentPurpose.sequenceNum)?if_exists}" size="5" />
+				</div>
+			</div>
+			<div class="form-group form-group-sm">
+				<label for="exampleInputEmail1">${uiLabelMap.CommonPurpose}</label>
+				<div>
+					<select data-dojo-type="dijit/form/FilteringSelect" name="contentPurposeTypeId" style="width:100%;" >
+						<#if (currentPurpose?has_content)>
+							<#assign purpose = currentPurpose.getRelatedOne("ContentPurposeType")/>
+							<option value="${purpose.contentPurposeTypeId}">${purpose.description?default(purpose.contentPurposeTypeId)}</option>
+							<option value="${purpose.contentPurposeTypeId}">----</option>
+						<#else>
+							<option value="SECTION">Section</option>
+							<option value="SECTION">----</option>
+						</#if>
+						<#list purposeTypes as type>
+							<option value="${type.contentPurposeTypeId}">${type.description}</option>
+						</#list>
+					</select>
+				</div>
+			</div>
 			<#-- advanced settings -->
 			<div data-dojo-type="dijit/TitlePane" data-dojo-props="title: 'Advanced',open:false">
-				<div class="form-group form-group-sm">
-			    	<label for="exampleInputEmail1">${uiLabelMap.CommonSequenceNum}</label>
-			    	<div>
-		                <input data-dojo-type="dijit/form/TextBox" style="width:100%;" type="text" name="sequenceNum" value="${(currentPurpose.sequenceNum)?if_exists}" size="5" />
-			    	</div>
-				</div>
 				<div class="form-group form-group-sm">
 			    	<label for="exampleInputEmail1">${uiLabelMap.ContentTemplate}</label>
 			    	<div>
@@ -155,24 +173,6 @@
 			    	<label for="exampleInputEmail1">${uiLabelMap.ContentMapKey}</label>
 			    	<div>
 				    	<input data-dojo-type="dijit/form/TextBox" style="width:100%;" type="text" name="mapKey" value="${(assoc.mapKey)?if_exists}" size="40"/>
-			    	</div>
-				</div>
-				<div class="form-group form-group-sm">
-			    	<label for="exampleInputEmail1">${uiLabelMap.CommonPurpose}</label>
-			    	<div>
-		                <select data-dojo-type="dijit/form/FilteringSelect" name="contentPurposeTypeId" style="width:100%;" >
-		                    <#if (currentPurpose?has_content)>
-		                        <#assign purpose = currentPurpose.getRelatedOne("ContentPurposeType")/>
-		                        <option value="${purpose.contentPurposeTypeId}">${purpose.description?default(purpose.contentPurposeTypeId)}</option>
-		                        <option value="${purpose.contentPurposeTypeId}">----</option>
-		                    <#else>
-		                        <option value="SECTION">Section</option>
-		                        <option value="SECTION">----</option>
-		                    </#if>
-		                    <#list purposeTypes as type>
-		                        <option value="${type.contentPurposeTypeId}">${type.description}</option>
-		                    </#list>
-		                </select>
 			    	</div>
 				</div>
 				<div class="form-group form-group-sm">
@@ -258,8 +258,7 @@
 	<#else>
 	    <#assign formAction = "javascript:void(0);"/>
 	</#if>
-    <div data-dojo-type="dijit/form/Button" showLabel="true" class="ax-btnPrimary"	
-		label="Save">
+    <div data-dojo-type="dijit/form/Button" showLabel="true" class="ax-btnPrimary" label="Save">
 		<script type="dojo/method" event="onClick" args="item">
 			//get the value from code mirror and set it
 			document.getElementById("cmsdata").value = CKEDITOR.instances.ckContentEditorPane.getData();

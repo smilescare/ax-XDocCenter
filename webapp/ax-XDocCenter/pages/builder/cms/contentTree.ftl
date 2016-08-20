@@ -2,53 +2,41 @@
 	<#-- if not available in context, try looking up in paramers -->
 	<#assign webSiteId = parameters.webSiteId?if_exists >
 </#if>
-<#macro fillTreeSubsites assocList>
-      <#if (assocList?has_content)>
-      	<#if (assocList?size == 0)>
-            {
-	            id: 'NO-CHILDREN-AVAILABLE',
-	            label : 'No Articles added',
-	            contentId : 'NO-ARTICLE',
-	            contentAssocTypeId : 'NO-ARTICLE'
-            }
-      	<#else>
-      		<#list assocList as assoc>
-      			<#assign content = assoc.getRelatedOne("ToContent")/>
-	      		{
-	            id: '${assoc.contentIdTo}',
-	            iddummy: '${assoc.contentId}${assoc.contentIdTo}${assoc.contentAssocTypeId}',
-	            label : '${content.contentName!assoc.contentIdTo}',
-	            contentId : '${assoc.contentId}',
-	            fromDate : '${assoc.fromDate}',
-	            contentAssocTypeId : '${assoc.contentAssocTypeId}'
-	            <#assign assocChilds  = content.getRelated("FromContentAssoc", null, ["sequenceNum"], false)?if_exists/>
-	            <#if assocChilds?has_content>
-	                ,children: [
-	                    <@fillTreeSubsites assocList = assocChilds/>
-	                ]
-	            </#if>
-	            <#if assoc_has_next>
-	            },
-	            <#else>
-	            }
-	            </#if>
-            </#list>
-      	</#if>
-      </#if>
-</#macro>
-
 <#if (webSiteId?exists && webSiteId?has_content)>
 	<#-- make sure we've at least one children to get started -->
 	<#if ( (subsites?exists) && (subsites?size > 0) )>
-		<div data-dojo-type="dojo/data/ItemFileReadStore"
-			jsId="siteChildrenStore" 
-			data="{  identifier: 'iddummy', label: 'label', items : [<#if (subsites?has_content)><@fillTreeSubsites assocList = subsites/></#if>] }">
+		<div data-dojo-type="dojo/store/JsonRest" useCookies="true" autoExpand="false"
+			jsId="categoryModel" id="categoryModel"
+			target="<@ofbizUrl>browseCmsTree</@ofbizUrl>?siteId=${parameters.webSiteId}&contentId=" >
+			<script type="dojo/method" event="mayHaveChildren" args="object">
+				// see if it has a children property
+				return "children" in object;
+		    </script>
+			<script type="dojo/method" event="getChildren" args="object,onComplete,onError">
+				this.get(object.id).then(function(fullObject){
+					// copy to the original object so it has the children array as well.
+					object.children = fullObject.children;
+					// now that full object, we should have an array of children
+					onComplete(fullObject.children);
+				}, function(error){
+					// an error occurred, log it, and indicate no children
+					console.error(error);
+					onComplete([]);
+				});
+		    </script>
+			<script type="dojo/method" event="getRoot" args="onItem,onError">
+				this.get("root").then(onItem, onError);
+		    </script>
+			<script type="dojo/method" event="getLabel" args="object">
+				return object.name;
+		    </script>
+			<script type="dojo/method" event="put" args="object,options">
+				this.onChildrenChange(object, object.children);
+				this.onChange(object);
+				return dojo.store.JsonRest.prototype.put.apply(this, arguments);
+		    </script>
 		</div>
-		<div data-dojo-type="dijit/tree/ForestStoreModel" rootLabel="<#if webSite.siteName?exists>${webSite.siteName}<#else>Site Content [ ${webSiteId} ]</#if>"
-			jsId="forrestStoreSiteChildrenModel" preventCache="true" 
-			store="siteChildrenStore">
-		</div>
-		<div data-dojo-type="dijit/Tree" id="webSiteContentTree" model="forrestStoreSiteChildrenModel"  style="height:100%;width:100%"  showRoot="false">
+		<div data-dojo-type="dijit/Tree" id="webSiteContentTree" model="categoryModel" useCookies="true" persist="true" showRoot="false">
 			<script type="dojo/method" event="onClick" args="item">
 				var contentDetailPane = dijit.byId("cpManageContentDetails");
 				if(item.fromDate != undefined){
@@ -68,6 +56,7 @@
 				contentDetailPane.refresh();
 			</script>
 		</div>
+
 	<#else>
 		<div style="text-align:center;">
 			No article(s) created yet.

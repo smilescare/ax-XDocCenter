@@ -1,8 +1,17 @@
-import org.codehaus.jackson.map.ObjectMapper;
+/*
+ *
+ *  * *****************************************************************************************
+ *  *  Copyright (c) SimbaQuartz  2016. - All Rights Reserved                                 *
+ *  *  Unauthorized copying of this file, via any medium is strictly prohibited               *
+ *  *  Proprietary and confidential                                                           *
+ *  *  Written by Mandeep Sidhu <mandeep.sidhu@simbacart.com>,  August, 2016                    *
+ *  * ****************************************************************************************
+ *
+ */
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import groovy.io.FileType;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 
 delimeterToUse = "~";
@@ -15,7 +24,7 @@ if(dirPath == "root"){
 	targetDir = dirPath.replaceAll(delimeterToUse, "/");
 }
 
-rootDir = "ax-media";
+rootDir = "runtime/uploads/media";
 
 if(parameters.rootDir){
 	rootDir = parameters.rootDir;

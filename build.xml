@@ -31,6 +31,9 @@
         <fileset dir="../../framework/widget/build/lib" includes="*.jar"/>
         <fileset dir="../../framework/webapp/lib" includes="*.jar"/>
         <fileset dir="../../framework/webapp/build/lib" includes="*.jar"/>
+
+        <fileset dir="../../framework/base/lib/commons" includes="*.jar"/>
+        <fileset dir="../../framework/common/build/lib" includes="*.jar"/>
     </path>
 
     <!-- ================================================================= -->

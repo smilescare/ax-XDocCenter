@@ -108,7 +108,13 @@
         <response name="success" type="none"/>
         <response name="error" type="view" value="main"/>
     </request-map>
-    
+    <request-map uri="submitContactForm">
+        <security auth="false" https="false"/>
+        <event type="groovy" path="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/contactForm/ManageContactFormSubmission.groovy" invoke=""/>
+        <response name="success" type="view" value="transactionresponse"/>
+        <response name="error" type="view" value="transactionresponse"/>
+    </request-map>
+
     <!-- View Mappings -->
     <view-map name="login" type="screen" page="component://ax-XDocCenter/widget/XDocCenterScreens.xml#login"/>
     <view-map name="requirePasswordChange" type="screen" page="component://ax-XDocCenter/widget/XDocCenterScreens.xml#requirePasswordChange"/>

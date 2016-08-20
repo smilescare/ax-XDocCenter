@@ -1,8 +1,8 @@
 <div data-dojo-type="dijit/layout/BorderContainer" style="padding:0;">
-	<div data-dojo-type="dijit/layout/ContentPane" region="left" style="width:350px;border-right:1px solid #8DB2E3;background-color:#EFF6FC;" splitter="true">
+	<div data-dojo-type="dijit/layout/ContentPane" region="left" style="width:350px;border-right:1px solid #8DB2E3;border-top:1px solid #8DB2E3;border-bottom: 0 none;border-left: 0 none;background-color:#EFF6FC;" splitter="true">
 		<#include "contentEditForm.ftl"/>
 	</div>
-	<div data-dojo-type="dijit/layout/ContentPane" region="center" style="overflow:hidden;" 
+	<div data-dojo-type="dijit/layout/ContentPane" region="center" style="overflow:hidden;padding:0;border:0 none;"
 		id="cpCkEditorContainer" data-dojo-id="cpCkEditorContainer">
 		<script type="dojo/on" data-dojo-event="show">
 			setTimeout(function(){

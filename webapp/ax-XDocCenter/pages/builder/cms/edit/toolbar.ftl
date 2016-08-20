@@ -133,24 +133,22 @@
 							contentDetailPane.refresh();
 						</script>
 					</div>
-				</div>
-			</div>
-			<#-- Media Management -->
-			<div data-dojo-type="dijit/form/DropDownButton"
-				label="<i class='material-icons'>collections</i>&nbsp;Media" 
-				optionsTitle="delete" showLabel="true" class="ax-btnLight"> 
-				<span></span>
-				<div data-dojo-type="dijit/Menu">
-					<div data-dojo-type="dijit/MenuItem" iconClass="menu-icon-create" 
-						label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>add_circle_outline</i></div><div class='site-info'>Add New Media<div class='site-sub-title'>Upload new artifacts.</div></div></div>" showLabel="true">
+					<div data-dojo-type="dijit/MenuItem" 
+						label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>bookmark</i></div><div class='site-info'>New Topic<div class='site-sub-title'>Create a new topic. Use topics to categorize articles.</div></div></div>" showLabel="true">
 						<script type="dojo/method" event="onClick" args="item">
-							//TODO
-						</script>
-					</div>
-					<div data-dojo-type="dijit/MenuItem" iconClass="menu-icon-create" 
-						label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>perm_media</i></div><div class='site-info'>Browse Files<div class='site-sub-title'>Browse existing artifacts.</div></div></div>" showLabel="true">
-						<script type="dojo/method" event="onClick" args="item">
-							//TODO
+							var treeNode = dijit.byId("webSiteContentTree").selectedNode;
+							var item = treeNode.item;
+							var contentDetailPane = dijit.byId("cpManageContentDetails");
+	
+							var contentIdFrom = "${contentId}";
+							var contentRootId = "${contentIdFrom}";
+							
+							contentDetailPane.href = "<@ofbizUrl>editCmsContent</@ofbizUrl>?contentAssocTypeId=SUB_CONTENT" 
+														+ "&dataResourceTypeId=ELECTRONIC_TEXT" 
+														+ "&contentIdFrom=" + contentIdFrom 
+														+ "&contentRoot=" + contentRootId  
+														+ "&webSiteId=${webSiteId?if_exists}";
+							contentDetailPane.refresh();
 						</script>
 					</div>
 				</div>

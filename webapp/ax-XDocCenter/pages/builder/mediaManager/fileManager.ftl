@@ -49,10 +49,10 @@
 	<div data-dojo-type="dijit/layout/ContentPane" region="center" >
 		<div data-dojo-type="dijit/layout/BorderContainer" style="width:100%;height:100%;"  data-dojo-props="gutters:false">
 			<div data-dojo-type="dijit/layout/ContentPane" region="top">
-				<#include "directoryTreeToolbar.ftl"	parse="true" />
+				<#include "directoryTreeToolbar.ftl" />
 			</div>
 			<div data-dojo-type="dijit/layout/ContentPane" region="center">
-				<#include "directoryTree.ftl"	parse="true" />
+				<#include "directoryTree.ftl" />
 			</div>
 		</div>
 	</div>

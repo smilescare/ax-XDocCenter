@@ -1,8 +1,8 @@
-import org.codehaus.jackson.map.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper
 
 import groovy.io.FileType;
 
-
+println "############# inside directory listing";
 delimeterToUse = "~";
 
 dirPath = parameters.path;
@@ -17,7 +17,7 @@ if(targetDir == "/root"){
 	targetDir = "/"
 }
 
-rootDir = "ax-media";
+rootDir = "runtime/uploads/media";
 if(parameters.rootDir){
 	rootDir = parameters.rootDir;
 }

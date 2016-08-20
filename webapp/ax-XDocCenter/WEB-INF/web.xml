@@ -53,7 +53,8 @@
     <filter>
         <filter-name>ContentUrlFilter</filter-name>
         <display-name>ContentUrlFilter</display-name>
-        <filter-class>org.ofbiz.content.content.ContentUrlFilter</filter-class>
+        <!--<filter-class>org.ofbiz.content.content.ContentUrlFilter</filter-class>-->
+        <filter-class>com.simbaquartz.doccenter.filter.XDocContentUrlFilter</filter-class>
         <init-param>
             <param-name>defaultLocaleString</param-name>
             <param-value>en_US</param-value>
