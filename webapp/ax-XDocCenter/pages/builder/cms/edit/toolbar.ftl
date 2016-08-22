@@ -70,12 +70,14 @@
 </#if>
 
 <#include "component://ax-XDocCenter/webapp/ax-XDocCenter/pages/widgets.ftl" />
-<#if content.createdByUserLogin??>
-	<#assign authorUserLogin = delegator.findOne("UserLogin", Static["org.ofbiz.base.util.UtilMisc"].toMap("userLoginId", content.createdByUserLogin), false) >
-	<#assign authorName = Static["org.ofbiz.party.party.PartyHelper"].getPartyName(delegator, authorUserLogin.partyId, true) >
-	<#assign lastModifiedUserLogin = delegator.findOne("UserLogin", Static["org.ofbiz.base.util.UtilMisc"].toMap("userLoginId", content.lastModifiedByUserLogin), false) >
-	<#if lastModifiedUserLogin?? && lastModifiedUserLogin.partyId??>
-		<#assign lastModifierName = Static["org.ofbiz.party.party.PartyHelper"].getPartyName(delegator, lastModifiedUserLogin.partyId, true) >
+<#if content??>
+	<#if content.createdByUserLogin??>
+		<#assign authorUserLogin = delegator.findOne("UserLogin", Static["org.ofbiz.base.util.UtilMisc"].toMap("userLoginId", content.createdByUserLogin), false) >
+		<#assign authorName = Static["org.ofbiz.party.party.PartyHelper"].getPartyName(delegator, authorUserLogin.partyId, true) >
+		<#assign lastModifiedUserLogin = delegator.findOne("UserLogin", Static["org.ofbiz.base.util.UtilMisc"].toMap("userLoginId", content.lastModifiedByUserLogin), false) >
+		<#if lastModifiedUserLogin?? && lastModifiedUserLogin.partyId??>
+			<#assign lastModifierName = Static["org.ofbiz.party.party.PartyHelper"].getPartyName(delegator, lastModifiedUserLogin.partyId, true) >
+		</#if>
 	</#if>
 </#if>
 
@@ -88,7 +90,7 @@
 			<div class="site-info" style="font-weight:bold;">
 				<#--# ${contentId?if_exists}-->
 				${alternateUrl?default('Alternate URL not configured')}
-				<#if content.createdByUserLogin??>
+				<#if authorName??>
 					<div class="site-sub-title" style="color:#2b88D8;font-weight:normal;">
 						<i class="material-icons color-themePrimary md-middle" style="font-size:16px;">description</i>&nbsp;Created by <strong>${authorName?default('Not Available')}</strong>
 						&nbsp;|&nbsp;
