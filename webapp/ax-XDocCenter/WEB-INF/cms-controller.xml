@@ -21,7 +21,7 @@
     </request-map>
     <request-map uri="editCmsContent">
         <security https="true" auth="true"/>
-      <response name="success" type="view" value="editCmsContent" />
+      <response name="success" type="view" value="EditCmsContent" />
     </request-map>
     
     <!-- request to service mappings -->
@@ -87,8 +87,8 @@
     </request-map>
     <request-map uri="contentFileManager">
         <security https="true" auth="true"/>
-        <response name="success" type="view" value="contentFileManager"/>
-        <response name="error" type="view" value="contentFileManager"/>
+        <response name="success" type="view" value="ContentFileManager"/>
+        <response name="error" type="view" value="ContentFileManager"/>
     </request-map>
     <request-map uri="findWebsites">
         <security https="true" auth="true" />
@@ -97,8 +97,8 @@
     </request-map>
     <request-map uri="newWebSite">
         <security https="true" auth="true"/>
-        <response name="success" type="view" value="newWebSite"/>
-        <response name="error" type="view" value="newWebSite"/>
+        <response name="success" type="view" value="NewWebSite"/>
+        <response name="error" type="view" value="NewWebSite"/>
     </request-map>
     <request-map uri="createWebSite">
         <security https="true" auth="true"/>
@@ -111,11 +111,37 @@
         <event type="groovy" path="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/cms/BrowseCmsTree.groovy"/>
         <response name="success" type="none"/>
     </request-map>
+    <!-- Content Tab request mappings -->
+    <request-map uri="contentCollaborators">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="ContentCollaborators"/>
+        <response name="error" type="view" value="ContentCollaborators"/>
+    </request-map>
+    <request-map uri="contentHistory">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="ContentHistory"/>
+        <response name="error" type="view" value="ContentHistory"/>
+    </request-map>
+    <request-map uri="contentNotes">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="ContentNotes"/>
+        <response name="error" type="view" value="ContentNotes"/>
+    </request-map>
+    <request-map uri="contentSource">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="ContentSource"/>
+        <response name="error" type="view" value="ContentSource"/>
+    </request-map>
     
     <!-- View Mappings -->
     <view-map name="cmsTree" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#CmsTree"/>
-    <view-map name="editCmsContent" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#editCmsContent"/>
-    <view-map name="contentFileManager" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#contentFileManager"/>
-    <view-map name="newWebSite" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#newWebSite"/>
+    <view-map name="EditCmsContent" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#EditCmsContent"/>
+    <view-map name="ContentFileManager" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#ContentFileManager"/>
+    <view-map name="NewWebSite" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#NewWebSite"/>
     
+    <!-- Content Tab view mappings -->
+    <view-map name="ContentCollaborators" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#ContentCollaborators"/>
+    <view-map name="ContentHistory" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#ContentHistory"/>
+    <view-map name="ContentNotes" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#ContentNotes"/>
+    <view-map name="ContentSource" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#ContentSource"/>
 </site-conf>

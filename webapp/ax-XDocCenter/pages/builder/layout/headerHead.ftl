@@ -60,10 +60,24 @@
     </script>-->
     <script type="text/javascript" src="<@ofbizContentUrl>/app/xdoc/page-builder/js/app.js</@ofbizContentUrl>"></script>
     <script type="text/javascript" src="<@ofbizContentUrl>/app/xdoc/page-builder/js/PageController.js</@ofbizContentUrl>"></script>
+    
+    <#-- ckeditor script 
+    <script src="<@ofbizContentUrl>/lib/editors/ckeditor/4.5.10/full/ckeditor.js</@ofbizContentUrl>"></script>
+    -->
     <script src="//cdn.ckeditor.com/4.5.4/full/ckeditor.js"></script>
     
     <#-- office ui fabric -->
     <link href="//dev.office.com/Modules/DevOffice.Fabric/Fabric/css/fabric.min.css" type="text/css" rel="stylesheet" />
+    
+    <#-- ace editor 
+    <link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="monokai.css">
+	<link rel='stylesheet' href='style.css'>
+    -->
+    <script src="<@ofbizContentUrl>/lib/editors/ace-editor/src-min-noconflict/ace.js</@ofbizContentUrl>"></script>
+    <#--
+    <script src="<@ofbizContentUrl>/lib/editors/ace-editor/src-min-noconflict/ext-beautify.js</@ofbizContentUrl>"></script>
+    -->
     
 </head>
 <body class="claro djOfcUiFbr">

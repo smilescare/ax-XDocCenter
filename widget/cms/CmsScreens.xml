@@ -46,7 +46,7 @@
         </section>
     </screen>
     
-    <screen name="editCmsContent">
+    <screen name="EditCmsContent">
         <section>
             <actions>
                 <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
@@ -144,7 +144,7 @@
             </widgets>
         </section>
     </screen>
-    <screen name="contentFileManager">
+    <screen name="ContentFileManager">
         <section>
             <actions>
                 <set field="webSiteId" from-field="parameters.webSiteId"/>
@@ -158,13 +158,71 @@
             </widgets>
         </section>
     </screen>
-    <screen name="newWebSite">
+    <screen name="NewWebSite">
         <section>
             <actions>
             </actions>
             <widgets>
                 <platform-specific>
 		            <html><html-template location="component://ax-XDocCenter/webapp/ax-XDocCenter/pages/builder/cms/siteManager/newWebSite.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ContentCollaborators">
+        <section>
+            <actions>
+            	<set field="contentId" from-field="parameters.contentId" />
+                <entity-one entity-name="Content" value-field="content"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+		            <html><html-template location="component://ax-XDocCenter/webapp/ax-XDocCenter/pages/builder/cms/edit/collaborators/main.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ContentHistory">
+        <section>
+            <actions>
+            	<set field="contentId" from-field="parameters.contentId" />
+                <entity-one entity-name="Content" value-field="content"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+		            <html><html-template location="component://ax-XDocCenter/webapp/ax-XDocCenter/pages/builder/cms/edit/history/main.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ContentNotes">
+        <section>
+            <actions>
+            	<set field="contentId" from-field="parameters.contentId" />
+                <entity-one entity-name="Content" value-field="content"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+		            <html><html-template location="component://ax-XDocCenter/webapp/ax-XDocCenter/pages/builder/cms/edit/notes/main.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ContentSource">
+        <section>
+            <actions>
+            	<set field="contentId" from-field="parameters.contentId" />
+                <entity-one entity-name="Content" value-field="content"/>
+                <entity-one entity-name="DataResource" value-field="dataResource">
+                    <field-map field-name="dataResourceId" from-field="content.dataResourceId"/>
+                </entity-one>
+                <entity-one entity-name="ElectronicText" value-field="dataText">
+                    <field-map field-name="dataResourceId" from-field="content.dataResourceId"/>
+                </entity-one>
+            </actions>
+            <widgets>
+                <platform-specific>
+		            <html><html-template location="component://ax-XDocCenter/webapp/ax-XDocCenter/pages/builder/cms/edit/source/main.ftl"/></html>
                 </platform-specific>
             </widgets>
         </section>
