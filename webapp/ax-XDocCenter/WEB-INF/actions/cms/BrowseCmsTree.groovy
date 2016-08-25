@@ -20,8 +20,8 @@ String webSiteId = parameters.siteId;
 String contentId = parameters.contentId;
 
 if(UtilValidate.isNotEmpty(contentId)){
-  //remove the forward slashes tree builder adds to the params
-  contentId = contentId.replaceAll("/", "");
+	//remove the forward slashes tree builder adds to the params
+	contentId = contentId.replaceAll("/", "");
 }
 
 GenericValue webSite = delegator.findOne("WebSite", [webSiteId : webSiteId], false);
@@ -33,13 +33,13 @@ webSiteContent = EntityUtil.getFirst(webSiteContents);
 
 List subSites = [];
 if ( "root" == contentId ) {
-    //since no content id is provided pull all websites' immediate children
-    content = webSiteContent.getRelatedOne("Content");
-    contentRoot = content.contentId;
-    // get all sub content for the publish point
-    subSites = delegator.findList("ContentAssoc", EntityCondition.makeCondition([contentId : contentRoot]), null, ["sequenceNum"], null, false);
+	//since no content id is provided pull all websites' immediate children
+	content = webSiteContent.getRelatedOne("Content");
+	contentRoot = content.contentId;
+	// get all sub content for the publish point
+	subSites = delegator.findList("ContentAssoc", EntityCondition.makeCondition([contentId : contentRoot]), null, ["sequenceNum"], null, false);
 }else{
-  subSites = delegator.findList("ContentAssoc", EntityCondition.makeCondition([contentId : contentId]), null, ["sequenceNum"], null, false);
+	subSites = delegator.findList("ContentAssoc", EntityCondition.makeCondition([contentId : contentId]), null, ["sequenceNum"], null, false);
 }
 
 childNodes = [:];
@@ -57,7 +57,7 @@ if( UtilValidate.isNotEmpty(webSiteId) ){
 			subDirectory.put("id", subsite.contentIdTo);//+ is the delimiter to prepare complete path
 			String label = (UtilValidate.isEmpty(content.contentName)) ? subsite.contentId : content.contentName;
 			subDirectory.put("name", label);
-			subDirectory.put("contentId", subsite.contentId);
+			subDirectory.put("contentId", content.contentId);
 			String formattedFromDate = UtilDateTime.toDateString(new Date(subsite.fromDate.getTime()), "yyyy-MM-dd HH:mm:ss.SSS");
 			subDirectory.put("fromDate", formattedFromDate);
 			subDirectory.put("contentAssocTypeId", subsite.contentAssocTypeId);
@@ -69,12 +69,24 @@ if( UtilValidate.isNotEmpty(webSiteId) ){
 				subDirectory.put("children", "true");
 			}
 
+			assocChilds.each{ assocChild ->
+				if(assocChild.contentAssocTypeId == "ALTERNATIVE_URL"){
+					GenericValue toContent = assocChild.getRelatedOne("ToContent", false);
+
+					if(UtilValidate.isNotEmpty(toContent)){
+						alternateUrl = toContent.getRelatedOne("DataResource", false).objectInfo;
+						subDirectory.put("altUrl", alternateUrl);
+					}
+				}
+			}
+
 			subDirectories.add(subDirectory);
 		}
 	}
 }
 
 childNodes.put("id", contentId);
+childNodes.put("contentId", contentId);
 childNodes.put("name", webSite.siteName);
 childNodes.put("children", subDirectories);
 

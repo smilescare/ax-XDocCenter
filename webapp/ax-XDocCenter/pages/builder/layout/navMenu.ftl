@@ -126,5 +126,7 @@
 
 <div data-dojo-type="dijit/Dialog" class="xDialog" data-dojo-id="mediaManagerDialog" 
 	title="<i class='material-icons' style='font-size:36px;vertical-align:middle;'>perm_media</i>&nbsp;&nbsp;Media Manager" >
+	<#--
     <#include "component://ax-XDocCenter/webapp/ax-XDocCenter/pages/builder/mediaManager/fileManager.ftl" />
+    -->
 </div>

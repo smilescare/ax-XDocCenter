@@ -64,7 +64,7 @@
     <#-- ckeditor script 
     <script src="<@ofbizContentUrl>/lib/editors/ckeditor/4.5.10/full/ckeditor.js</@ofbizContentUrl>"></script>
     -->
-    <script src="//cdn.ckeditor.com/4.5.10/full/ckeditor.js"></script>
+    <script src="//cdn.ckeditor.com/4.5.4/full/ckeditor.js"></script>
     
     <#-- office ui fabric -->
     <link href="//dev.office.com/Modules/DevOffice.Fabric/Fabric/css/fabric.min.css" type="text/css" rel="stylesheet" />

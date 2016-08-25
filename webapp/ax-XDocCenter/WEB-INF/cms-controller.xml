@@ -132,6 +132,11 @@
         <response name="success" type="view" value="ContentSource"/>
         <response name="error" type="view" value="ContentSource"/>
     </request-map>
+    <request-map uri="findContentCollaborators">
+        <security https="true" auth="true"/>
+        <event type="groovy" path="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/cms/ContentCollaborators.groovy"/>
+        <response name="success" type="none"/>
+    </request-map>
     
     <!-- View Mappings -->
     <view-map name="cmsTree" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#CmsTree"/>

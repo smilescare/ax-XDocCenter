@@ -43,12 +43,17 @@
 			<textarea name="editor1" id="ckContentEditorPane" rows="10" cols="80" style="">
 				<#if (dataText?has_content)>
 					${StringUtil.wrapString(dataText.textData!)}
+				<#else>
+					<#include "placeHolders/newArticleTextLayout.ftl" />
 				</#if>
 			</textarea>
         </div>
+        <#if contentId?exists>
+        <div data-dojo-type="dojox/layout/ContentPane" title="<i class='material-icons color-themePrimary'>code</i>&nbsp;Source"
+        	href="<@ofbizUrl>contentSource?contentId=${contentId}</@ofbizUrl>">
+        </div>
         <div data-dojo-type="dojox/layout/ContentPane" title="<i class='material-icons color-themePrimary'>supervisor_account</i>&nbsp;Collaborators"
-        	href="<@ofbizUrl>contentCollaborators?contentId=${contentId}</@ofbizUrl>">
-            Collaborators goes here.
+        	href="<@ofbizUrl>contentCollaborators?contentId=${contentId}</@ofbizUrl>" class="padding-0">
         </div>
         <div data-dojo-type="dojox/layout/ContentPane" title="<i class='material-icons color-themePrimary'>restore</i>&nbsp;History"
         	href="<@ofbizUrl>contentHistory?contentId=${contentId}</@ofbizUrl>">
@@ -56,11 +61,10 @@
         </div>
         <div data-dojo-type="dojox/layout/ContentPane" title="<i class='material-icons color-themePrimary'>question_answer</i>&nbsp;Notes"
         	href="<@ofbizUrl>contentNotes?contentId=${contentId}</@ofbizUrl>">
-            Notes
         </div>
-        <div data-dojo-type="dojox/layout/ContentPane" title="<i class='material-icons color-themePrimary'>code</i>&nbsp;Source"
-        	href="<@ofbizUrl>contentSource?contentId=${contentId}</@ofbizUrl>">
-            Source
+        <div data-dojo-type="dojox/layout/ContentPane" title="<i class='material-icons color-themePrimary'>thumbs_up_down</i>&nbsp;Feedback"
+        	href="<@ofbizUrl>contentFeedback?contentId=${contentId}</@ofbizUrl>" >
         </div>
+        </#if>
     </div>
 </div>

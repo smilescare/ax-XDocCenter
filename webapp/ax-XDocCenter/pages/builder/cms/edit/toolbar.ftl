@@ -197,26 +197,32 @@
 					</script>
 				</div>
 				<div data-dojo-type="dijit/MenuItem" 
-					label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>restore</i></div><div class='site-info'>History<div class='site-sub-title'>Displays modification history of the page.</div></div></div>" showLabel="true">
+					label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>restore</i></div><div class='site-info'>History<div class='site-sub-title'>Displays modification history of the article.</div></div></div>" showLabel="true">
 					<script type="dojo/method" event="onClick" args="item">
 						//TODO
 					</script>
 				</div>
 				<div data-dojo-type="dijit/MenuItem" 
-					label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>question_answer</i></div><div class='site-info'>Notes<div class='site-sub-title'>Displays user notes for the page.</div></div></div>" showLabel="true">
+					label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>question_answer</i></div><div class='site-info'>Notes<div class='site-sub-title'>Displays user notes for the article.</div></div></div>" showLabel="true">
 					<script type="dojo/method" event="onClick" args="item">
 						//TODO
 					</script>
 				</div>
 				<div data-dojo-type="dijit/MenuItem" 
-					label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>supervisor_account</i></div><div class='site-info'>Collaborators<div class='site-sub-title'>Displays list of users who can manage this page.</div></div></div>" showLabel="true">
+					label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>supervisor_account</i></div><div class='site-info'>Collaborators<div class='site-sub-title'>Displays list of users who can manage this article.</div></div></div>" showLabel="true">
+					<script type="dojo/method" event="onClick" args="item">
+						//TODO
+					</script>
+				</div>
+				<div data-dojo-type="dijit/MenuItem" 
+					label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>thumbs_up_down</i></div><div class='site-info'>Feedback<div class='site-sub-title'>Displays list of feedbacks received for this article.</div></div></div>" showLabel="true">
 					<script type="dojo/method" event="onClick" args="item">
 						//TODO
 					</script>
 				</div>
 				<div data-dojo-type="dijit/MenuSeparator"></div>
 				<div data-dojo-type="dijit/MenuItem" 
-					label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>code</i></div><div class='site-info'>Source Code<div class='site-sub-title'>Displays list of users who can manage this page.</div></div></div>" showLabel="true">
+					label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>code</i></div><div class='site-info'>Source Code<div class='site-sub-title'>Displays list of users who can manage this article.</div></div></div>" showLabel="true">
 					<script type="dojo/method" event="onClick" args="item">
 						//TODO
 					</script>
