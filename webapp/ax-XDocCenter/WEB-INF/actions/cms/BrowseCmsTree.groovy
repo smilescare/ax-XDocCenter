@@ -57,7 +57,7 @@ if( UtilValidate.isNotEmpty(webSiteId) ){
 			subDirectory.put("id", subsite.contentIdTo);//+ is the delimiter to prepare complete path
 			String label = (UtilValidate.isEmpty(content.contentName)) ? subsite.contentId : content.contentName;
 			subDirectory.put("name", label);
-			subDirectory.put("contentId", content.contentId);
+			subDirectory.put("contentId", subsite.contentId);
 			subDirectory.put("childrenContentId", content.contentId);
 			String formattedFromDate = UtilDateTime.toDateString(new Date(subsite.fromDate.getTime()), "yyyy-MM-dd HH:mm:ss.SSS");
 			subDirectory.put("fromDate", formattedFromDate);
