@@ -18,7 +18,7 @@
 					
 					contentDetailPane.href = "<@ofbizUrl>editCmsContent</@ofbizUrl>?contentAssocTypeId=SUB_CONTENT" 
 												+ "&dataResourceTypeId=ELECTRONIC_TEXT" 
-												+ "&contentIdFrom=" + item.contentId 
+												+ "&contentIdFrom=" + item.childrenContentId
 												+ "&contentRoot=" + contentRootId  
 												+ "&webSiteId=${webSiteId?if_exists}";
 					contentDetailPane.refresh();

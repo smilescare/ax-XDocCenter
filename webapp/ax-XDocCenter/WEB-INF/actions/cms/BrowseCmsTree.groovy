@@ -58,6 +58,7 @@ if( UtilValidate.isNotEmpty(webSiteId) ){
 			String label = (UtilValidate.isEmpty(content.contentName)) ? subsite.contentId : content.contentName;
 			subDirectory.put("name", label);
 			subDirectory.put("contentId", content.contentId);
+			subDirectory.put("childrenContentId", content.contentId);
 			String formattedFromDate = UtilDateTime.toDateString(new Date(subsite.fromDate.getTime()), "yyyy-MM-dd HH:mm:ss.SSS");
 			subDirectory.put("fromDate", formattedFromDate);
 			subDirectory.put("contentAssocTypeId", subsite.contentAssocTypeId);
