@@ -1,3 +1,31 @@
+<style>
+	.xdoc-c-type{
+		background-color:#00B294;
+	    color:#fff;
+		position: relative;
+	    display: inline-block;
+	    overflow: hidden;
+	    text-align: center;
+        width: 18px;
+    	height: 18px;
+    	line-height:18px;
+    	vertical-align:middle;
+    	border-radius: 50%;
+	    max-width: 18px;
+	    font-size:9px;
+	    font-weight:bold;
+	    margin-right:5px;
+	}
+	.xdoc-c-type-section{
+		background-color:#0078d7;
+	}
+	.xdoc-c-type-topic{
+		background-color:#5C2D91;
+	}
+	.xdoc-c-type-article{
+		background-color:#107C10;
+	}
+</style>
 <#if !(webSiteId?exists)>
 	<#-- if not available in context, try looking up in paramers -->
 	<#assign webSiteId = parameters.webSiteId?if_exists >
@@ -18,7 +46,7 @@
 					
 					contentDetailPane.href = "<@ofbizUrl>editCmsContent</@ofbizUrl>?contentAssocTypeId=SUB_CONTENT" 
 												+ "&dataResourceTypeId=ELECTRONIC_TEXT" 
-												+ "&contentIdFrom=" + item.childrenContentId
+												+ "&contentIdFrom=" + item.childrenContentId 
 												+ "&contentRoot=" + contentRootId  
 												+ "&webSiteId=${webSiteId?if_exists}";
 					contentDetailPane.refresh();
@@ -45,7 +73,7 @@
 		</div>
 	
 		<div data-dojo-type="dojo/store/JsonRest" useCookies="true" autoExpand="false"
-			jsId="categoryModel" id="categoryModel"
+			jsId="categoryModel" id="categoryModel"  labelAttr="label"
 			target="<@ofbizUrl>browseCmsTree</@ofbizUrl>?siteId=${parameters.webSiteId}&contentId=" >
 			<script type="dojo/method" event="mayHaveChildren" args="object">
 				// see if it has a children property
@@ -65,9 +93,10 @@
 		    </script>
 			<script type="dojo/method" event="getRoot" args="onItem,onError">
 				this.get("root").then(onItem, onError);
+				dijit._TreeNode.prototype._setLabelAttr = {node: "labelNode", type: "innerHTML"};
 		    </script>
 			<script type="dojo/method" event="getLabel" args="object">
-				return object.name;
+				return object.label;
 		    </script>
 			<script type="dojo/method" event="put" args="object,options">
 				this.onChildrenChange(object, object.children);
@@ -112,9 +141,9 @@
 		
 		            // IMPLEMENT CUSTOM MENU BEHAVIOR HERE
 		        });
+		        
 		    </script>
 		</div>
-
 	<#else>
 		<div style="text-align:center;">
 			No article(s) created yet.

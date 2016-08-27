@@ -93,7 +93,7 @@
 			<div class="form-group form-group-sm">
 		    	<label for="exampleInputEmail1">${uiLabelMap.ContentDecorator}</label>
 		    	<div>
-	                <select data-dojo-type="dijit/form/FilteringSelect" name="decoratorContentId" style="width:100%;" >
+	                <select data-dojo-type="dijit/form/FilteringSelect" name="decoratorContentId" style="width:100%;" value="${(contentFrom.decoratorContentId)!}">
 	                    <#if (content?has_content)>
 	                        <#if (content.decoratorContentId?has_content)>
 	                            <#assign thisDec = content.getRelatedOne("DecoratorContent")/>
@@ -111,7 +111,7 @@
 			<div class="form-group form-group-sm">
 				<label for="exampleInputEmail1">${uiLabelMap.CommonSequenceNum}</label>
 				<div>
-					<input data-dojo-type="dijit/form/TextBox" style="width:100%;" type="text" name="sequenceNum" value="${(currentPurpose.sequenceNum)?if_exists}" size="5" />
+					<input data-dojo-type="dijit/form/TextBox" style="width:100%;" type="text" name="sequenceNum" value="${(currentPurpose.sequenceNum)!}" size="5" />
 				</div>
 			</div>
 			<div class="form-group form-group-sm">
@@ -270,6 +270,7 @@
 				function(response) {
 					//refresh the pane to reflect new changes
 					require(["dijit/registry", "dojo/domReady!"], function(registry){
+						App.destroyRecursiveChildren("cpContentTree");//this is done to avoid widget id duplicacy issues
 					    registry.byId("cpContentTree").refresh();
 					});
 				}, 

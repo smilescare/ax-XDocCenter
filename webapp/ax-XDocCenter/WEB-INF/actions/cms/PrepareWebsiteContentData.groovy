@@ -1,3 +1,4 @@
+import org.ofbiz.entity.GenericValue
 import org.ofbiz.entity.condition.*
 import org.ofbiz.entity.util.*
 import org.ofbiz.base.util.UtilValidate;
@@ -8,15 +9,14 @@ webSiteContents = EntityUtil.filterByDate(webSiteContents);
 webSiteContent = EntityUtil.getFirst(webSiteContents);
 
 if (webSiteContent) {
-    webSiteContentContent = webSiteContent.getRelatedOne("Content");
+    webSiteContentContent = webSiteContent.getRelatedOne("Content", false);
     contentRoot = webSiteContentContent.contentId;
     context.contentRoot = contentRoot;
 
-    // get all sub content for the publish point
-    alternateUrlContent = EntityUtil.getFirst(
-    				delegator.findList("ContentAssoc", EntityCondition.makeCondition([contentId : contentId, contentAssocTypeId : "ALTERNATIVE_URL"]), null, null, null, false)
-				);
-    
+    // get all sub content for the content
+	EntityCondition altUrlForContentCondition = EntityCondition.makeCondition([contentId : contentId, contentAssocTypeId : "ALTERNATIVE_URL"]);
+    GenericValue alternateUrlContent = EntityQuery.use(delegator).from("ContentAssoc").where(altUrlForContentCondition).queryFirst();
+
     //find seo url
     if( UtilValidate.isNotEmpty(alternateUrlContent) ){
 		toContent = alternateUrlContent.getRelatedOne("ToContent", false);
@@ -27,15 +27,7 @@ if (webSiteContent) {
 		}
     }
 }
+
 Boolean isPublishPoint = false;
-/*
-if(content.contentTypeId == 'WEB_SITE_PUB_PT'){
-	isPublishPoint = true;
-}else{
-}
-*/
-
-println "##############33 content : " + content ;
-
 
 context.isPublishPoint = isPublishPoint;

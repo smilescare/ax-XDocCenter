@@ -49,7 +49,7 @@
 			</textarea>
         </div>
         <#if contentId?exists>
-        <div data-dojo-type="dojox/layout/ContentPane" title="<i class='material-icons color-themePrimary'>code</i>&nbsp;Source"
+        <div data-dojo-type="dojox/layout/ContentPane" title="<i class='material-icons color-themePrimary'>code</i>&nbsp;Source" class="padding-0"
         	href="<@ofbizUrl>contentSource?contentId=${contentId}</@ofbizUrl>">
         </div>
         <div data-dojo-type="dojox/layout/ContentPane" title="<i class='material-icons color-themePrimary'>supervisor_account</i>&nbsp;Collaborators"

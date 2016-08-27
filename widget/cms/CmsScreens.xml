@@ -61,6 +61,9 @@
                 <set field="mimeTypeId" value="text/html"/>
                 <entity-one entity-name="WebSite" value-field="webSite"/>
                 <entity-one entity-name="Content" value-field="content"/>
+                <entity-one entity-name="Content" value-field="contentFrom" auto-field-map="false">
+                    <field-map field-name="contentId" from-field="contentIdFrom" />
+                </entity-one>
                 <entity-one entity-name="DataResource" value-field="dataResource">
                     <field-map field-name="dataResourceId" from-field="content.dataResourceId"/>
                 </entity-one>

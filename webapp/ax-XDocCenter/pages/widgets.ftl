@@ -39,7 +39,7 @@
 <#-- to build sub topics content links for current content-->
 <#macro buildSubtopics subContents positionClass>
     <#if (subContents?exists) && (subContents?size>0) >
-    <div style="border-bottom:1px dashed #dbdbdb;padding-bottom:5px;"><i class="material-icons">expand_more</i>&nbsp;SUB TOPICS</div>
+    <#--<div style="border-bottom:1px dashed #dbdbdb;padding-bottom:5px;"><i class="material-icons">expand_more</i>&nbsp;SUB TOPICS</div>-->
     <ul class="nav nav-list nav-subtopics">
         <#list subContents as subContent>
             <#assign contentChild = subContent.getRelatedOne("ToContent") />
@@ -88,6 +88,51 @@
             </#if>
         </#list>
     </ul>
+    <#else>
+    <#-- no subtopics to show -->
+    </#if>
+</#macro>
+
+<#-- to build sub topics content links for current content-->
+<#macro buildNeighbortopics neighborContents positionClass subContents='' activeContentId=''>
+    <#if (neighborContents?exists) && (neighborContents?size>0) >
+    <nav id="docs-navbar" class="docs-nav visible-md visible-lg affix-top">
+        <ul class="nav" id="main-nav">
+            <li>
+                <a class="docs-home" href="/xdoc">Overview</a>
+            </li>
+            <#list neighborContents as neighborContent>
+                <#assign neighborContentDetails = neighborContent.getRelatedOne("ToContent") />
+                <#if (neighborContentDetails.contentName?exists)>
+                    <#assign isActive = false />
+                    <#if (activeContentId == neighborContentDetails.contentId)>
+                        <#assign isActive = true />
+                    </#if>
+                    <#assign contentAltUrl = Static["com.simbaquartz.doccenter.content.XContentHelper"].getContentAltUrl(delegator, neighborContentDetails.contentId) />
+                    <li <#if isActive>class="active"</#if> >
+                        <a href="/xdoc${contentAltUrl?if_exists}">${neighborContentDetails.contentName?if_exists}</a>
+
+                        <#-- build nested subcontents list -->
+                        <#if (subContents?has_content) && (subContents?size>0) && (activeContentId == neighborContentDetails.contentId) >
+                            <ul class="collapse in">
+                                <#list subContents as subContent>
+                                    <#assign subContentDetails = subContent.getRelatedOne("ToContent") />
+                                    <#assign isSubContentActive = false />
+                                    <#if (activeContentId == subContentDetails.contentId)>
+                                        <#assign isSubContentActive = true />
+                                    </#if>
+                                    <#assign subContentAltUrl = Static["com.simbaquartz.doccenter.content.XContentHelper"].getContentAltUrl(delegator, subContentDetails.contentId) />
+                                    <li <#if isSubContentActive>class="active"</#if> >
+                                        <a href="/xdoc${subContentAltUrl?if_exists}">${subContentDetails.contentName?if_exists}</a>
+                                    </li>
+                                </#list>
+                            </ul>
+                        </#if>
+                    </li>
+                </#if>
+            </#list>
+        </ul>
+    </nav>
     <#else>
     <#-- no subtopics to show -->
     </#if>

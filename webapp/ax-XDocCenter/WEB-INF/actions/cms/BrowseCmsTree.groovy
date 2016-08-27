@@ -49,14 +49,35 @@ if( UtilValidate.isNotEmpty(webSiteId) ){
 
 	subSites.each() { subsite ->
 		GenericValue content = subsite.getRelatedOne("ToContent");
+		List<GenericValue> contentPurposes = content.getRelated("ContentPurpose");
 
 		if(subsite.contentAssocTypeId != "ALTERNATIVE_URL"){
 			subDirectory = [:];
 			subDirectoryId = "";
 
 			subDirectory.put("id", subsite.contentIdTo);//+ is the delimiter to prepare complete path
-			String label = (UtilValidate.isEmpty(content.contentName)) ? subsite.contentId : content.contentName;
-			subDirectory.put("name", label);
+			String name = (UtilValidate.isEmpty(content.contentName)) ? subsite.contentId : content.contentName;
+			String label = "";
+
+			contentPurposes.each{ contentPurpose ->
+				if( contentPurpose.contentPurposeTypeId =="ARTICLE" ){
+					label = label + "<span class='xdoc-c-type xdoc-c-type-article' title='Article'>A</span>";
+				} else if( contentPurpose.contentPurposeTypeId =="SECTION" ){
+					label = label + "<span class='xdoc-c-type xdoc-c-type-section' title='Section'>S</span>";
+				} else if( contentPurpose.contentPurposeTypeId =="TOPIC" ){
+					label = label + "<span class='xdoc-c-type xdoc-c-type-topic' title='Topic'>T</span>";
+				}
+			}
+
+			//make sure label isn't left empty and has a default Value
+			if(UtilValidate.isEmpty(label)){
+				label = "<span class='xdoc-c-type'>..</span>" + name;
+			}else{
+				label = label + name;
+			}
+
+			subDirectory.put("label", label);
+			subDirectory.put("name", name);
 			subDirectory.put("contentId", subsite.contentId);
 			subDirectory.put("childrenContentId", content.contentId);
 			String formattedFromDate = UtilDateTime.toDateString(new Date(subsite.fromDate.getTime()), "yyyy-MM-dd HH:mm:ss.SSS");
