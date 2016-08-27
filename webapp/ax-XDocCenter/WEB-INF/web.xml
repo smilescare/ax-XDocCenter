@@ -31,7 +31,7 @@
     -->
     <context-param>
         <param-name>compressHTML</param-name>
-        <param-value>true</param-value><!-- set to false as this app displays lot of code snippets and affects formatting -->
+        <param-value>false</param-value><!-- set to false as this app displays lot of code snippets and affects formatting -->
         <description>Remove unnecessary whitespace from HTML output.</description>
     </context-param>
 
