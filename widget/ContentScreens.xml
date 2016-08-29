@@ -24,7 +24,7 @@ under the License.
 
     <!-- =========== Top-Level and Stand-Alone Screens =========== -->
 
-    <screen name="defaultcontent">
+    <screen name="RenderContent">
         <section>
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>

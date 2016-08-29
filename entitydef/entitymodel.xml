@@ -11,5 +11,6 @@
 	
 	<extend-entity entity-name="WebSite">
         <field name="siteDescription" type="long-varchar"></field>
+        <field name="isPublic" type="indicator"><description>If this is set to Y then anyone can download it, otherwise the view is restricted. Content.isPublic Overrides this</description></field>
     </extend-entity>
 </entitymodel>

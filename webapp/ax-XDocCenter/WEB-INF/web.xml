@@ -59,7 +59,14 @@
             <param-name>defaultLocaleString</param-name>
             <param-value>en_US</param-value>
         </init-param>
-        <init-param><param-name>viewRequest</param-name><param-value>defaultcontent</param-value></init-param>
+        <init-param>
+            <param-name>viewRequest</param-name>
+            <param-value>renderContent</param-value>
+        </init-param>
+        <init-param>
+            <param-name>viewRequestSecure</param-name>
+            <param-value>renderContentSecure</param-value>
+        </init-param>
     </filter>
     <filter-mapping>
         <filter-name>ContentUrlFilter</filter-name>

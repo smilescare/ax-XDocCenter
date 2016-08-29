@@ -94,9 +94,13 @@
 		<security https="true" auth="true" />
 		<response name="success" type="view" value="builder" />
 	</request-map>
-    <request-map uri="defaultcontent">
+    <request-map uri="renderContent">
         <security https="true" auth="false"/>
-        <response name="success" type="view" value="defaultcontent"/>
+        <response name="success" type="view" value="RenderContent"/>
+    </request-map>
+    <request-map uri="renderContentSecure">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="RenderContent"/>
     </request-map>
     <request-map uri="viewcontent">
         <security https="true" auth="false"/>
@@ -127,6 +131,6 @@
     <view-map name="transactionresponse" type="screen" page="component://ax-XDocCenter/widget/PageBuilderScreens.xml#transactionresponse" />
    	<view-map name="transactionresponseJson" type="screen" page="component://ax-XDocCenter/widget/PageBuilderScreens.xml#transactionresponseJson" />
     	
-    <view-map name="defaultcontent" type="screen" page="component://ax-XDocCenter/widget/ContentScreens.xml#defaultcontent"/>
+    <view-map name="RenderContent" type="screen" page="component://ax-XDocCenter/widget/ContentScreens.xml#RenderContent"/>
     <view-map name="viewcontent" type="screen" page="component://ax-XDocCenter/widget/ContentScreens.xml#viewcontent"/>
 </site-conf>

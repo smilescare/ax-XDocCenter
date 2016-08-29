@@ -59,6 +59,7 @@ public class XDocContentUrlFilter extends ContextFilter {
         //Set request attribute and session
         UrlServletHelper.setRequestAttributes(request, delegator, servletContext);
         String urlContentId = null;
+        boolean isContentPublic = false;
         String pathInfo = UtilHttp.getFullRequestUrl(httpRequest);
         if (UtilValidate.isNotEmpty(pathInfo)) {
             String alternativeUrl = pathInfo.substring(pathInfo.lastIndexOf("/"));
@@ -74,6 +75,34 @@ public class XDocContentUrlFilter extends ContextFilter {
                                 .filterByDate().queryFirst();
                         if (content != null) {
                             urlContentId = content.getString("contentId");
+                            GenericValue urlContent = EntityQuery.use(delegator).from("Content")
+                                    .where("contentId", urlContentId).queryOne();
+
+                            String isPublicFlag = null;
+                            String dataResourceId = urlContent.getString("dataResourceId");
+                            if(UtilValidate.isNotEmpty(dataResourceId)){
+                                GenericValue contentDataResource = EntityQuery.use(delegator).from("DataResource")
+                                        .where("dataResourceId", dataResourceId).queryOne();
+                                isPublicFlag = contentDataResource.getString("isPublic");
+                            }
+                            if(UtilValidate.isNotEmpty(isPublicFlag)){
+                                if(isPublicFlag.equalsIgnoreCase("Y")){
+                                    isContentPublic = true;
+                                }
+                            }else{
+                                //check for public access at website level if content doesn't have it set
+                                String webSiteId = getWebSiteIdUsingHost(request);
+                                if(UtilValidate.isNotEmpty(webSiteId)){
+                                    GenericValue webSite = EntityQuery.use(delegator).from("WebSite").where("webSiteId", webSiteId).cache(false).queryOne();
+                                    if(UtilValidate.isNotEmpty(webSite)){
+                                        String isPublicWebSite = webSite.getString("isPublic");
+                                        if(UtilValidate.isNotEmpty(isPublicWebSite) && (isPublicWebSite.equalsIgnoreCase("Y"))){
+                                            isContentPublic = true;
+                                        }
+                                    }
+
+                                }
+                            }
                         }
                     }
                 } catch (Exception e) {
@@ -81,9 +110,15 @@ public class XDocContentUrlFilter extends ContextFilter {
                 }
             }
             if (UtilValidate.isNotEmpty(urlContentId)) {
+
                 StringBuilder urlBuilder = new StringBuilder();
                 urlBuilder.append("/" + CONTROL_MOUNT_POINT);
-                urlBuilder.append("/" + config.getInitParameter("viewRequest") + "?contentId=" + urlContentId);
+                if(isContentPublic){
+                    urlBuilder.append("/" + config.getInitParameter("viewRequest") + "?contentId=" + urlContentId);
+                }else{
+                    //requires sign in, render the content over secure mapping
+                    urlBuilder.append("/" + config.getInitParameter("viewRequestSecure") + "?contentId=" + urlContentId);
+                }
 
                 ContextFilter.setAttributesFromRequestBody(request);
                 //Set view query parameters
