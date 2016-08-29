@@ -93,7 +93,7 @@
 			<div class="form-group form-group-sm">
 		    	<label for="exampleInputEmail1">${uiLabelMap.ContentDecorator}</label>
 		    	<div>
-	                <select data-dojo-type="dijit/form/FilteringSelect" name="decoratorContentId" style="width:100%;" value="${(contentFrom.decoratorContentId)!}">
+	                <select data-dojo-type="dijit/form/FilteringSelect" name="decoratorContentId" style="width:100%;" value="${(content.decoratorContentId)!(contentFrom.decoratorContentId)}">
 	                    <#if (content?has_content)>
 	                        <#if (content.decoratorContentId?has_content)>
 	                            <#assign thisDec = content.getRelatedOne("DecoratorContent")/>
