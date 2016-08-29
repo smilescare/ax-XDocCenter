@@ -21,6 +21,8 @@
 			    	<label for="cbIncludeSiteBlog">Blog</label>
 			    	<input id="cbIncludeSiteForum" data-dojo-type="dijit/form/CheckBox" name="includeForum" value="Y" checked />
 			    	<label for="cbIncludeSiteForum">Forum</label>
+			    	<input id="cbIsPublic" data-dojo-type="dijit/form/CheckBox" name="isPublic" value="Y" checked />
+			    	<label for="cbIsPublic">Is Public?</label>
 		    	</div>
 			</div>
 			<#-- advanced settings -->

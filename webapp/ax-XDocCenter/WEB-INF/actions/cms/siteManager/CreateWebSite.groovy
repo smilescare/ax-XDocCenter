@@ -11,11 +11,19 @@ String httpsHost = parameters.httpsHost;
 String httpsPort = parameters.httpsPort;
 String standardContentPrefix = parameters.standardContentPrefix;
 String secureContentPrefix = parameters.secureContentPrefix;
+String isPublic = parameters.isPublic;
+
+if ( UtilValidate.isNotEmpty(isPublic) && (isPublic == "Y") ){
+	isPublic = "Y";
+}else{
+	isPublic = "N";
+}
 
 GenericValue sysUserLogin = delegator.findOne("UserLogin", [userLoginId : "system"], true);
 
 Map createXWebSiteCtx = [
 	siteName : siteName,
+	isPublic : isPublic,
 	siteDescription : siteDescription,
 	httpHost : httpHost,
 	httpPort : httpPort,
