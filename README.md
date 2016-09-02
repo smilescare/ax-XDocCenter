@@ -2,7 +2,7 @@
 
 Repository holding the Doc Center module that can be used for managing content for multiple websites.
 
-NOTE: There are some modifications required OOTB for allowing html5 tags such as <section>/<pre>/<code>. All files related to the changes are available on the downloads link of this repository.
+**NOTE: There are some modifications required OOTB for allowing html5 tags such as <section>/<pre>/<code>. All files related to the changes are available on the downloads link of this repository.**
 
 ### What is this repository for? ###
 
