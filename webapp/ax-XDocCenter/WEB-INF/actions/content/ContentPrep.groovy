@@ -15,7 +15,11 @@ import org.ofbiz.entity.util.EntityQuery
 String contentId = parameters.cid ?: parameters.contentId;
 context.contentId = contentId;
 context.activeContentId = contentId;
-println("########## active content id : " + contentId);
+
+GenericValue activeContent = EntityQuery.use(delegator).from("Content").where(["contentId" : contentId]).queryOne();
+context.activeContent = activeContent;
+List<GenericValue> activeContentAttributes = activeContent.getRelated("ContentAttribute", null, null, false);
+context.activeContentAttributes = activeContentAttributes;
 
 List<GenericValue> subContents = EntityQuery.use(delegator).
         from("ContentAssoc").
