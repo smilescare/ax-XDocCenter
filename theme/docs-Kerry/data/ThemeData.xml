@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ /*
+  ~  * *****************************************************************************************
+  ~  *  Copyright (c) SimbaQuartz  2016. - All Rights Reserved                                 *
+  ~  *  Unauthorized copying of this file, via any medium is strictly prohibited               *
+  ~  *  Proprietary and confidential                                                           *
+  ~  *  Written by Mandeep Sidhu <mandeep.sidhu@simbacart.com>,  September, 2016                    *
+  ~  * ****************************************************************************************
+  ~  */
+  -->
+
+<entity-engine-xml>
+    <!--Docs page decorator-->
+    <DataResource dataResourceId="XTRCK_DOCS_HDEC" dataResourceTypeId="URL_RESOURCE" dataTemplateTypeId="FTL"
+                  objectInfo="component://ax-XDocCenter/theme/docs-Kerry/homePage/homePageDecorator.ftl"/>
+    <Content contentId="XTRCK_DOCS_HDEC" contentTypeId="DECORATOR" contentName="XTrack Site Docs Home Page Decorator" dataResourceId="XTRCK_DOCS_HDEC"/>
+    <ContentPurpose contentId="XTRCK_DOCS_HDEC" contentPurposeTypeId="SECTION"/>
+
+    <DataResource dataResourceId="XTRCK_DOCS_ADEC" dataResourceTypeId="URL_RESOURCE" dataTemplateTypeId="FTL"
+                  objectInfo="component://ax-XDocCenter/theme/docs-Kerry/articlePage/articlePageDecorator.ftl"/>
+    <Content contentId="XTRCK_DOCS_ADEC" contentTypeId="DECORATOR" contentName="XTrack Site Docs Article Page Decorator" dataResourceId="XTRCK_DOCS_ADEC"/>
+    <ContentPurpose contentId="XTRCK_DOCS_ADEC" contentPurposeTypeId="SECTION"/>
+
+    <DataResource dataResourceId="XTRCK_DOCS_GSDEC" dataResourceTypeId="URL_RESOURCE" dataTemplateTypeId="FTL"
+                  objectInfo="component://ax-XDocCenter/theme/docs-Kerry/articlePage/gettingStartedDecorator.ftl"/>
+    <Content contentId="XTRCK_DOCS_GSDEC" contentTypeId="DECORATOR" contentName="XTrack Site Docs Getting Started Page Decorator" dataResourceId="XTRCK_DOCS_GSDEC"/>
+    <ContentPurpose contentId="XTRCK_DOCS_GSDEC" contentPurposeTypeId="SECTION"/>
+
+
+</entity-engine-xml>

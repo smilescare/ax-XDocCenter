@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ /*
+  ~  * *****************************************************************************************
+  ~  *  Copyright (c) SimbaQuartz  2016. - All Rights Reserved                                 *
+  ~  *  Unauthorized copying of this file, via any medium is strictly prohibited               *
+  ~  *  Proprietary and confidential                                                           *
+  ~  *  Written by Mandeep Sidhu <mandeep.sidhu@simbacart.com>,  September, 2016                    *
+  ~  * ****************************************************************************************
+  ~  */
+  -->
+
+<entity-engine-xml>
+    <WebSite webSiteId="XTrackSite" siteName="XTrack Web Site" httpHost="xtrack.com" httpPort="18080"
+             httpsHost="xtrack.com" httpsPort="18443"/>
+    <Content contentId="XTRACK_PPOINT" contentTypeId="WEB_SITE_PUB_PT" contentName="XTrack Site Publish Point" description=""/>
+    <WebSiteContent webSiteId="XTrackSite" contentId="XTRACK_PPOINT" webSiteContentTypeId="PUBLISH_POINT" fromDate="2016-06-01 00:00:00"/>
+
+    <!-- Main Decorator -->
+    <DataResource dataResourceId="XTRCK_HOME_DEC" dataResourceTypeId="URL_RESOURCE" dataTemplateTypeId="FTL"
+                  objectInfo="component://ax-XDocCenter/theme/docs-xpress/homePage/homePageDecorator.ftl"/>
+    <Content contentId="XTRCK_HOME_DEC" contentTypeId="DECORATOR" contentName="XTrack Site Home Page Decorator" dataResourceId="XTRCK_HOME_DEC"/>
+    <ContentPurpose contentId="XTRCK_HOME_DEC" contentPurposeTypeId="SECTION"/>
+
+    <!-- demo home page -->
+    <DataResource dataResourceId="XTRCK_PG_HOME" dataResourceTypeId="ELECTRONIC_TEXT" dataTemplateTypeId="FTL"/>
+    <ElectronicText dataResourceId="XTRCK_PG_HOME">
+        <textData><![CDATA[
+            <div>
+              <h1>Welcome to the XTrackSite Home page.</h1>
+              <center><table width="350"><tr><td>
+              <p>
+              This is a site to demonstrate the CMS capabilities of OFBiz. Its basic function is the editing of website text
+              inside a browser. If you want to edit the text you are reading now, logon to the backend system, select the content component
+              click on 'cmssite' in the website list and then click on the 'cms' button. There you see on the left hand side the tree of this website.
+              If you click on 'homepage' then you can edit the content of this page at the box in the r
+              </p>
+              <p>
+              This is only the basic function of the CMS which is part of the content component. The content component is actually more than a
+              CMS it can also handle documents pretty well. An example is the apache OFBiz document you can see when you click on the last option in the list below.
+              <p>
+              </td></tr></table></center>
+              <ul>
+                <li><a href="/cmssite/cms/XTRCK_DEMO_PAGE1">Demo Page 1 - Hard Coded Link</a></div>
+                <li><a href="/cmssite/cms/XTRACK_PPOINT/demoPage1">Demo Page 1 - Hard Coded Link using the Sub-Content Pattern</a></li>
+                <li><a href="${thisContent.content.XTRCK_DEMO_PAGE1.link}">Demo Page 1 - Dynamic Link</a></li>
+                <li><a href="${thisContent.content.XTRCK_DEMO_SCREEN.link}">Demo Page with screen widget and screen decorator</a></li>
+                <li><a href="${thisContent.content.XTRCK_DEMO_BLOG.link}">Demo Page with blog using screen decorator</a></li>
+                <li><a href="${thisContent.content.XTRCK_DEMO_TPL_DATA.link}">Demo Page with an xml resource formatted with a template ftl resource</a></li>
+                <li><a href="${thisContent.content.PUBLIC_DOCS.link}">The ofbiz public documents</a></li>
+              </ul>
+            </div>
+            ]]></textData>
+    </ElectronicText>
+    <Content contentId="XTRCK_PG_HOME" contentTypeId="DOCUMENT" decoratorContentId="XTRCK_HOME_DEC"
+             contentName="XTrack Customer Site Home Page" dataResourceId="XTRCK_PG_HOME"/>
+    <ContentPurpose contentId="XTRCK_PG_HOME" contentPurposeTypeId="SECTION"/>
+    <ContentAssoc contentId="XTRACK_PPOINT" contentIdTo="XTRCK_PG_HOME" contentAssocTypeId="SUB_CONTENT" fromDate="2016-06-01 00:00:00" />
+    <WebSiteContent webSiteId="XTrackSite" contentId="XTRCK_PG_HOME" webSiteContentTypeId="DEFAULT_PAGE" fromDate="2016-06-01 00:00:00"/>
+
+    <!-- TODO: Setup Blog as well
+    <DataResource dataResourceId="XTRCK_DEMO_BLOG" dataResourceTypeId="URL_RESOURCE" dataTemplateTypeId="SCREEN_COMBINED"
+                  objectInfo="component://cmssite/widget/CmssiteScreens.xml#blogScreen"/>
+    <Content contentId="XTRCK_DEMO_BLOG" contentTypeId="DOCUMENT" contentName="CMS Site Demo blog screen example" dataResourceId="XTRCK_DEMO_BLOG"/>
+    <ContentAssoc contentId="XTRACK_PPOINT" contentIdTo="XTRCK_DEMO_BLOG" contentAssocTypeId="SUB_CONTENT" fromDate="2016-06-01 00:00:00"/>
+    -->
+
+    <!-- Specific Error Pages -->
+    <DataResource dataResourceId="XTRCK_ERROR_ROOT" dataResourceTypeId="URL_RESOURCE" dataTemplateTypeId="FTL"
+                  objectInfo="component://ax-XDocCenter/theme/docs-xpress/errorPage.ftl" />
+    <Content contentId="XTRCK_ERROR_ROOT" contentTypeId="DOCUMENT"
+             contentName="XTrack Site Error Page Container" dataResourceId="XTRCK_ERROR_ROOT"/>
+    <WebSiteContent webSiteId="XTrackSite" contentId="XTRCK_ERROR_ROOT" webSiteContentTypeId="ERROR_ROOT" fromDate="2016-06-01 00:00:00"/>
+    <DataResource dataResourceId="XTRCK_ERROR_404"  dataResourceTypeId="URL_RESOURCE" dataTemplateTypeId="FTL"
+                  objectInfo="component://ax-XDocCenter/theme/docs-xpress/404.ftl" />
+    <Content contentId="XTRCK_ERROR_404" contentTypeId="DOCUMENT" contentName="404 Page Not Found For XTrackSite" dataResourceId="XTRCK_ERROR_404"/>
+    <ContentAssoc contentId="XTRCK_ERROR_ROOT" contentIdTo="XTRCK_ERROR_404" contentAssocTypeId="TREE_CHILD" fromDate="2016-06-01 00:00:00" />
+
+    <!--Article page decorator-->
+    <DataResource dataResourceId="XTRCK_ARTCL_DEC" dataResourceTypeId="URL_RESOURCE" dataTemplateTypeId="FTL"
+                  objectInfo="component://ax-XDocCenter/theme/docs-xpress/articlePage/articlePageDecorator.ftl"/>
+    <Content contentId="XTRCK_ARTCL_DEC" contentTypeId="DECORATOR" contentName="New XTrack Site Article Page Decorator" dataResourceId="XTRCK_ARTCL_DEC"/>
+    <ContentPurpose contentId="XTRCK_ARTCL_DEC" contentPurposeTypeId="SECTION"/>
+
+</entity-engine-xml>

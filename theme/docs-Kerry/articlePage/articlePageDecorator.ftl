@@ -168,7 +168,6 @@
         <div class="bg-overlay" style="opacity: 0.3; background-color: black;"></div>
     </section>
     ${decoratedContent?default('Nothing to show.')}
-
     <section class="p-b-30 p-t-40">
         <div class="container">
             <div class="row">
