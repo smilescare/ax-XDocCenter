@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/claro/claro.css">
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/grid/enhanced/resources/claro/EnhancedGrid.css">
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/grid/enhanced/resources/EnhancedGrid_rtl.css">
-    <link href="<@ofbizContentUrl>/app/xdoc/page-builder/css/dojo-components/dojo-overrides.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
+    <link href="<@ofbizContentUrl>/lib/dojo/themes/office-ui/dojo-overrides.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
     <script>
         dojoConfig = {
             async: true,
@@ -64,11 +64,12 @@
     <#-- ckeditor script 
     <script src="//cdn.ckeditor.com/4.5.4/full/ckeditor.js"></script>
     -->
+    <link href="<@ofbizContentUrl>/lib/editors/ckeditor/4.5.10/full/plugins/codesnippet/lib/highlight/styles/default.css</@ofbizContentUrl>"" rel="stylesheet">
     <script src="<@ofbizContentUrl>/lib/editors/ckeditor/4.5.10/full/ckeditor.js</@ofbizContentUrl>"></script>
 
     <#-- office ui fabric -->
-    <link href="//dev.office.com/Modules/DevOffice.Fabric/Fabric/css/fabric.min.css" type="text/css" rel="stylesheet" />
-    
+    <#--<link href="//dev.office.com/Modules/DevOffice.Fabric/Fabric/css/fabric.min.css" type="text/css" rel="stylesheet" />-->
+
     <#-- ace editor 
     <link rel="stylesheet" href="normalize.css">
 	<link rel="stylesheet" href="monokai.css">

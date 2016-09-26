@@ -79,7 +79,7 @@
     <!--Article page decorator-->
     <DataResource dataResourceId="XTRCK_ARTCL_DEC" dataResourceTypeId="URL_RESOURCE" dataTemplateTypeId="FTL"
                   objectInfo="component://ax-XDocCenter/theme/docs-xpress/articlePage/articlePageDecorator.ftl"/>
-    <Content contentId="XTRCK_ARTCL_DEC" contentTypeId="DECORATOR" contentName="New XTrack Site Article Page Decorator" dataResourceId="XTRCK_ARTCL_DEC"/>
+    <Content contentId="XTRCK_ARTCL_DEC" contentTypeId="DECORATOR" contentName="XTrack Site Article Page Decorator" dataResourceId="XTRCK_ARTCL_DEC"/>
     <ContentPurpose contentId="XTRCK_ARTCL_DEC" contentPurposeTypeId="SECTION"/>
 
 </entity-engine-xml>
