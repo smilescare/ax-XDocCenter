@@ -2,12 +2,11 @@ import com.fasterxml.jackson.databind.ObjectMapper
 
 import groovy.io.FileType;
 
-println "############# inside directory listing";
 delimeterToUse = "~";
 
 dirPath = parameters.path;
 
-if(dirPath == "root"){
+if(dirPath == "/root" || dirPath == "//"){
 	targetDir = "/";
 }else{
 	targetDir = dirPath.replaceAll(delimeterToUse, "/");
@@ -17,7 +16,7 @@ if(targetDir == "/root"){
 	targetDir = "/"
 }
 
-rootDir = "runtime/uploads/media";
+rootDir = "hot-deploy/ax-XStatic/webapp/ax-XStatic/media";
 if(parameters.rootDir){
 	rootDir = parameters.rootDir;
 }

@@ -29,15 +29,17 @@
 		return dojo.store.JsonRest.prototype.put.apply(this, arguments);
     </script>
 </div>
-<div data-dojo-type="dijit/Tree" id="mediaManagerTreeDirectoryTree" model="mediaManagerTreeModel" useCookies="false" autoExpand="false" showRoot="true" rootLabel="content">
+<div data-dojo-type="dijit/Tree" id="mediaManagerTreeDirectoryTree" model="mediaManagerTreeModel" useCookies="true" autoExpand="false" persist="true" showRoot="false" rootLabel="content">
 	<script type="dojo/method" event="onClick" args="item">
 		var serverDirectory = item.id.replace(/\~/g, "/");
 		dijit.byId("serverDirectory").set("value", serverDirectory);//set the hidden server directory so can be use elsewhere
 		dijit.byId("vtbCurrentUnixDirectory").set("value", serverDirectory);
 		dijit.byId("selectedDirectoryName").set("value", item.name);
 
+<#--
 		//disable download button, so it gets enabled only when some files are selected
 		dijit.byId("btnDownloadFile").set("disabled", true);
+-->
 
 		var filesInDirUrl = "<@ofbizUrl>listFilesInDir</@ofbizUrl>?path=" + item.id;
 		var grid = dijit.byId("filesInDirectoryGrid");

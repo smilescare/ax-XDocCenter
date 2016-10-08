@@ -154,18 +154,17 @@
 		<img src="<@ofbizContentUrl>/app/xdoc/page-builder/img/LadySittingAtDesk.png</@ofbizContentUrl>" width="250px;" />
 		<p>Select a Web Site to proceed</p>
 		<p>Or</p>
-        <div data-dojo-type="dijit/form/Button" iconClass="menu-icon-asterisk"
-             label="Create Web Site" optionsTitle="Manage Content Files" showLabel="true">
-            <script type="dojo/method" event="onClick" args="item">
-				Prodaid.openModal({
-					method : 'POST',
-					url: "<@ofbizUrl>contentFileManager</@ofbizUrl>",
-					content : {},
-					title : "Manage Files",
-					showButtons : false,
-					showRequiredIndicator : false
-				});
-			</script>
-        </div>
+		<span class="ax-btnPrimaryOutline">
+			<div data-dojo-type="dijit/form/Button" optionsTitle="Manage Content Files" showLabel="true">Create Web Site&nbsp;&nbsp;<i class="material-icons md-24">chevron_right</i>
+				<script type="dojo/method" event="onClick" args="item">
+					App.openModal({
+						content : {},
+						title: '<i class=\'material-icons ms-u-slideRightIn40\' style=\'font-size:36px;vertical-align:middle;\'>language</i>&nbsp;&nbsp;New Web Site',
+						url: '<@ofbizUrl>newWebSite</@ofbizUrl>',
+						modalType: 'XMegaDialog'
+					});
+				</script>
+			</div>
+		</span>
 	</div>
 </#if>

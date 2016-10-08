@@ -156,7 +156,21 @@
             </actions>
             <widgets>
                 <platform-specific>
-		            <html><html-template location="component://ax-XDocCenter/webapp/ax-XDocCenter/pages/builder/cms/fileManager/fileManager.ftl"/></html>
+		            <html><html-template location="component://ax-XDocCenter/webapp/ax-XDocCenter/pages/builder/mediaManager/fileManager.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="DirectoryTreePane">
+        <section>
+            <actions>
+                <set field="webSiteId" from-field="parameters.webSiteId"/>
+                <set field="contentId" from-field="parameters.contentId"/>
+                <entity-one entity-name="Content" value-field="content"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+		            <html><html-template location="component://ax-XDocCenter/webapp/ax-XDocCenter/pages/builder/mediaManager/directoryTree.ftl"/></html>
                 </platform-specific>
             </widgets>
         </section>
@@ -226,6 +240,18 @@
             <widgets>
                 <platform-specific>
 		            <html><html-template location="component://ax-XDocCenter/webapp/ax-XDocCenter/pages/builder/cms/edit/source/main.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="RecentDocuments">
+        <section>
+            <actions>
+                <script location="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/cms/RecentDocuments.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+		            <html><html-template location="component://ax-XDocCenter/webapp/ax-XDocCenter/pages/builder/cms/recentDocs.ftl"/></html>
                 </platform-specific>
             </widgets>
         </section>

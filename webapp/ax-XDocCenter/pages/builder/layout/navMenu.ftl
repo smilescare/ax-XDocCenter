@@ -1,17 +1,14 @@
 <div class="text-right ax-btnGroup ax-btnGroupLight">
 	<#-- Manage Media Menu -->
-	<div data-dojo-type="dijit/form/DropDownButton"
-		label="<i class='material-icons'>collections</i>&nbsp;Media" 
-		optionsTitle="delete" showLabel="true" class="ax-btnLight"> 
-		<span></span>
-		<div data-dojo-type="dijit/Menu">
-			<div data-dojo-type="dijit/MenuItem" iconClass="menu-icon-create" 
-				label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>perm_media</i></div><div class='site-info'>Browse Files<div class='site-sub-title'>Browse existing artifacts.</div></div></div>" showLabel="true">
-				<script type="dojo/method" event="onClick" args="item">
-					mediaManagerDialog.show();
-				</script>
-			</div>
-		</div>
+	<div data-dojo-type="dijit/form/Button"
+		label="<i class='material-icons'>collections</i>&nbsp;Manage Media" class="ax-btnLight">
+		<script type="dojo/method" event="onClick" args="item">
+			App.openModal({
+				content : {},
+				title: '<i class=\'material-icons\' style=\'font-size:36px;vertical-align:middle;\'>perm_media</i>&nbsp;&nbsp;Media Manager',
+				url: '<@ofbizUrl>fileManager</@ofbizUrl>'
+			});
+		</script>
 	</div>
 	<#-- new Site menu -->
 	<div data-dojo-type="dijit/form/DropDownButton" 
@@ -48,7 +45,7 @@
 			<div data-dojo-type="dijit/MenuItem" 
 				label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>exit_to_app</i></div><div class='site-info'>Logout<div class='site-sub-title'>End your session and log out of the application</div></div></div>" showLabel="true">
 				<script type="dojo/method" event="onClick" args="item">
-					//TODO
+					App.openAppLink("<@ofbizUrl>logout</@ofbizUrl>");
 				</script>
 			</div>
 		</div>
@@ -122,11 +119,4 @@
         <button data-dojo-type="dijit/form/Button" type="button" data-dojo-props="onClick:function(){myDialog.hide();}"
                 >Create</button>
     </div>
-</div>
-
-<div data-dojo-type="dijit/Dialog" class="xDialog" data-dojo-id="mediaManagerDialog" 
-	title="<i class='material-icons' style='font-size:36px;vertical-align:middle;'>perm_media</i>&nbsp;&nbsp;Media Manager" >
-	<#--
-    <#include "component://ax-XDocCenter/webapp/ax-XDocCenter/pages/builder/mediaManager/fileManager.ftl" />
-    -->
 </div>

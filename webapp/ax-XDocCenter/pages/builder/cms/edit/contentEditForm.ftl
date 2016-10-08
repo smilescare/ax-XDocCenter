@@ -258,27 +258,29 @@
 	<#else>
 	    <#assign formAction = "javascript:void(0);"/>
 	</#if>
-    <div data-dojo-type="dijit/form/Button" showLabel="true" class="ax-btnPrimary" label="Save">
-		<script type="dojo/method" event="onClick" args="item">
-			//get the value from code mirror and set it
-			document.getElementById("cmsdata").value = CKEDITOR.instances.ckContentEditorPane.getData();
-			var targetUrl = "<@ofbizUrl>${formAction}</@ofbizUrl>";
-			
-			App.doBind(
-				{}, 
-				targetUrl, 
-				function(response) {
-					//refresh the pane to reflect new changes
-					require(["dijit/registry", "dojo/domReady!"], function(registry){
-						App.destroyRecursiveChildren("cpContentTree");//this is done to avoid widget id duplicacy issues
-					    registry.byId("cpContentTree").refresh();
-					});
-				}, 
-				dojo.byId("cmsform"), 
-				function() {
-					App.displayMessage({message:"The server could not be reached. Please refresh the page.", type:"error"});
-				}
-			);
-		</script>
-	</div>
+	<span class="ax-btnPrimary">
+		<div data-dojo-type="dijit/form/Button" >Save
+			<script type="dojo/method" event="onClick" args="item">
+				//get the value from code mirror and set it
+				document.getElementById("cmsdata").value = CKEDITOR.instances.ckContentEditorPane.getData();
+				var targetUrl = "<@ofbizUrl>${formAction}</@ofbizUrl>";
+
+				App.doBind(
+					{},
+					targetUrl,
+					function(response) {
+						//refresh the pane to reflect new changes
+						require(["dijit/registry", "dojo/domReady!"], function(registry){
+							App.destroyRecursiveChildren("cpContentTree");//this is done to avoid widget id duplicacy issues
+							registry.byId("cpContentTree").refresh();
+						});
+					},
+					dojo.byId("cmsform"),
+					function() {
+						App.displayMessage({message:"The server could not be reached. Please refresh the page.", type:"error"});
+					}
+				);
+			</script>
+		</div>
+	</span>
 </#if>

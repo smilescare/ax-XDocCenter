@@ -9,7 +9,9 @@
 				<#include "contentEditor.ftl" />
 			</div>
 		<#elseif (!webSiteId?exists)>
-			<#include "placeHolders/selectSitePlaceHolder.ftl" />
+			<div data-dojo-type="dojox/layout/ContentPane" region="center" class="fullWidthHeight" style="background:color:#f8f8f8;padding:0;">
+				<#include "placeHolders/selectSitePlaceHolder.ftl" />
+			</div>
 		<#else>
 			<div data-dojo-type="dojox/layout/ContentPane" region="center" class="fullWidthHeight" style="background:color:#f8f8f8;padding:0;">
 				<#include "placeHolders/newArticlePlaceHolder.ftl" />

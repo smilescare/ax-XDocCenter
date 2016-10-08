@@ -74,25 +74,29 @@
 			</div>
 		</form>
 		<hr class="dashed-separator"/>
-	    <button data-dojo-type="dijit/form/Button" type="button" style="margin:0;">Create Site
-	    	<script type="dojo/method" event="onClick" args="item">
-				App.doBind(
-					{},
-					'<@ofbizUrl>createWebSite</@ofbizUrl>',
-					function(response){
-						//make sure there are no errors
-						if(!App.isErrorReported(response)){
-							App.closeModal();
-							//publish new site added topic
+		<span class="ax-btnPrimary">
+			<button data-dojo-type="dijit/form/Button" type="button" style="margin:0;">Create Site
+				<script type="dojo/method" event="onClick" args="item">
+					App.doBind(
+						{},
+						'<@ofbizUrl>createWebSite</@ofbizUrl>',
+						function(response){
+							//make sure there are no errors
+							if(!App.isErrorReported(response)){
+								App.closeModal();
+								//publish new site added topic
+							}
+						},
+						document.getElementById('frmCreateNewWebSiteInModal'),
+						function(response){
+							App.displayMessage({message:'An Error occurred, please contact support.', type:'error', duration:"5000"});
 						}
-					},
-					document.getElementById('frmCreateNewWebSiteInModal'),
-					function(response){
-						App.displayMessage({message:'An Error occurred, please contact support.', type:'error', duration:"5000"});
-					}
-				);
-			</script>
-	    </button>
-		<button data-dojo-type="dijit/form/Button" type="submit"  class="ax-btnLink">Cancel</button>
+					);
+				</script>
+			</button>
+		</span>
+		<span class="ax-btnPrimaryOutline">
+			<button data-dojo-type="dijit/form/Button" type="submit">Cancel</button>
+		</span>
 	</div>
 </div>

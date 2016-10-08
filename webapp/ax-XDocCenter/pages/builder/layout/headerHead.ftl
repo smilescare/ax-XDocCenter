@@ -58,7 +58,7 @@
                 dialog.show();
             });
     </script>-->
-    <script type="text/javascript" src="<@ofbizContentUrl>/app/xdoc/page-builder/js/app.js</@ofbizContentUrl>"></script>
+    <script type="text/javascript" src="<@ofbizContentUrl>/app/common/js/app.js</@ofbizContentUrl>"></script>
     <script type="text/javascript" src="<@ofbizContentUrl>/app/xdoc/page-builder/js/PageController.js</@ofbizContentUrl>"></script>
     
     <#-- ckeditor script 

@@ -37,7 +37,7 @@
 					</div>
 					<textarea id="cmsdata" name="textData" cols="40" rows="6" style="display: none;">
 		              </textarea>
-					<textarea id="ckNewRootContentEditorPane" rows="10" cols="80" style="">
+					<textarea id="ckNewRootContentEditorPane" rows="10" style="width:100%;">
 						<h1>Getting Started [Edit Me]</h1>
 						<hr/>
 						<p>Edit this sample text to create a new article of your choice.</p>
@@ -59,38 +59,39 @@
 					</script>
 					<hr class="dashed-separator" />
 					<#-- Quick Create button -->
-					<div data-dojo-type="dijit/form/Button" iconClass="menu-icon-tick" showLabel="true" 
-						id="btnQuickCreateCmsContent" label="Create">
-						<script type="dojo/method" event="onClick" args="item">
-							//make sure a title has been entered.
-							var titleValue = dijit.byId("tbNewRootContentName").get("value");
-							if(!titleValue){
-								Prodaid.displayMessage({message:"Please enter a title to proceed.", type:"error"});
-								return false;
-							}
-							
-							<#-- set data resource name, this is required so a valid data resource is created. -->
-							dijit.byId("tbNewRootContentName").set("value", titleValue);
-							
-							document.getElementById("cmsdata").value = CKEDITOR.instances.ckNewRootContentEditorPane.getData();
-							//get the value from code mirror and set it
-							var targetUrl = "<@ofbizUrl>createTextContentCms</@ofbizUrl>";
-							
-							App.doBind(
-								{}, 
-								targetUrl, 
-								function(response) {
-									//refresh the pane to reflect new changes
-									var cpContentTreePane = dijit.byId("cpContentTree");
-									cpContentTreePane.refresh();
-								}, 
-								dojo.byId("newRootCmsForm"), 
-								function() {
-									App.displayMessage({message:"The server could not be reached. Please refresh the page.", type:"error"});
+                    <span class="ax-btnPrimary ax-btnPromotional">
+                        <div id="btnQuickCreateCmsContent" data-dojo-type="dijit/form/Button" >Create Document&nbsp;&nbsp;<i class="material-icons md-24">chevron_right</i>
+							<script type="dojo/method" event="onClick" args="item">
+								//make sure a title has been entered.
+								var titleValue = dijit.byId("tbNewRootContentName").get("value");
+								if(!titleValue){
+									Prodaid.displayMessage({message:"Please enter a title to proceed.", type:"error"});
+									return false;
 								}
-							);
-						</script>
-					</div>
+
+								<#-- set data resource name, this is required so a valid data resource is created. -->
+								dijit.byId("tbNewRootContentName").set("value", titleValue);
+
+								document.getElementById("cmsdata").value = CKEDITOR.instances.ckNewRootContentEditorPane.getData();
+								//get the value from code mirror and set it
+								var targetUrl = "<@ofbizUrl>createTextContentCms</@ofbizUrl>";
+
+								App.doBind(
+									{},
+									targetUrl,
+									function(response) {
+										//refresh the pane to reflect new changes
+										var cpContentTreePane = dijit.byId("cpContentTree");
+										cpContentTreePane.refresh();
+									},
+									dojo.byId("newRootCmsForm"),
+									function() {
+										App.displayMessage({message:"The server could not be reached. Please refresh the page.", type:"error"});
+									}
+								);
+							</script>
+						</div>
+					</span>
 				</form>
 			</div>
 		</div>

@@ -15,6 +15,10 @@
     <description>Help Center Component Site Configuration File</description>
 
     <!-- Request Mappings -->
+    <request-map uri="fileManager">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="ContentFileManager" />
+	</request-map>
     <request-map uri="listDirectories">
 		<security https="true" auth="true" />
 		<event type="groovy" path="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/mediaManager/DirectoryListing.groovy"/>
@@ -27,18 +31,26 @@
 	</request-map>
 	<request-map uri="uploadCmsBinaryFile">
 		<security https="true" auth="true" />
-		<event type="groovy" path="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/cms/UploadFile.groovy"/>
+		<event type="groovy" path="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/mediaManager/UploadFile.groovy"/>
 		<response name="success" type="none" />
 	</request-map>
 	<request-map uri="downloadCmsFile">
 		<security https="true" auth="true" />
-		<event type="groovy" path="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/cms/DirectoryFilesListing.groovy"/>
+		<event type="groovy" path="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/mediaManager/DownloadFile.groovy"/>
 		<response name="success" type="none" />
 	</request-map>
-    
+    <request-map uri="directoryTreePane">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="DirectoryTreePane" />
+	</request-map>
+    <request-map uri="createMediaFolder">
+		<security https="true" auth="true" />
+		<event type="groovy" path="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/mediaManager/CreateFolder.groovy"/>
+		<response name="success" type="view" value="transactionresponse" />
+	</request-map>
+
     <!-- View Mappings -->
-    <!--  
-    <view-map name="contentFileManager" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#contentFileManager"/>
-    -->
-    
+    <view-map name="ContentFileManager" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#ContentFileManager"/>
+    <view-map name="DirectoryTreePane" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#DirectoryTreePane"/>
+
 </site-conf>

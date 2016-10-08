@@ -24,7 +24,7 @@ if(dirPath == "root"){
 	targetDir = dirPath.replaceAll(delimeterToUse, "/");
 }
 
-rootDir = "runtime/uploads/media";
+rootDir = "hot-deploy/ax-XStatic/webapp/ax-XStatic/media";
 
 if(parameters.rootDir){
 	rootDir = parameters.rootDir;

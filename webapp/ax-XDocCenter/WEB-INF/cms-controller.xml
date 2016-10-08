@@ -137,7 +137,11 @@
         <event type="groovy" path="component://ax-XDocCenter/webapp/ax-XDocCenter/WEB-INF/actions/cms/ContentCollaborators.groovy"/>
         <response name="success" type="none"/>
     </request-map>
-    
+    <request-map uri="recentDocuments">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="RecentDocuments"/>
+    </request-map>
+
     <!-- View Mappings -->
     <view-map name="cmsTree" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#CmsTree"/>
     <view-map name="EditCmsContent" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#EditCmsContent"/>
@@ -149,4 +153,5 @@
     <view-map name="ContentHistory" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#ContentHistory"/>
     <view-map name="ContentNotes" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#ContentNotes"/>
     <view-map name="ContentSource" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#ContentSource"/>
+    <view-map name="RecentDocuments" type="screen" page="component://ax-XDocCenter/widget/cms/CmsScreens.xml#RecentDocuments"/>
 </site-conf>
