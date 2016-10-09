@@ -5,7 +5,7 @@
         display:inline-block;
 	}
     .upload-picture:before {
-        background-image: url(/xstatic/assets/app/xdoc/img/sprite.svg);
+        background-image: url(<@ofbizContentUrl>/xstatic/assets/app/xdoc/img/sprite.svg</@ofbizContentUrl>);
         background-repeat: no-repeat;
         -webkit-background-size: 134px 1921px;
         -moz-background-size: 134px 1921px;
