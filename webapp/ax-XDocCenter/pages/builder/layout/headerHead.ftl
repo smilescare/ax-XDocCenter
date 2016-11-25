@@ -59,7 +59,7 @@
             });
     </script>-->
     <script type="text/javascript" src="<@ofbizContentUrl>/app/common/js/app.min.js</@ofbizContentUrl>"></script>
-    <script type="text/javascript" src="<@ofbizContentUrl>/app/xdoc/page-builder/js/PageController.js</@ofbizContentUrl>"></script>
+    <script type="text/javascript" src="<@ofbizContentUrl>/app/common/js/PageController.min.js</@ofbizContentUrl>"></script>
     
     <#-- ckeditor script 
     <script src="//cdn.ckeditor.com/4.5.4/full/ckeditor.js"></script>
