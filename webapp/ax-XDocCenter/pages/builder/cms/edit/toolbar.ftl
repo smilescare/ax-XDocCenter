@@ -1,8 +1,9 @@
-<style>
-	.color-themePrimary{
-		color:#0078D7;
-	}
-</style>
+<#assign isPublic = false />
+<#if ((dataResource?has_content) && (dataResource.isPublic?has_content))>
+	<#if (dataResource.isPublic == "Y")>
+		<#assign isPublic = true />
+	</#if>
+</#if>
 <#-- dataResourceTypeId -->
 <#if (!dataResourceTypeId?has_content)>
     <#if (dataResource?has_content)>
@@ -83,18 +84,65 @@
 
 <div>
 	<div class="text-right ax-btnGroup ax-btnGroupLight" style="position:relative;">
-		<div class="site-node text-left" style="position:absolute;left:15px;top:15px;font-size:15px;">
-			<div class="site-icon">
-				<i class="material-icons color-themePrimary">language</i>
+		<div class="site-node text-left" style="position:absolute;left:0;top:0;">
+			<div class="site-icon" style="float: left;">
+				<#-- visibility toggle button -->
+				<#if isPublic>
+					<div data-dojo-type="dijit/form/Button" showLabel="true" class="ax-btnLight" title="Public artifact (anybody with the link can access). Click to make private"
+						 id="btnVisibilityCmsContentTlbr" label="<i class='material-icons color-green'>lock_open</i>">
+						<script type="dojo/method" event="onClick" args="item">
+							document.getElementById("hidIsPublic").value = "N";
+							var targetUrl = "<@ofbizUrl>${formAction}</@ofbizUrl>";
+
+							App.doBind(
+								{},
+								targetUrl,
+								function(response) {
+									//refresh the pane to reflect new changes
+									require(["dijit/registry", "dojo/domReady!"], function(registry){
+										registry.byId("cpContentTree").refresh();
+									});
+								},
+								dojo.byId("cmsform"),
+								function() {
+									App.displayMessage({message:"The server could not be reached. Please refresh the page.", type:"error"});
+								}
+							);
+						</script>
+					</div>
+				<#else>
+					<div data-dojo-type="dijit/form/Button" showLabel="true" class="ax-btnLight" title="Private artifact (requires a valid login to access). Click to make public."
+						 id="btnVisibilityCmsContentTlbr" label="<i class='material-icons color-neutralTertiary'>lock</i>">
+						<script type="dojo/method" event="onClick" args="item">
+							document.getElementById("hidIsPublic").value = "Y";
+							var targetUrl = "<@ofbizUrl>${formAction}</@ofbizUrl>";
+
+							App.doBind(
+								{},
+								targetUrl,
+								function(response) {
+									//refresh the pane to reflect new changes
+									require(["dijit/registry", "dojo/domReady!"], function(registry){
+										registry.byId("cpContentTree").refresh();
+									});
+								},
+								dojo.byId("cmsform"),
+								function() {
+									App.displayMessage({message:"The server could not be reached. Please refresh the page.", type:"error"});
+								}
+							);
+						</script>
+					</div>
+				</#if>
 			</div>
-			<div class="site-info" style="font-weight:bold;">
+			<div class="site-info" style="font-size:13px;padding-top: 10px;">
 				<#--# ${contentId?if_exists}-->
 				${alternateUrl?default('Alternate URL not configured')}
 				<#if authorName??>
-					<div class="site-sub-title" style="color:#2b88D8;font-weight:normal;">
-						<i class="material-icons color-themePrimary md-middle" style="font-size:16px;">description</i>&nbsp;Created by <strong>${authorName?default('Not Available')}</strong>
+					<div class="site-sub-title">
+						<i class="material-icons md-middle" style="font-size:16px;">account_circle</i>&nbsp;Created by <strong>${authorName?default('Not Available')}</strong>
 						&nbsp;|&nbsp;
-						<i class="material-icons color-themePrimary  md-middle" style="font-size:16px;">restore</i>&nbsp;last modified by <strong>${lastModifierName?default('* Name Not Available *')}</strong> <@formatPrettyDate content.lastModifiedDate />
+						<i class="material-icons md-middle" style="font-size:16px;">restore</i>&nbsp;last modified by <strong>${lastModifierName?default('* Name Not Available *')}</strong> <@formatPrettyDate content.lastModifiedDate />
 					</div>
 				</#if>
 			</div>
@@ -105,7 +153,7 @@
 				<span class="dijitReset dijitInline dijitButtonNode">
 					<span class="dijitReset dijitStretch dijitButtonContents">
 						<span class="dijitReset dijitInline dijitButtonText" >
-							<i class="material-icons">launch</i>&nbsp;Preview
+							<i class="material-icons">visibility</i>&nbsp;Preview
 						</span>
 					</span>
 				</span>
@@ -118,7 +166,7 @@
 				<span></span>
 				<div data-dojo-type="dijit/Menu">
 					<div data-dojo-type="dijit/MenuItem" 
-						label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>language</i></div><div class='site-info'>New Article<div class='site-sub-title'>Create a new article under the selected node.</div></div></div>" showLabel="true">
+						label="<div class='site-node'><div class='site-icon'><i class='material-icons '>language</i></div><div class='site-info'>New Article<div class='site-sub-title'>Create a new article under the selected node.</div></div></div>" showLabel="true">
 						<script type="dojo/method" event="onClick" args="item">
 							var treeNode = dijit.byId("webSiteContentTree").selectedNode;
 							var item = treeNode.item;
@@ -136,7 +184,7 @@
 						</script>
 					</div>
 					<div data-dojo-type="dijit/MenuItem" 
-						label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>bookmark</i></div><div class='site-info'>New Topic<div class='site-sub-title'>Create a new topic. Use topics to categorize articles.</div></div></div>" showLabel="true">
+						label="<div class='site-node'><div class='site-icon'><i class='material-icons'>bookmark</i></div><div class='site-info'>New Topic<div class='site-sub-title'>Create a new topic. Use topics to categorize articles.</div></div></div>" showLabel="true">
 						<script type="dojo/method" event="onClick" args="item">
 							var treeNode = dijit.byId("webSiteContentTree").selectedNode;
 							var item = treeNode.item;
@@ -191,44 +239,43 @@
 			<span></span>
 			<div data-dojo-type="dijit/Menu">
 				<div data-dojo-type="dijit/MenuItem" 
-					label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>content_copy</i></div><div class='site-info'>Duplicate<div class='site-sub-title'>Creates a copy of the artifact at the same node.</div></div></div>" showLabel="true">
+					label="<div class='site-node'><div class='site-icon'><i class='material-icons'>content_copy</i></div><div class='site-info'>Duplicate<div class='site-sub-title'>Creates a copy of the artifact at the same node.</div></div></div>" showLabel="true">
 					<script type="dojo/method" event="onClick" args="item">
 						duplicateContentDialog.show();
 					</script>
 				</div>
 				<div data-dojo-type="dijit/MenuItem" 
-					label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>restore</i></div><div class='site-info'>History<div class='site-sub-title'>Displays modification history of the article.</div></div></div>" showLabel="true">
+					label="<div class='site-node'><div class='site-icon'><i class='material-icons'>restore</i></div><div class='site-info'>History<div class='site-sub-title'>Displays modification history of the article.</div></div></div>" showLabel="true">
 					<script type="dojo/method" event="onClick" args="item">
 						//TODO
 					</script>
 				</div>
 				<div data-dojo-type="dijit/MenuItem" 
-					label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>question_answer</i></div><div class='site-info'>Notes<div class='site-sub-title'>Displays user notes for the article.</div></div></div>" showLabel="true">
+					label="<div class='site-node'><div class='site-icon'><i class='material-icons'>question_answer</i></div><div class='site-info'>Notes<div class='site-sub-title'>Displays user notes for the article.</div></div></div>" showLabel="true">
 					<script type="dojo/method" event="onClick" args="item">
 						//TODO
 					</script>
 				</div>
 				<div data-dojo-type="dijit/MenuItem" 
-					label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>supervisor_account</i></div><div class='site-info'>Collaborators<div class='site-sub-title'>Displays list of users who can manage this article.</div></div></div>" showLabel="true">
+					label="<div class='site-node'><div class='site-icon'><i class='material-icons'>supervisor_account</i></div><div class='site-info'>Collaborators<div class='site-sub-title'>Displays list of users who can manage this article.</div></div></div>" showLabel="true">
 					<script type="dojo/method" event="onClick" args="item">
 						//TODO
 					</script>
 				</div>
 				<div data-dojo-type="dijit/MenuItem" 
-					label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>thumbs_up_down</i></div><div class='site-info'>Feedback<div class='site-sub-title'>Displays list of feedbacks received for this article.</div></div></div>" showLabel="true">
+					label="<div class='site-node'><div class='site-icon'><i class='material-icons'>thumbs_up_down</i></div><div class='site-info'>Feedback<div class='site-sub-title'>Displays list of feedbacks received for this article.</div></div></div>" showLabel="true">
 					<script type="dojo/method" event="onClick" args="item">
 						//TODO
 					</script>
 				</div>
 				<div data-dojo-type="dijit/MenuSeparator"></div>
 				<div data-dojo-type="dijit/MenuItem" 
-					label="<div class='site-node'><div class='site-icon'><i class='material-icons color-themePrimary'>code</i></div><div class='site-info'>Source Code<div class='site-sub-title'>Displays list of users who can manage this article.</div></div></div>" showLabel="true">
+					label="<div class='site-node'><div class='site-icon'><i class='material-icons'>code</i></div><div class='site-info'>Source Code<div class='site-sub-title'>Displays list of users who can manage this article.</div></div></div>" showLabel="true">
 					<script type="dojo/method" event="onClick" args="item">
 						//TODO
 					</script>
 				</div>
 			</div>
 		</div>
-		
-	</div> <!-- end first button grouping div -->
+	</div>
 </div>

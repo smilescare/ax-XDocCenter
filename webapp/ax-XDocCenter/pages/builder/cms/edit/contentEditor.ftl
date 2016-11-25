@@ -4,7 +4,7 @@
 	</div>
 	<div data-dojo-type="dijit/layout/TabContainer"  region="center"  tabPosition="bottom"
 		style="width: 100%; height: 100%;overflow:hidden;padding:0;">
-        <div data-dojo-type="dijit/layout/ContentPane" title="<i class='material-icons color-themePrimary'>description</i>&nbsp;Content" data-dojo-props="selected:true" 
+        <div data-dojo-type="dijit/layout/ContentPane" title="<i class='material-icons'>description</i>&nbsp;Content" data-dojo-props="selected:true" 
         	style="overflow:hidden;padding:0;border:0 none;"
 			id="cpCkEditorContainer" data-dojo-id="cpCkEditorContainer">
 			<script type="dojo/on" data-dojo-event="show">
@@ -49,20 +49,20 @@
 			</textarea>
         </div>
         <#if contentId?exists>
-        <div data-dojo-type="dojox/layout/ContentPane" title="<i class='material-icons color-themePrimary'>code</i>&nbsp;Source" class="padding-0"
+        <div data-dojo-type="dojox/layout/ContentPane" title="<i class='material-icons'>code</i>&nbsp;Source" class="padding-0"
         	href="<@ofbizUrl>contentSource?contentId=${contentId}</@ofbizUrl>">
         </div>
-        <div data-dojo-type="dojox/layout/ContentPane" title="<i class='material-icons color-themePrimary'>supervisor_account</i>&nbsp;Collaborators"
+        <div data-dojo-type="dojox/layout/ContentPane" title="<i class='material-icons'>supervisor_account</i>&nbsp;Collaborators"
         	href="<@ofbizUrl>contentCollaborators?contentId=${contentId}</@ofbizUrl>" class="padding-0">
         </div>
-        <div data-dojo-type="dojox/layout/ContentPane" title="<i class='material-icons color-themePrimary'>restore</i>&nbsp;History"
+        <div data-dojo-type="dojox/layout/ContentPane" title="<i class='material-icons'>restore</i>&nbsp;History"
         	href="<@ofbizUrl>contentHistory?contentId=${contentId}</@ofbizUrl>">
            History
         </div>
-        <div data-dojo-type="dojox/layout/ContentPane" title="<i class='material-icons color-themePrimary'>question_answer</i>&nbsp;Notes"
+        <div data-dojo-type="dojox/layout/ContentPane" title="<i class='material-icons'>question_answer</i>&nbsp;Notes"
         	href="<@ofbizUrl>contentNotes?contentId=${contentId}</@ofbizUrl>">
         </div>
-        <div data-dojo-type="dojox/layout/ContentPane" title="<i class='material-icons color-themePrimary'>thumbs_up_down</i>&nbsp;Feedback"
+        <div data-dojo-type="dojox/layout/ContentPane" title="<i class='material-icons'>thumbs_up_down</i>&nbsp;Feedback"
         	href="<@ofbizUrl>contentFeedback?contentId=${contentId}</@ofbizUrl>" >
         </div>
         </#if>

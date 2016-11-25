@@ -55,6 +55,7 @@
     <form id="cmsform" name="cmsform" enctype="multipart/form-data" method="post" action="<@ofbizUrl>${formAction}</@ofbizUrl>" 
     	style="margin: 0;" class="ax-form-sm">
         <#if (content?has_content)>
+            <input type="hidden" name="isPublic" id="hidIsPublic" value="${dataResource.isPublic!}"/>
             <input type="hidden" name="dataResourceId" value="${(dataResource.dataResourceId)?if_exists}"/>
             <input type="hidden" name="contentId" value="${content.contentId}"/>
 
@@ -189,23 +190,6 @@
 		                    <#list statuses as status>
 		                        <option value="${status.statusId}">${status.description}</option>
 		                    </#list>
-		                </select>
-			    	</div>
-				</div>
-				<div class="form-group form-group-sm">
-			    	<label for="exampleInputEmail1">${uiLabelMap.FormFieldTitle_isPublic}</label>
-			    	<div>
-		                <select data-dojo-type="dijit/form/FilteringSelect" name="isPublic" style="width:100%;">
-		                    <#if (dataResource?has_content)>
-		                        <#if (dataResource.isPublic?has_content)>
-		                            <option value="${dataResource.isPublic}">${dataResource.isPublic}</option>
-		                            <option value="${dataResource.isPublic}">----</option>
-		                        <#else>
-		                            <option></option>
-		                        </#if>
-		                    </#if>
-		                    <option>Y</option>
-		                    <option>N</option>
 		                </select>
 			    	</div>
 				</div>

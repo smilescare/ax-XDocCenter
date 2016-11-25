@@ -9,13 +9,13 @@
     <!-- jQuery, required for the sample Component plugins -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
-    <link href="<@ofbizContentUrl>/app/xdoc/page-builder/css/app.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
+    <link href="<@ofbizContentUrl>/app/xdoc/page-builder/css/app.min.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
 
     <#--set Dojo configuration, load Dojo-->
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/claro/claro.css">
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/grid/enhanced/resources/claro/EnhancedGrid.css">
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/grid/enhanced/resources/EnhancedGrid_rtl.css">
-    <link href="<@ofbizContentUrl>/lib/dojo/themes/office-ui/dojo-overrides.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
+    <link href="<@ofbizContentUrl>/lib/dojo/themes/office-ui/theme.min.css</@ofbizContentUrl>" type="text/css" rel="stylesheet" />
     <script>
         dojoConfig = {
             async: true,
@@ -58,7 +58,7 @@
                 dialog.show();
             });
     </script>-->
-    <script type="text/javascript" src="<@ofbizContentUrl>/app/common/js/app.js</@ofbizContentUrl>"></script>
+    <script type="text/javascript" src="<@ofbizContentUrl>/app/common/js/app.min.js</@ofbizContentUrl>"></script>
     <script type="text/javascript" src="<@ofbizContentUrl>/app/xdoc/page-builder/js/PageController.js</@ofbizContentUrl>"></script>
     
     <#-- ckeditor script 
